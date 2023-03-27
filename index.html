@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoring of Political Polarisation in Georgia</title>
+    
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>    
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            font-family: Raleway;
+        }
+        .left{
+            width: 12vw;
+            height: 100%;
+            position: fixed;
+            padding-top: 20px;
+        }
+        .right{
+            width: 88vw;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            overflow-y: scroll;
+            padding-right: 100px;
+        }
+        .chart{
+            width: 70vw;
+            height: 50vh;
+        }
+
+        .legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #333333;
+			}
+			
+			.tooltip {
+				fill: #333333;
+			}
+
+        .grid, .hor-grid{
+            width: 100%;
+            font-size: 0;
+        }
+
+        .grid > div, .hor-grid > div{
+            font-size: 13px;
+            width: 100%;
+            display: flex;
+            border-bottom: 1px solid #ddd8d8;
+        }
+        .grid > div  > div{
+            width: calc(70vw / 11.7);
+            height: calc(70vw / 11.7);
+            /* display: inline-block; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .grid > div:first-child  > div{
+            padding: 0 8px;
+        }
+        ul, li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color:rgb(48, 48, 156);
+            display: inline-block;
+            padding: 7px 19px;
+        }
+        .hor-grid > div{
+            display: flex;
+        }
+        .hor-grid > div > div:last-child{
+            width: 90%;
+        }
+        .hor-grid > div > div:last-child > canvas{
+            width: 100%;
+            height: 250px;
+        }
+        .hor-grid > div > div:first-child{
+            display: flex;
+            align-items: center;
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://jsfiddle.net/Abhi9kt/28wzdrfk/4/ -->
+    <!-- <div id="my_dataviz"></div> -->
+    <div class="left">
+        <ul>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#full">Summary</a></li>
+            <li><a href="#" >2008 August war between Russia and Georgia</a></li>
+            <li><a href="#" >Conflict between Russia and Ukraine</a></li>
+            <li><a href="#" >Georgia's role in Conflict between Russia and Ukraine</a></li>
+            <li><a href="#" >Mikheil Saakashvili's custody and treatment</a></li>
+            <li><a href="#" >Confrontation between liberal-conservative values</a></li>
+            <li><a href="#" >Pro-Western or Anti-Western foreign policy</a></li>
+            <li><a href="#" >Pro-Russian or anti-Russian foreign policy</a></li>
+            <li><a href="#" >The role of NGO's in the country's political processes</a></li>
+            <li><a href="#" >Media independence and the role of media in political processes</a></li>
+            <li><a href="#" >Russian migration in Georgia</a></li>
+            <li><a href="#" >Oligarchs and their role in political processes, who is the oligarch?</a></li>
+            <li><a href="#" >De-polarization, whose fault is political polarization?</a></li>
+            <li><a href="#" >The country's, Georgia's economic situation</a></li>
+            <li><a href="#full">Limitations</a></li>
+            <li><a href="#full">Authors</a></li>
+            <!-- <li><a href="#saakashvili">Mikheil Saakashvili and ...</a></li>
+            <li><a href="#west">West and ....</a></li>
+            <li><a href="#ukraine">War in Ukraine</a></li> -->
+        </ul>
+    </div>
+    <div class="right">
+        <div id="methodology">
+            <h1>Methodology</h1>
+            <p>
+                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+            </p>
+        </div>
+        <div id="full">
+            <h1>Monitoring of Political Polarisation in Georgia</h1>
+            <p>
+                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+            </p>
+            <div class="grid">
+                <div>
+                    <div></div>
+                    <div>2008 August war between Russia and Georgia</div>
+                    <div>Conflict between Russia and Ukraine</div>
+                    <div>Georgia's role in Conflict between Russia and Ukraine</div>
+                    <div>Mikheil Saakashvili's custody and treatment</div>
+                    <div>Confrontation between liberal-conservative values</div>
+                    <div>Pro-Western or Anti-Western foreign policy</div>
+                    <div>Pro-Russian or anti-Russian foreign policy</div>
+                    <div>The role of NGO's in the country's political processes</div>
+                    <div>Media independence and the role of media in political processes</div>
+                    <div>Russian migration in Georgia</div>
+                    <div>Oligarchs and their role in political processes, who is the oligarch?</div>
+                    <div>De-polarization, whose fault is political polarization?</div>
+                    <div>The country's, Georgia's economic situation</div>
+                </div>
+                <div>
+                    <div>Georgian Dream</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+                <div>
+                    <div>Georgian National Movement</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+                <div>
+                    <div>Girchi</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+                <div>
+                    <div>Droa</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+                <div>
+                    <div>Conservative Movement</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+                <div>
+                    <div>European Georgia</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+                <div>
+                    <div>Mokalakeebi</div>
+                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <h2>2008 August war between Russia and Georgia</h2>
+            <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p>
+            <div class="hor-grid">
+                <div>
+                    <div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div>
+                    <div>Georgian National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div>
+                    <div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div>
+                    <div>Droa</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div>
+                    <div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div>
+                    <div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div>
+                    <div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Conflict between Russia and Ukraine</h2>
+        </div>
+        <div>
+            <h2>Georgia's role in Conflict between Russia and Ukraine</h2>
+        </div>
+        <div>
+            <h2>Mikheil Saakashvili's custody and treatment</h2>
+        </div>
+        <div>
+            <h2>Confrontation between liberal-conservative values</h2>
+        </div>
+        <div>
+            <h2>Pro-Western or Anti-Western foreign policy</h2>
+        </div>
+        <div>
+            <h2>Pro-Russian or anti-Russian foreign policy</h2>
+        </div>
+        <div>
+            <h2>The role of NGO's in the country's political processes</h2>
+        </div>
+        <div>
+            <h2>Media independence and the role of media in political processes</h2>
+        </div>
+        <div>
+            <h2>Russian migration in Georgia</h2>
+        </div>
+        <div>
+            <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
+        </div>
+        <div>
+            <h2>De-polarization, whose fault is political polarization</h2>
+        </div>
+        <div>
+            <h2>The country's, Georgia's economic situation</h2>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+
+
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script> -->
+
+<script src="radar.js"></script>
+
+
+<script src="pie.js"></script>
+<script src="area.js"></script>
+</html>
