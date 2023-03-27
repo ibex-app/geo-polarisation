@@ -11,7 +11,7 @@ ctxes.forEach(dom => {
           labels:Array.from(new Array(40),(val,index)=> "Week " + index ),
           datasets: [
             {
-              label: 'Pro-West',
+              label: 'Pole A',
                 data: Array.from({length: 40}, () => 20 + Math.floor(Math.random() * 80)),
                 // borderColor: 'rgb(22, 160, 133)',
                 backgroundColor: 'rgba(22, 160, 133, .4)',
@@ -25,7 +25,7 @@ ctxes.forEach(dom => {
                 fill: 'origin'
             },
             {
-                label: 'Anti-West',
+                label: 'Pole B',
                 data: Array.from({length: 40}, () => Math.floor(Math.random() * 100)),
                 //   borderColor: 'rgb(192, 57, 43)',
                   backgroundColor: 'rgba(192, 57, 43, .4)',
