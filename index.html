@@ -73,6 +73,9 @@
             align-items: center;
             justify-content: center;
         }
+        .grid > div  > div:first-child{
+            justify-content: left;
+        }
         .grid > div:first-child  > div{
             padding: 0 8px;
         }
@@ -88,7 +91,7 @@
             padding: 7px 19px;
         }
         .hor-grid > div{
-            display: flex;
+            display: none;
         }
         .hor-grid > div > div:last-child{
             width: 90%;
@@ -102,6 +105,44 @@
             align-items: center;
             width: 10%;
         }
+        .grid > div:first-child > div:first-child{
+            position: relative;
+            overflow: hidden;
+        }
+        .diag{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .diag > div{
+            position: absolute;
+        }
+        .diag > div:first-child{
+            top: 30%;
+            right: 10%;
+        }
+        .diag > div:last-child{
+            bottom: 30%;
+            left: 10%;
+        }
+        .diag::after{
+            content: '';
+position: absolute;
+width: 70%;
+border-top: 1px solid #ddd8d8;
+transform: rotate(42deg);
+transform-origin: 0 0;
+height: 100%;
+top: 32%;
+left: 20%;
+        }
+        canvas.pie {
+    width: 100%;
+}
+.hor-grid > div.plot-legend{
+    padding: 10px;
+    display: flex;
+}
     </style>
 </head>
 <body>
@@ -136,28 +177,28 @@
             <h1>Methodology</h1>
             <p>
                 <h2>Data Collection</h2>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
                 <h2>Polarisation discourses</h2>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
                 <h2>Data Annotation</h2>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
                 <h2>Classification</h2>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
                 <h2>Validation</h2>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
                 <h2>Limitation</h2>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
             </p>
         </div>
         <div id="full">
             <h1>Monitoring of Political Polarisation in Georgia</h1>
             <p>
-                Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
             </p>
             <div class="grid">
                 <div>
-                    <div></div>
-                    <div>2008 August war between Russia and Georgia</div>
+                    <div><div class="diag"><div>Discourse</div><div>Party</div></div></div>
+                    <div>2008 August war</div>
                     <div>Conflict between Russia and Ukraine</div>
                     <div>Georgia's role in Conflict between Russia and Ukraine</div>
                     <div>Mikheil Saakashvili's custody and treatment</div>
@@ -168,78 +209,127 @@
                     <div>Media independence and the role of media in political processes</div>
                     <div>Russian migration in Georgia</div>
                     <div>Oligarchs and their role in political processes, who is the oligarch?</div>
-                    <div>De-polarization, whose fault is political polarization?</div>
-                    <div>The country's, Georgia's economic situation</div>
+                    <div>Polarization</div>
+                    <div>Georgia's economic situation</div>
                 </div>
-                <div>
-                    <div>Georgian Dream</div>
+                <div data-party="გირჩი"><div>Girchi</div>
                     <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
-                <div>
-                    <div>Georgian National Movement</div>
-                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
-                <div>
-                    <div>Girchi</div>
-                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
-                <div>
-                    <div>Droa</div>
-                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
-                <div>
-                    <div>Conservative Movement</div>
-                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
-                <div>
-                    <div>European Georgia</div>
-                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
-                <div>
-                    <div>Mokalakeebi</div>
-                    <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
-                </div>
+                        </div>
+                <div data-party="ერი"><div>ERI</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ლელო"><div>LELO</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
+                <div data-party="დროა"><div>DROA</div>
+                        <div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div><div><canvas class="pie"></canvas></div>
+                        </div>
                 
             </div>
 
         </div>
         <div>
-            <h2>2008 August war between Russia and Georgia</h2>
-            <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p>
+            <h2>Hate speech</h2>
+            Per party
+            Per topic
+        </div>
+        <div>
+            <h2>NER</h2>
+            Per party
+            Per topic
+        </div>
+        <div>
+            
+            <h2>Mikheil Saakashvili's custody and treatment</h2>
+            <!-- <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p> -->
             <div class="hor-grid">
-                <div>
-                    <div>Georgian Dream</div>
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - This category includes text that argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not be sentenced in a country with established state institutions, is considered "Putin's Personal Prisoner," and that his detention damages the country's Western foreign course. Additionally, it claims that Georgian authorities are responsible for his health deterioration, his health is critical, and he should be taken abroad for treatment, and that he should not be sentenced due to his critical health condition.</div><br/>
+                <div class="plot-legend" style="color:rgba(52, 152, 219, 1)">Neutral</div>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - This category includes text that argues for Mikheil (Misha) Saakashvili to remain in custody, claiming he is a criminal offender, has moral responsibility for "bloody nine years", is a Russian agent, has a satisfactory health condition, is personally responsible for his health deterioration, and does not require treatment abroad.</div><br/>
+                <div data-party="გირჩი"><div>Girchi</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                <div>
-                    <div>Georgian National Movement</div>
+                <div data-party="ერი"><div>ERI</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                <div>
-                    <div>Girchi</div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                <div>
-                    <div>Droa</div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                <div>
-                    <div>Conservative Movement</div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                <div>
-                    <div>European Georgia</div>
+                <div data-party="ხალხისთვის"><div>For People</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                <div>
-                    <div>Mokalakeebi</div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
                     <div><canvas class="area" height="200"></canvas></div>
                 </div>
-                
-                    <div style="color:rgba(22, 160, 133, .8)">Pole A - (Pro-Western): Supports Georgia's alignment with the West.</div><br/>
-                    <div style="color:rgba(192, 57, 43, .8)">Pole B - (Anti-Western): Criticizes, distrust or has negative view towards Georgia's Western foreign policy course, Western countries, politicians, institutions, or policies .</div><br/>
-                    <div style="color:rgba(52, 152, 219, .8)">Neutral - (Neutral/None): This category includes text that doesn't fit into either Pro-Western or Anti-Western categories.</div>
-                
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
             </div>
         </div>
         <div>
@@ -249,7 +339,12 @@
             <h2>Georgia's role in Conflict between Russia and Ukraine</h2>
         </div>
         <div>
-            <h2>Mikheil Saakashvili's custody and treatment</h2>
+            <h2>2008 August war between Russia and Georgia</h2>
+            <div class="hor-grid">
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - (Pro-Western): Supports Georgia's alignment with the West.</div><br/>
+                <div class="plot-legend" style="color:rgba(52, 152, 219, 1)">Neutral - (Neutral/None): This category includes text that doesn't fit into either Pro-Western or Anti-Western categories.</div>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - (Anti-Western): Criticizes, distrust or has negative view towards Georgia's Western foreign policy course, Western countries, politicians, institutions, or policies .</div><br/>
+            </div>
         </div>
         <div>
             <h2>Confrontation between liberal-conservative values</h2>
