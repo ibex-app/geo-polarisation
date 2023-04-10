@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoring of Political Polarisation in Georgia</title>
+    
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>    
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            font-family: Raleway;
+        }
+        .left{
+            width: 12vw;
+            height: 100%;
+            position: fixed;
+            padding-top: 20px;
+        }
+        .right{
+            width: 88vw;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            overflow-y: scroll;
+            padding-right: 100px;
+        }
+        .chart{
+            width: 70vw;
+            height: 50vh;
+        }
+
+        .legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #333333;
+			}
+			
+			.tooltip {
+				fill: #333333;
+			}
+
+        .grid, .hor-grid{
+            width: 100%;
+            font-size: 0;
+        }
+
+        .grid > div, .hor-grid > div{
+            font-size: 13px;
+            width: 100%;
+            display: flex;
+            border-bottom: 1px solid #ddd8d8;
+        }
+        .grid > div  > div{
+            width: calc(70vw / 9.7);
+            height: calc(70vw / 9.7);
+            /* display: inline-block; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .grid > div  > div:first-child{
+            justify-content: left;
+        }
+        .grid > div:first-child  > div{
+            padding: 0 8px;
+        }
+        ul, li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color:rgb(48, 48, 156);
+            display: inline-block;
+            padding: 7px 19px;
+        }
+        .hor-grid > div{
+            display: none;
+        }
+        .hor-grid > div > div:last-child{
+            width: 90%;
+        }
+        .hor-grid > div > div:last-child > canvas{
+            width: 100%;
+            height: 250px;
+        }
+        .hor-grid > div > div:first-child{
+            display: flex;
+            align-items: center;
+            width: 10%;
+        }
+        .grid > div:first-child > div:first-child{
+            position: relative;
+            overflow: hidden;
+        }
+        .diag{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .diag > div{
+            position: absolute;
+        }
+        .diag > div:first-child{
+            top: 30%;
+            right: 10%;
+        }
+        .diag > div:last-child{
+            bottom: 30%;
+            left: 10%;
+        }
+        .diag::after{
+            content: '';
+        position: absolute;
+        width: 70%;
+        border-top: 1px solid #ddd8d8;
+        transform: rotate(42deg);
+        transform-origin: 0 0;
+        height: 100%;
+        top: 32%;
+        left: 20%;
+        }
+canvas.pie {
+    width: 100%;
+    height: 100%;
+}
+.hor-grid > div.plot-legend{
+    padding: 10px;
+    display: flex;
+}
+.pie-cont{
+    position: absolute;
+    left:-25%;
+    top:-25%;
+    width: 150%;
+    height: 150%;
+    /* border: 1px solid red; */
+}
+    </style>
+</head>
+<body>
+    <!-- https://jsfiddle.net/Abhi9kt/28wzdrfk/4/ -->
+    <!-- <div id="my_dataviz"></div> -->
+    <div class="left">
+        <ul>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#full">Summary</a></li>
+            <li><a href="#" >2008 August war between Russia and Georgia</a></li>
+            <li><a href="#" >Conflict between Russia and Ukraine</a></li>
+            <li><a href="#" >Georgia's role in Conflict between Russia and Ukraine</a></li>
+            <li><a href="#" >Mikheil Saakashvili's custody and treatment</a></li>
+            <li><a href="#" >Confrontation between liberal-conservative values</a></li>
+            <li><a href="#" >Pro-Western or Anti-Western foreign policy</a></li>
+            <li><a href="#" >Pro-Russian or anti-Russian foreign policy</a></li>
+            <li><a href="#" >The role of NGO's in the country's political processes</a></li>
+            <li><a href="#" >Media independence and the role of media in political processes</a></li>
+            <!-- <li><a href="#" >Russian migration in Georgia</a></li> -->
+            <li><a href="#" >Oligarchs and their role in political processes, who is the oligarch?</a></li>
+            <!-- <li><a href="#" >De-polarization, whose fault is political polarization?</a></li> -->
+            <li><a href="#" >The country's, Georgia's economic situation</a></li>
+            <!-- <li><a href="#full">Limitations</a></li>
+            <li><a href="#full">Authors</a></li> -->
+            <!-- <li><a href="#saakashvili">Mikheil Saakashvili and ...</a></li>
+            <li><a href="#west">West and ....</a></li>
+            <li><a href="#ukraine">War in Ukraine</a></li> -->
+        </ul>
+    </div>
+    <div class="right">
+        <div id="methodology">
+            <h1>Monitoring of Political Polarisation in Georgia</h1>
+            <h2>Methodology</h2>
+            <p>
+                <h3>Data Collection</h3>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Polarisation discourses</h3>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Data Annotation</h3>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Classification</h3>
+                    <h3>Model training</h3>
+                    <h3>GPT Models (GPT3.5, GPT4, curie, davinchi)</h3>
+                    <h3>Prompt Eningeering</h3>
+                    Discourse detection -> pole detection<br/>
+                    Discourse detection validation. <br/>
+                    Pole detection validation. <br/>
+                    Pole detection<br/>
+                    removing teh word 'west'<br/>
+                    ADD ERROR WINDOW TO Plots [| | |]<br/>
+                    Sets owerlap<br/>
+                    Hate pie per topic<br/>
+                    Radar per party<br/>
+                    Count / Engagement<br/>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Validation</h3>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Limitation</h3>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+            </p>
+        </div>
+        <div id="full">
+            <h2>Summary</h2>
+            <p>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+            </p>
+            <div class="grid">
+                <div>
+                    <div><div class="diag"><div>Discourse</div><div>Party</div></div></div>
+                    <div>2008 August war</div>
+                    <div>Conflict between Russia and Ukraine</div>
+                    <div>Georgia's role in Conflict between Russia and Ukraine</div>
+                    <div>Mikheil Saakashvili's custody and treatment</div>
+                    <div>Confrontation between liberal-conservative values</div>
+                    <div>Pro-Western or Anti-Western foreign policy</div>
+                    <div>Pro-Russian or anti-Russian foreign policy</div>
+                    <div>The role of NGO's in the country's political processes</div>
+                    <div>Media independence and the role of media in political processes</div>
+                    <!-- <div>Russian migration in Georgia</div> -->
+                    <div>Oligarchs and their role in political processes, who is the oligarch?</div>
+                    <!-- <div>Polarization</div> -->
+                    <div>Georgia's economic situation</div>
+                </div>
+                <div data-party="გირჩი"><div>Girchi</div></div>
+                <div data-party="ერი"><div>ERI</div></div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div></div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div></div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div></div>
+                <div data-party="ხალხისთვის"><div>For People</div></div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div></div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div></div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div></div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div></div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div></div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div></div>
+                <div data-party="ლელო"><div>LELO</div></div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div></div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div></div>
+                <div data-party="დროა"><div>DROA</div></div>
+                
+            </div>
+
+        </div>
+        <div>
+            <h2>Hate speech</h2>
+            Per party
+            Per topic
+        </div>
+        <div>
+            <h2>NER</h2>
+            Per party
+            Per topic
+        </div>
+        <div>
+            
+            <h2>Mikheil Saakashvili's custody and treatment</h2>
+            <!-- <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p> -->
+            <div class="hor-grid" data-disc="saakashvili">
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - This category includes text that argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not be sentenced in a country with established state institutions, is considered "Putin's Personal Prisoner," and that his detention damages the country's Western foreign course. Additionally, it claims that Georgian authorities are responsible for his health deterioration, his health is critical, and he should be taken abroad for treatment, and that he should not be sentenced due to his critical health condition.</div><br/>
+                <div class="plot-legend" style="color:rgba(52, 152, 219, 1)">Neutral</div>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - This category includes text that argues for Mikheil (Misha) Saakashvili to remain in custody, claiming he is a criminal offender, has moral responsibility for "bloody nine years", is a Russian agent, has a satisfactory health condition, is personally responsible for his health deterioration, and does not require treatment abroad.</div><br/>
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Conflict between Russia and Ukraine</h2>
+        </div>
+        <div>
+            <h2>Georgia's role in Conflict between Russia and Ukraine</h2>
+        </div>
+        <div>
+            <h2>2008 August war between Russia and Georgia</h2>
+            <div class="hor-grid">
+                
+            </div>
+        </div>
+        <div>
+            <h2>Confrontation between liberal-conservative values</h2>
+        </div>
+        <div>
+            <h2>Pro-Western or Anti-Western foreign policy</h2>
+            <div class="hor-grid" data-disc="west_vv">
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - (Pro-Western): Supports Georgia's alignment with the West.</div><br/>
+                <div class="plot-legend" style="color:rgba(52, 152, 219, 1)">Neutral - (Neutral/None): This category includes text that doesn't fit into either Pro-Western or Anti-Western categories.</div>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - (Anti-Western): Criticizes, distrust or has negative view towards Georgia's Western foreign policy course, Western countries, politicians, institutions, or policies .</div><br/>
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Pro-Russian or anti-Russian foreign policy</h2>
+            <div class="hor-grid" data-disc="russ_vv">
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - Against negotiating or cooperating with Russia</div><br/>
+                <div class="plot-legend" style="color:rgba(52, 152, 219, 1)">Neutral</div>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - Non-confrontational policy towards Russia</div><br/>
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>The role of NGO's in the country's political processes</h2>
+        </div>
+        <div>
+            <h2>Media independence and the role of media in political processes</h2>
+        </div>
+        <!-- <div>
+            <h2>Russian migration in Georgia</h2>
+        </div> -->
+        <div>
+            <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
+            <div class="hor-grid" data-disc="olig_vv">
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - Bidzina Ivanishvili is the only oligarch in Georgia, controlling the country from the shadows and having power over all politicians</div><br/>
+                <div class="plot-legend" style="color:rgba(52, 152, 219, 1)">Neutral</div>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - Bidzina Ivanishvili is a philanthropist and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili, Saakashvili, and Khazaradze instead</div><br/>
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div>
+            <h2>De-polarization, whose fault is political polarization</h2>
+        </div> -->
+        <div>
+            <h2>The country's, Georgia's economic situation</h2>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+
+
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script> -->
+
+<script src="totals.js"></script>
+<script src="time_series.js"></script>
+<script src="radar.js"></script>
+
+
+<script src="pie.js"></script>
+<script src="area.js"></script>
+</html>
