@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoring of Political Polarisation in Georgia</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <!-- D3.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>     -->
+
+    <link href='main.css' rel='stylesheet' type='text/css'>
+    <style>
+        path {
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        path:hover {
+            opacity: .8;
+        }
+        .labels{
+            display: inline-block;
+            width: 32%;
+        }
+        .labels span{
+            display: inline-block;
+            width: 20px;
+            height: 12px;
+            background-color:rgb(127, 140, 141);
+            /* opacity: 1; */
+        }
+        .labels > span:first-child{
+            background-color:rgb(22, 160, 133)
+        }
+        .labels > span:last-child{
+            background-color:rgb(192, 57, 43)
+        }
+        .labels.o3 span{
+            opacity: .3;
+        }
+        .labels.o7 span{
+            opacity: .6;
+        }
+        div{
+            margin-bottom: -100px;
+            opacity: .8;
+
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+
+</head>
+
+<body>
+    <div id='result_1'></div>
+    <div id='result_2'></div>
+    <div id='result_3'></div>
+    <div id='result_4'></div>
+    <div id='result_5'></div>
+    <div id='result_6'></div>
+    <div id='result_7'></div>
+    <div id='result_8'></div>
+    <div id='result_9'></div>
+    <div id='result_10'></div>
+    <div id='result_11'></div>
+
+    <!-- <div class="labels-cont">
+
+        <div class="labels">
+            <span></span> Pole A - Positive engagement<br/>
+            <span></span> Pole A - Neutral engagement<br/>
+        <span></span> Pole A - Negative engagement
+    </div>
+    <div class="labels o7" >
+        <span></span> Pole B - Positive engagement<br/>
+        <span></span> Pole B - Neutral engagement<br/>
+        <span></span> Pole B - Negative engagement
+    </div>
+    <div class="labels o3">
+        <span></span> Neutral - Positive engagement<br/>
+        <span></span> Neutral - Neutral engagement<br/>
+        <span></span> Neutral - Negative engagement
+    </div>
+    <div class="labels">
+        ◔ ◑ ◕ - The size of the circle corespondes to number of posts
+      </div> -->
+</div>
+    <script src="../totals.js"></script>
+    <script>
+
+        const split_engagement = (data_) => {
+            let aggregated = ['Pole A', 'Neutral', 'Pole B'].map(key => ({
+                positive: data_[key].wowCount + data_[key].favoriteCount + data_[key].likeCount + data_[key].loveCount + data_[key].careCount + data_[key].thankfulCount,
+                neutral: (data_[key].viewCount + data_[key].shareCount + data_[key].commentCount),
+                negative: data_[key].hahaCount + data_[key].angryCount + data_[key].sadCount,
+                count: data_[key].count
+            })).map(values => {
+                if(values.count == 0) return values
+
+                values.totalEng = values.positive + values.neutral + values.negative
+                
+                values.totalMean = values.totalEng/values.count
+                values.posMean = values.positive/values.count
+                values.neutMean = values.neutral/values.count
+                values.negMean = values.negative/values.count
+
+                values.totalScore = values.totalMean/615
+                values.posScore = values.posMean/415
+                values.neutScore = values.neutMean/153
+                values.negScore = values.negMean/48
+
+                return values
+            }).map(values => {
+                if(values.count == 0) return values
+
+                values.posPercLog = values.posScore * .50
+                values.neutPercLog = values.neutScore * .28
+                values.negPercLog = values.negScore * .22
+
+                values.posPercScaled = values.posPercLog/(values.posPercLog + values.neutPercLog + values.negPercLog)
+                values.neutPercScaled = values.neutPercLog/(values.posPercLog + values.neutPercLog + values.negPercLog)
+                values.negPercScaled = values.negPercLog/(values.posPercLog + values.neutPercLog + values.negPercLog)
+
+                // console.log('totalScore', values.totalScore)
+                // console.log('-----------------')
+                // console.log('pos--', Math.round(values.posMean * 100)/100, Math.round(values.posScore * 100)/100,  Math.round(values.posPercLog  * 100)/100, Math.round(values.posPercScaled * 100)/100, )
+                // console.log('neu--', Math.round(values.neutMean * 100)/100, Math.round(values.neutScore * 100)/100, Math.round(values.neutPercLog * 100)/100, Math.round(values.neutPercScaled * 100)/100, )
+                // console.log('neg--', Math.round(values.negMean * 100)/100, Math.round(values.negScore * 100)/100,  Math.round(values.negPercLog  * 100)/100, Math.round(values.negPercScaled * 100)/100, )
+                // console.log('-----------------')
+                
+
+                // console.log('+++++++++=========')
+                // console.log('+++++++++=========')
+                return values
+            })
+            
+            return aggregated
+    
+        }
+        
+        
+        const draw_eng_pie = (init_data, i) => {
+        //      Mean  LogMean  LogMeanPrec
+        //pos   415   6        40
+        //neut  153   5        34
+        //neg   48    3.9      26
+
+
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value((d) => 360 * d.count / sum);
+
+
+        const data_aggregated = split_engagement(init_data)
+        // const engage_sum = data_aggregated.map(k => k.positive + k.negative + k.neutral).reduce((a, b) => a + b)
+        const sum = data_aggregated.map(k => k.count).reduce((a, b) => a + b)
+        console.log(sum)
+        var pieData = pie(data_aggregated);
+        //  x - 
+            
+        let radius = 10*Math.log(sum)
+
+        let arc = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * d.data.negPercScaled);
+
+        let arc1 = d3.svg.arc()
+            .innerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * d.data.negPercScaled)
+            .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * d.data.negPercScaled + radius * d.data.totalScore * d.data.neutPercScaled);
+
+        let arc2 = d3.svg.arc()
+            .innerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * d.data.negPercScaled + radius * d.data.totalScore * d.data.neutPercScaled)
+            .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore);
+
+        // let arc3 = d3.svg.arc()
+        //     .innerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore - 1)
+        //     .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore + 3);
+
+        let arc3 = d3.svg.arc()
+            .innerRadius((d, i) => d.data.count == 0 ? 0 : radius - 1)
+            .outerRadius((d, i) => d.data.count == 0 ? 0 : radius + 3);
+
+        let svg = d3.select('#result_' + i).append('svg').attr('width', 350).attr('height', 350);
+        
+        // colors = {
+        //     poleB:   ['rgba(22, 160, 133,  1)',    'rgba(22,  160, 133, .4)',  'rgba(22,  160, 133, .7)'],
+        //     neutral: ['rgba(127, 140, 141, 1)',    'rgba(127, 140, 141, .4)',  'rgba(127, 140, 141, .7)' ],
+        //     poleA:   ['rgba(192, 57, 43,   1)',    'rgba(192, 57,  43,  .4)',  'rgba(192, 57,  43,  .7)' ]
+        // }
+        colors = {
+            poleB:   'rgba(22, 160, 133, .7)',
+            neutral: 'rgb(201, 201, 201)',
+            poleA:   'rgba(192, 57, 43, .7)'
+        }
+        colors_ = ['rgba(41, 128, 185, .5)', 'rgba(127, 140, 141, 0.5)', 'rgba(192, 57, 43, .5)']
+        const col = (i, pole) => colors[pole]
+        const col_ = (i) => colors_[i]
+
+        // First pie chart group
+        var g1 = svg.append('g')
+            .attr('transform', 'translate(175, 175)');
+
+        g1.selectAll('path')
+            .data(pieData)
+            .enter()
+            .append('path')
+            // .attr('d', d => console.log(d.data.positive, d.data.negative, d.data.neutral, arc(d.data)))
+            .attr('d', arc)
+            .attr('fill', (d, i) => col(i, 'poleA'))
+            .attr('stroke', 'white');
+
+        // // Second pie chart group
+        var g2 = svg.append('g')
+            .attr('transform', 'translate(175, 175)');
+
+        g2.selectAll('path')
+            .data(pieData)
+            .enter()
+            .append('path')
+            .attr('d', arc1)
+            .attr('fill', (d, i) => col(i, 'neutral'))
+            .attr('stroke', 'white');
+
+
+        var g3 = svg.append('g')
+            .attr('transform', 'translate(175, 175)');
+
+        g3.selectAll('path')
+            .data(pieData)
+            .enter()
+            .append('path')
+            .attr('d', arc2)
+            .attr('fill', (d, i) => col(i, 'poleB'))
+            .attr('stroke', 'white');
+        
+
+        var g4 = svg.append('g')
+            .attr('transform', 'translate(175, 175)');
+
+        g4.selectAll('path')
+            .data(pieData)
+            .enter()
+            .append('path')
+            .attr('d', arc3)
+            .attr('fill', (d, i) => col_(i))
+            // .attr('stroke', 'white');
+        
+        var g5 = svg.append('g')
+            .attr('transform', 'translate(175, 175)');
+
+        g5.selectAll('path')
+            .data(pieData)
+            .enter()
+            .append('path')
+            .attr('d', arc3)
+            .attr('fill', (d, i) => col_(i))
+            // .attr('fill-opacity', '.5');
+        
+    }
+        [...Array(11).keys()].forEach(i => draw_eng_pie(pie_data.west_vv[Object.keys(pie_data.west_vv)[i]], i))
+    </script>
+</body>

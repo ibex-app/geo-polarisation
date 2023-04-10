@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://d3js.org/d3.v7.js"></script>
+  <style>
+    body{
+            background: #efece7;
+        }
+  </style>
+</head>
+
+<body>
+  <div id="chart"></div>
+
+  <script>
+    // set up
+
+    initial_data = {
+            "labels": [
+                "2022-12-26",
+                "2023-01-02",
+                "2023-01-09",
+                "2023-01-16",
+                "2023-01-23",
+                "2023-01-30",
+                "2023-02-06",
+                "2023-02-13",
+                "2023-02-20",
+                "2023-02-27",
+                "2023-03-06",
+                "2023-03-13",
+                "2023-03-20",
+                "2023-03-27"
+            ],
+            "poleA": [
+                {
+                    "count": 0,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 0,
+                    "loveCount": 0,
+                    "wowCount": 0,
+                    "hahaCount": 0,
+                    "sadCount": 0,
+                    "angryCount": 0,
+                    "thankfulCount": 0,
+                    "careCount": 0,
+                    "likeCount": 0,
+                    "commentCount": 0
+                },
+                {
+                    "count": 15,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 760,
+                    "loveCount": 895,
+                    "wowCount": 17,
+                    "hahaCount": 1130,
+                    "sadCount": 55,
+                    "angryCount": 112,
+                    "thankfulCount": 0,
+                    "careCount": 67,
+                    "likeCount": 6494,
+                    "commentCount": 1666
+                },
+                {
+                    "count": 14,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1535,
+                    "loveCount": 1481,
+                    "wowCount": 53,
+                    "hahaCount": 1917,
+                    "sadCount": 99,
+                    "angryCount": 197,
+                    "thankfulCount": 0,
+                    "careCount": 98,
+                    "likeCount": 9712,
+                    "commentCount": 5872
+                },
+                {
+                    "count": 16,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1310,
+                    "loveCount": 2283,
+                    "wowCount": 40,
+                    "hahaCount": 1522,
+                    "sadCount": 20,
+                    "angryCount": 119,
+                    "thankfulCount": 0,
+                    "careCount": 133,
+                    "likeCount": 11458,
+                    "commentCount": 4372
+                },
+                {
+                    "count": 8,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 553,
+                    "loveCount": 733,
+                    "wowCount": 36,
+                    "hahaCount": 1376,
+                    "sadCount": 10,
+                    "angryCount": 114,
+                    "thankfulCount": 0,
+                    "careCount": 44,
+                    "likeCount": 4605,
+                    "commentCount": 2375
+                },
+                {
+                    "count": 9,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 952,
+                    "loveCount": 2276,
+                    "wowCount": 27,
+                    "hahaCount": 706,
+                    "sadCount": 84,
+                    "angryCount": 82,
+                    "thankfulCount": 0,
+                    "careCount": 152,
+                    "likeCount": 9382,
+                    "commentCount": 2693
+                },
+                {
+                    "count": 6,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 221,
+                    "loveCount": 443,
+                    "wowCount": 1,
+                    "hahaCount": 155,
+                    "sadCount": 0,
+                    "angryCount": 10,
+                    "thankfulCount": 0,
+                    "careCount": 23,
+                    "likeCount": 2694,
+                    "commentCount": 939
+                },
+                {
+                    "count": 10,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 925,
+                    "loveCount": 1367,
+                    "wowCount": 51,
+                    "hahaCount": 1647,
+                    "sadCount": 26,
+                    "angryCount": 196,
+                    "thankfulCount": 0,
+                    "careCount": 88,
+                    "likeCount": 9867,
+                    "commentCount": 3206
+                },
+                {
+                    "count": 19,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1547,
+                    "loveCount": 3321,
+                    "wowCount": 35,
+                    "hahaCount": 716,
+                    "sadCount": 107,
+                    "angryCount": 65,
+                    "thankfulCount": 0,
+                    "careCount": 191,
+                    "likeCount": 16631,
+                    "commentCount": 3935
+                },
+                {
+                    "count": 10,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 352,
+                    "loveCount": 396,
+                    "wowCount": 4,
+                    "hahaCount": 32,
+                    "sadCount": 0,
+                    "angryCount": 7,
+                    "thankfulCount": 0,
+                    "careCount": 36,
+                    "likeCount": 2953,
+                    "commentCount": 485
+                },
+                {
+                    "count": 37,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 4963,
+                    "loveCount": 10951,
+                    "wowCount": 60,
+                    "hahaCount": 1972,
+                    "sadCount": 180,
+                    "angryCount": 498,
+                    "thankfulCount": 0,
+                    "careCount": 827,
+                    "likeCount": 52794,
+                    "commentCount": 8667
+                },
+                {
+                    "count": 25,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 2039,
+                    "loveCount": 2686,
+                    "wowCount": 80,
+                    "hahaCount": 1430,
+                    "sadCount": 236,
+                    "angryCount": 428,
+                    "thankfulCount": 0,
+                    "careCount": 207,
+                    "likeCount": 19454,
+                    "commentCount": 4540
+                },
+                {
+                    "count": 26,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1320,
+                    "loveCount": 2086,
+                    "wowCount": 34,
+                    "hahaCount": 2051,
+                    "sadCount": 34,
+                    "angryCount": 283,
+                    "thankfulCount": 0,
+                    "careCount": 138,
+                    "likeCount": 13719,
+                    "commentCount": 3448
+                },
+                {
+                    "count": 1,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 16,
+                    "loveCount": 41,
+                    "wowCount": 0,
+                    "hahaCount": 12,
+                    "sadCount": 1,
+                    "angryCount": 5,
+                    "thankfulCount": 0,
+                    "careCount": 5,
+                    "likeCount": 171,
+                    "commentCount": 60
+                }
+            ],
+            "neutral": [
+                {
+                    "count": 0,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 0,
+                    "loveCount": 0,
+                    "wowCount": 0,
+                    "hahaCount": 0,
+                    "sadCount": 0,
+                    "angryCount": 0,
+                    "thankfulCount": 0,
+                    "careCount": 0,
+                    "likeCount": 0,
+                    "commentCount": 0
+                },
+                {
+                    "count": 17,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1546,
+                    "loveCount": 1158,
+                    "wowCount": 37,
+                    "hahaCount": 1348,
+                    "sadCount": 27,
+                    "angryCount": 140,
+                    "thankfulCount": 0,
+                    "careCount": 93,
+                    "likeCount": 8920,
+                    "commentCount": 3146
+                },
+                {
+                    "count": 20,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 933,
+                    "loveCount": 677,
+                    "wowCount": 75,
+                    "hahaCount": 1470,
+                    "sadCount": 41,
+                    "angryCount": 271,
+                    "thankfulCount": 0,
+                    "careCount": 47,
+                    "likeCount": 5726,
+                    "commentCount": 2015
+                },
+                {
+                    "count": 29,
+                    "viewCount": 1485,
+                    "favoriteCount": 0,
+                    "shareCount": 1145,
+                    "loveCount": 1419,
+                    "wowCount": 52,
+                    "hahaCount": 1646,
+                    "sadCount": 51,
+                    "angryCount": 226,
+                    "thankfulCount": 0,
+                    "careCount": 94,
+                    "likeCount": 9954,
+                    "commentCount": 4059
+                },
+                {
+                    "count": 27,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 896,
+                    "loveCount": 1228,
+                    "wowCount": 53,
+                    "hahaCount": 1320,
+                    "sadCount": 46,
+                    "angryCount": 210,
+                    "thankfulCount": 0,
+                    "careCount": 67,
+                    "likeCount": 8041,
+                    "commentCount": 3403
+                },
+                {
+                    "count": 11,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1029,
+                    "loveCount": 1364,
+                    "wowCount": 64,
+                    "hahaCount": 1637,
+                    "sadCount": 889,
+                    "angryCount": 149,
+                    "thankfulCount": 0,
+                    "careCount": 139,
+                    "likeCount": 10140,
+                    "commentCount": 3141
+                },
+                {
+                    "count": 24,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1475,
+                    "loveCount": 2900,
+                    "wowCount": 65,
+                    "hahaCount": 3052,
+                    "sadCount": 47,
+                    "angryCount": 221,
+                    "thankfulCount": 0,
+                    "careCount": 224,
+                    "likeCount": 16879,
+                    "commentCount": 5711
+                },
+                {
+                    "count": 15,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 432,
+                    "loveCount": 756,
+                    "wowCount": 23,
+                    "hahaCount": 587,
+                    "sadCount": 10,
+                    "angryCount": 40,
+                    "thankfulCount": 0,
+                    "careCount": 56,
+                    "likeCount": 4413,
+                    "commentCount": 1276
+                },
+                {
+                    "count": 32,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1905,
+                    "loveCount": 3073,
+                    "wowCount": 69,
+                    "hahaCount": 2281,
+                    "sadCount": 108,
+                    "angryCount": 347,
+                    "thankfulCount": 0,
+                    "careCount": 213,
+                    "likeCount": 18753,
+                    "commentCount": 5415
+                },
+                {
+                    "count": 27,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 2116,
+                    "loveCount": 2375,
+                    "wowCount": 105,
+                    "hahaCount": 2931,
+                    "sadCount": 79,
+                    "angryCount": 1281,
+                    "thankfulCount": 0,
+                    "careCount": 152,
+                    "likeCount": 19749,
+                    "commentCount": 7614
+                },
+                {
+                    "count": 37,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 2352,
+                    "loveCount": 3548,
+                    "wowCount": 77,
+                    "hahaCount": 1146,
+                    "sadCount": 289,
+                    "angryCount": 637,
+                    "thankfulCount": 0,
+                    "careCount": 288,
+                    "likeCount": 24275,
+                    "commentCount": 5723
+                },
+                {
+                    "count": 24,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 802,
+                    "loveCount": 645,
+                    "wowCount": 26,
+                    "hahaCount": 1304,
+                    "sadCount": 43,
+                    "angryCount": 538,
+                    "thankfulCount": 0,
+                    "careCount": 52,
+                    "likeCount": 5923,
+                    "commentCount": 2507
+                },
+                {
+                    "count": 23,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 1568,
+                    "loveCount": 887,
+                    "wowCount": 523,
+                    "hahaCount": 1330,
+                    "sadCount": 1204,
+                    "angryCount": 480,
+                    "thankfulCount": 0,
+                    "careCount": 64,
+                    "likeCount": 7804,
+                    "commentCount": 3114
+                },
+                {
+                    "count": 8,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 75,
+                    "loveCount": 56,
+                    "wowCount": 2,
+                    "hahaCount": 66,
+                    "sadCount": 0,
+                    "angryCount": 9,
+                    "thankfulCount": 0,
+                    "careCount": 4,
+                    "likeCount": 609,
+                    "commentCount": 102
+                }
+            ],
+            "poleB": [
+                {
+                    "count": 0,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 0,
+                    "loveCount": 0,
+                    "wowCount": 0,
+                    "hahaCount": 0,
+                    "sadCount": 0,
+                    "angryCount": 0,
+                    "thankfulCount": 0,
+                    "careCount": 0,
+                    "likeCount": 0,
+                    "commentCount": 0
+                },
+                {
+                    "count": 0,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 0,
+                    "loveCount": 0,
+                    "wowCount": 0,
+                    "hahaCount": 0,
+                    "sadCount": 0,
+                    "angryCount": 0,
+                    "thankfulCount": 0,
+                    "careCount": 0,
+                    "likeCount": 0,
+                    "commentCount": 0
+                },
+                {
+                    "count": 3,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 220,
+                    "loveCount": 125,
+                    "wowCount": 9,
+                    "hahaCount": 545,
+                    "sadCount": 9,
+                    "angryCount": 38,
+                    "thankfulCount": 0,
+                    "careCount": 11,
+                    "likeCount": 778,
+                    "commentCount": 459
+                },
+                {
+                    "count": 1,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 10,
+                    "loveCount": 7,
+                    "wowCount": 1,
+                    "hahaCount": 78,
+                    "sadCount": 0,
+                    "angryCount": 7,
+                    "thankfulCount": 0,
+                    "careCount": 0,
+                    "likeCount": 107,
+                    "commentCount": 38
+                },
+                {
+                    "count": 1,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 12,
+                    "loveCount": 12,
+                    "wowCount": 5,
+                    "hahaCount": 76,
+                    "sadCount": 4,
+                    "angryCount": 6,
+                    "thankfulCount": 0,
+                    "careCount": 1,
+                    "likeCount": 97,
+                    "commentCount": 65
+                },
+                {
+                    "count": 3,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 256,
+                    "loveCount": 141,
+                    "wowCount": 150,
+                    "hahaCount": 220,
+                    "sadCount": 1634,
+                    "angryCount": 284,
+                    "thankfulCount": 0,
+                    "careCount": 19,
+                    "likeCount": 1806,
+                    "commentCount": 1032
+                },
+                {
+                    "count": 3,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 202,
+                    "loveCount": 248,
+                    "wowCount": 7,
+                    "hahaCount": 249,
+                    "sadCount": 3,
+                    "angryCount": 17,
+                    "thankfulCount": 0,
+                    "careCount": 16,
+                    "likeCount": 1505,
+                    "commentCount": 452
+                },
+                {
+                    "count": 1,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 133,
+                    "loveCount": 195,
+                    "wowCount": 0,
+                    "hahaCount": 4,
+                    "sadCount": 1,
+                    "angryCount": 1,
+                    "thankfulCount": 0,
+                    "careCount": 8,
+                    "likeCount": 1051,
+                    "commentCount": 316
+                },
+                {
+                    "count": 7,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 744,
+                    "loveCount": 582,
+                    "wowCount": 103,
+                    "hahaCount": 890,
+                    "sadCount": 355,
+                    "angryCount": 123,
+                    "thankfulCount": 0,
+                    "careCount": 62,
+                    "likeCount": 4148,
+                    "commentCount": 1224
+                },
+                {
+                    "count": 7,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 280,
+                    "loveCount": 228,
+                    "wowCount": 9,
+                    "hahaCount": 111,
+                    "sadCount": 2,
+                    "angryCount": 26,
+                    "thankfulCount": 0,
+                    "careCount": 13,
+                    "likeCount": 1966,
+                    "commentCount": 446
+                },
+                {
+                    "count": 2,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 18,
+                    "loveCount": 9,
+                    "wowCount": 3,
+                    "hahaCount": 7,
+                    "sadCount": 49,
+                    "angryCount": 10,
+                    "thankfulCount": 0,
+                    "careCount": 1,
+                    "likeCount": 127,
+                    "commentCount": 25
+                },
+                {
+                    "count": 2,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 74,
+                    "loveCount": 85,
+                    "wowCount": 7,
+                    "hahaCount": 559,
+                    "sadCount": 10,
+                    "angryCount": 193,
+                    "thankfulCount": 0,
+                    "careCount": 11,
+                    "likeCount": 1055,
+                    "commentCount": 670
+                },
+                {
+                    "count": 4,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 136,
+                    "loveCount": 117,
+                    "wowCount": 3,
+                    "hahaCount": 34,
+                    "sadCount": 2,
+                    "angryCount": 3,
+                    "thankfulCount": 0,
+                    "careCount": 6,
+                    "likeCount": 1174,
+                    "commentCount": 222
+                },
+                {
+                    "count": 1,
+                    "viewCount": 0,
+                    "favoriteCount": 0,
+                    "shareCount": 39,
+                    "loveCount": 30,
+                    "wowCount": 2,
+                    "hahaCount": 32,
+                    "sadCount": 2,
+                    "angryCount": 4,
+                    "thankfulCount": 0,
+                    "careCount": 0,
+                    "likeCount": 242,
+                    "commentCount": 46
+                }
+            ]
+        }
+    const margin = { top: 25, right: 25, bottom: 50, left: 50 };
+
+    const width = 800 - margin.left - margin.right;
+    const height = 250 - margin.top - margin.bottom;
+
+    const svg = d3.select('#chart')
+      .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+      .append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+
+
+
+
+
+
+    let  dataArea = []
+    initial_data.labels.forEach((label, i) => {
+        dataArea.push({
+            week: label,
+            pole: 'poleA',
+            count: initial_data.poleA[i].count
+        })
+        dataArea.push({
+            week: label,
+            pole: 'neutral',
+            count: initial_data.poleA[i].count
+        })
+        dataArea.push({
+            week: label,
+            pole: 'poleB',
+            count: initial_data.poleB[i].count
+        })
+    })
+    
+
+
+
+      // group the data: one array for each value of the X axis.
+      const sumstat = d3.group(dataArea, d => d.week);
+    
+      // Stack the data: each group will be represented on top of each other
+      const mygroups = ["poleA", "neutral", "poleB" ] // list of group names
+      const mygroup = mygroups.map((count, i) => i)
+      
+    //   console.log(data, sumstat)
+
+      const stackedDataArea = d3.stack()
+        .keys(mygroup)
+        .value((d, key) => d[1][key].count)
+        (sumstat)
+
+    //   console.log(stackedData)
+
+      
+      // Add X axis --> it is a date format
+      const xArea = d3.scaleLinear()
+        .domain(d3.extent(dataArea, d => d.week))
+        .range([ 0, width ]);
+    //   svg.append("g")
+    //     .attr("transform", `translate(0, ${height})`)
+    //     .call(d3.axisBottom(x).ticks(5));
+
+    //   // Add Y axis
+      const yArea = d3.scaleLinear()
+        .domain([0, d3.max(stackedDataArea[2], i => i[1])*1.2])
+        .range([ height, 0 ]);
+    //   svg.append("g")
+    //     .call(d3.axisLeft(y));
+    
+      // color palette
+    const colorArea = ['rgb(41 140 172)', 'rgba(127, 140, 141, 0.3)', 'rgb(213 116 87)']
+    
+      const area = d3.area()
+                .x((d, i) =>  {
+                    console.log('x', d, d.data[0])
+                    return i*100
+                })
+                .y0((d) =>  {
+                    console.log('y0', d[0])
+                    return yArea(d[0])
+                })
+                .y1((d) =>  {
+                    console.log('y1', d[1])
+                    return yArea(d[1])
+                })
+                .curve(d3.curveCardinal.tension(.6))
+      // Show the areas
+      svg
+        .selectAll("staked-area")
+        .data(stackedDataArea)
+        .join("path")
+        .style("fill", (d, i) => colorArea[i])
+        .attr("d", d => {
+            k = area(d)
+            // console.log(d, k)
+            return k
+        })
+
+
+    const getPositive = d => d.wowCount + d.favoriteCount + d.likeCount + d.loveCount + d.careCount + d.thankfulCount
+    const getNeutral = d => d.viewCount*.2 + d.shareCount + d.commentCount
+    const getNegative = d => d.hahaCount + d.angryCount + d.sadCount
+
+    data = initial_data.labels.map((label,i) => {
+        poleAdata = initial_data.poleA[i]
+        neutraldata = initial_data.neutral[i]
+        poleBdata = initial_data.poleB[i]
+
+        return {
+            week: label,
+            a_pos:getPositive(poleAdata),
+            a_neut:getNeutral(poleAdata),
+            a_neg:getNegative(poleAdata),
+            n_pos:getPositive(neutraldata),
+            n_neut:getNeutral(neutraldata),
+            n_neg:getNegative(neutraldata),
+            b_pos:getPositive(poleBdata),
+            b_neut:getNeutral(poleBdata),
+            b_neg:getNegative(poleBdata)
+        }
+
+    })
+    const keys = Object.keys(data[0]).filter(k => k != 'week');
+    data = data.map(d => {
+        d.total = keys.map(k => d[k]).reduce((a, b) => a + b)
+        return d
+    })
+    const months = Array.from(new Set(data.map(d => d.week))).sort(d3.ascending);
+
+    const stackedData = d3.stack()
+        .keys(keys)
+        .value((d, key) => d[key] ?? 0)
+        (data);
+
+    // scales
+
+    const x = d3.scaleBand()
+        .domain(months)
+        .range([0, width])
+        .padding(0.2);
+
+    const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.total)])
+        .range([height, 0]);
+
+    const colors_ = ['rgba(41,140,172, 1)', 'rgb(100 168 190)', 'rgb(140 188 201)',                
+                    'rgb(180,180,180, 1)', 'rgb(197 196 195)', 'rgb(197 196 195)',
+                    'rgba(213,116,87, 1)', 'rgb(221 151 130)', 'rgb(226 176 159)']
+    const color = d3.scaleOrdinal()
+        .domain(keys)
+        .range(colors_);
+    // axes
+
+    const xAxis = d3.axisBottom(x).tickFormat(function(d) {
+                return d % 1 ? null : d;
+            });;
+
+    svg.append('g')
+        .attr('transform', `translate(0,${height})`)
+        .attr('color', `gray`)
+        .call(xAxis)
+
+    const yAxis = d3.axisLeft(y).ticks(5);
+
+    svg.append('g')
+        .attr('color', `gray`)
+        // .attr('font-size', `6px`)
+        .call(yAxis)
+
+    // draw bars
+
+    const groups = svg.append('g')
+      .selectAll('g')
+      .data(stackedData)
+      .join('g')
+        .attr('fill', d => color(d.key));
+
+    groups.selectAll('rect')
+      .data(d => d)
+      .join('rect')
+        .attr('x', d => x(d.data.week))
+        .attr('y', d => y(d[1]))
+        // .attr('width', x.bandwidth())
+        .attr('width', 15)
+        .attr('height', d => y(d[0]) - y(d[1]))
+        // .attr('stroke', 'rgba(255, 255, 255, .3)')
+        // .attr('stroke-width', .3)
+
+
+    let data_poles = data.map(d => ({
+        total:d.total,
+        week:d.week,
+        poleA: d.a_pos + d.a_neut + d.a_neg,
+        poleN: d.n_pos + d.n_neut + d.n_neg,
+        poleB: d.b_pos + d.b_neut + d.b_neg,
+    }))
+
+    const poleKeys = Object.keys(data_poles[0]).filter(k => k != 'week' & k != 'total');
+    const poleColors = ['rgb(41,140,172)', 'rgb(205,207,204)','rgb(213,116,87)']
+    
+    const poleColorR = d3.scaleOrdinal()
+        .domain(poleKeys)
+        .range(poleColors);
+    
+    const stackedPoleData = d3.stack()
+        .keys(poleKeys)
+        .value((d, key) => d[key] ?? 0)
+        (data_poles);
+    
+    const poleGroups = svg.append('g')
+      .selectAll('g')
+      .data(stackedPoleData)
+      .join('g')
+        .attr('fill', d => poleColorR(d.key));
+
+    poleGroups.selectAll('rect')
+      .data(d => d)
+      .join('rect')
+        .attr('x', d => x(d.data.week) - 0)
+        .attr('y', d => y(d[1]))
+        .attr('width', 3)
+        .attr('height', d => y(d[0]) - y(d[1]));
+
+                    // const poleGroupsBorder = svg.append('g')
+                    //   .selectAll('g')
+                    //   .data(stackedPoleData)
+                    //   .join('g')
+                    //     .attr('fill', d => 'rgba(255, 255, 255, .4)');
+
+                    //     poleGroupsBorder.selectAll('rect')
+                    //   .data(d => d)
+                    //   .join('rect')
+                    //     .attr('x', d => x(d.data.week) - 0)
+                    //     .attr('y', d => y(d[1]))
+                    //     .attr('width', 1)
+                    //     .attr('height', d => y(d[0]) - y(d[1]));
+    // Line chart
+    // const dataCounts = data.map(d => ({
+    //     week: d.week,
+    //     // count: d.total + Math.random(199)*10000 - 500,
+    //     count: d.total
+    // }))
+
+    // const yCount = d3.scaleLinear()
+    //     .domain([0, d3.max(dataCounts, d => d.count)])
+    //     .range([height, 0]);
+
+    // svg.append("path")
+    //   .datum(dataCounts)
+    //   .attr("fill", "none")
+    //   .attr("stroke", "steelblue")
+    //   .attr("stroke-width", 1.5)
+    //   .attr("d", d3.line()
+    //     .x(d => x(d.week) + 15 )
+    //     // .y(d => yCount(d.count))
+    //     .y(d => yCount(d.count) ).curve(d3.curveMonotoneX)
+    //     )
+
+    //     svg.selectAll(".circle-uk")
+    // .data(dataCounts)
+    // .join("circle") // enter append
+    //   .attr("class", "circle-uk")
+    //   .attr("r", "3") // radius
+    // //   .attr("fill", "rgba(255, 255, 255, 1)") // radius
+    //   .attr("fill", "steelblue") // radius
+    
+    // //   .attr("stroke", "steelblue") // radius
+    // //   .attr("stroke-width", 2.5)
+    //   .attr("cx", d=> x(d.week) + 15)   // center x passing through your xScale
+    //   .attr("cy", d=> yCount(d.count))  // center y through your yScale
+
+
+        
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exploring Political Polarization in Georgia: A Social Media-Based Analysis of Key Discourses and Contributing Factors using LLM</title>
+    
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>    
+
+        <link href='main.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <!-- https://jsfiddle.net/Abhi9kt/28wzdrfk/4/ -->
+    <!-- <div id="my_dataviz"></div> -->
+    <div class="right">
+        <div id="methodology">
+            <h1>Exploring Political Polarization in Georgia: A Social Media-Based Analysis of Key Discourses and Contributing Factors using LLM</h1>
+            <h2>Methodology</h2>
+            <p>
+                <h3>Data Collection</h3>
+                In the present study, data was meticulously collected from a total of 154 public social media accounts associated with various political parties and their members. Employing a carefully curated methodology, we monitored these accounts to examine the nature and extent of political polarization in Georgia. Our dataset encompasses a broad time frame, stretching from 2021 to March 2023, and comprises a total of 120,000 posts sourced from four prominent social media platforms, namely Facebook, YouTube, Telegram, and Vkontakte. By scrutinizing such a diverse range of accounts and platforms, we ensured that our analysis accounts for a comprehensive perspective on the evolving patterns of political polarization within the state's digital landscape.
+    Political parties coverd in the study:<br/><br/>
+    <ul>
+        <li> ● Georgian Dream</li>
+        <li> ● United National Movement</li>
+        <li> ● For Georgia</li>
+    <li> ● Girchi</li>
+    <li> ● Girchi More Freedom</li>
+    <li> ● For People</li>
+    <li> ● Strategy Agmashenebeli</li>
+    <li> ● LELO</li>
+    <li> ● DROA</li>
+    <li> ● European Georgia</li>
+    <li> ● Mokalakeebi</li>
+    <li> ● Conservative Movement</li>
+    <li> ● People's Power</li>
+    <li> ● Aliance of Patriots</li>
+    <li> ● Labour Party</li>
+    <li> ● ERI</li>
+    </ul>
+        <h3>Polarisation discourses</h3>
+                In our analysis, we identified ten key discourses of polarization within Georgia's political landscape, leveraging topic labeling and entity extraction techniques. For each discourse, we selected two opposing narrative groups to comprehensively examine the diverse perspectives driving polarization. The selected discourses include:
+                <br/><br/>
+                <ul>
+    <li> ● The 2008 August war between Russia and Georgia</li>
+    <li> ● The conflict between Russia and Ukraine</li>
+    <li> ● Georgia's role in the conflict between Russia and Ukraine</li>
+    <li> ● The custody and treatment of Mikheil Saakashvili</li>
+    <li> ● The confrontation between liberal and conservative values</li>
+    <li> ● Pro-Western versus Anti-Western foreign policy</li>
+    <li> ● Pro-Russian versus Anti-Russian foreign policy</li>
+    <li> ● The role of NGOs in the country's political processes</li>
+    <li> ● Media independence and the role of media in political processes</li>
+    <li> ● The influence of oligarchs in political processes</li>
+</ul><br/>
+By examining these discourses, we aim to provide a comprehensive understanding of the complex dynamics shaping political polarization in Georgia and the underlying factors driving these divisive narratives.
+
+??Two additional disocurses Law against forigen agents, and Sanctions against Gororgian Court
+                <h3>Data Annotation</h3>
+                For the data annotation process, 26 master's students from Tbilisi State University and ILIA University, specializing in Political and Social studies, were selected to perform the text annotation exercise. In total, 42,000 annotation points were generated, covering 5,000 unique posts from the collected dataset. To ensure the quality and reliability of the annotated text examples, each post was independently annotated by four different annotators, mitigating the risk of bias or misinterpretation. The annotated examples were subsequently utilized to train the text classification models, as well as validate the accuracy of the discourse and narrative prediction models, ultimately strengthening the rigor and robustness of our analytical framework.
+                
+                <h3>Classification Models</h3>
+                    In order to effectively address the text and entity classification tasks, three pre-trained models were chosen for our analysis: BERT-Multilingual, XLM-RoBERTa, and Electra-Ka. These models were fine-tuned using a multi-class, multi-label architecture, leveraging the collected dataset for an optimized performance on our specific task. To provide a thorough understanding of the training process and outcomes, the scores for the model training exercises are detailed in the table below. 
+                    <h3>LLMs (GPT3.5, GPT4, curie, davinchi)</h3>
+                    <h3>Prompt Eningeering</h3>
+                    Discourse detection -> pole detection<br/>
+                    Discourse detection validation. <br/>
+                    Pole detection validation. <br/>
+                    Pole detection<br/>
+                    removing teh word 'west'<br/>
+                    ADD ERROR WINDOW TO Plots [| | |]<br/>
+                    Sets owerlap<br/>
+                    Hate pie per topic<br/>
+                    Radar per party<br/>
+                    Count / Eსngagement<br/>
+                    Orignis of 'მერე ფრონტი'/'ომის პარტია'
+                    Like/Sad/Mad/Love/Hug/Haha<br/>
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Limitation</h3>
+                <h3>Error Scores Validation</h3>
+                on chart 
+                <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
+                <h3>Reading the Charts</h3>
+            </p>
+        </div>
+        <div id="full">
+            <h2>First Phase Results <button id="pos" >Positive Engagement Scores</button><button id="neg" >Negative Engagement Scores</button><button id="engage">Total Engagement</button><button id="count" class="active">Posts Count</button></h2>
+            <p>
+                2023 and foru discoruses
+            </p>
+            <div class="grid first-grid">
+                <div>
+                    <div><div class="diag"><div>Discourse</div><div>Party</div></div></div>
+                    <div>Mikheil Saakashvili's custody and treatment</div>
+                    <div>Pro-Western or Anti-Western foreign policy</div>
+                    <div>Pro-Russian or anti-Russian foreign policy</div>
+                    <div>Oligarchs and their role in political processes, who is the oligarch?</div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div></div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div></div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div></div>
+                <div data-party="გირჩი"><div>Girchi</div></div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div></div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div></div>
+                <div data-party="ლელო"><div>LELO</div></div>
+                <div data-party="დროა"><div>DROA</div></div>
+            </div>
+            <div class="grid">
+                <div>
+                    <div><div class="diag"><div>Discourse</div><div>Party</div></div></div>
+                    <div>Mikheil Saakashvili's custody and treatment</div>
+                    <div>Pro-Western or Anti-Western foreign policy</div>
+                    <div>Pro-Russian or anti-Russian foreign policy</div>
+                    <div>Oligarchs and their role in political processes, who is the oligarch?</div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div></div>
+                <div data-party="ხალხისთვის"><div>For People</div></div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div></div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div></div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div></div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div></div>
+                <div data-party="ერი"><div>ERI</div></div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div></div>
+            </div>
+            <!-- <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p> -->
+            <h4>Mikheil Saakashvili's custody and treatment</h4>
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - This category includes text that argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not be sentenced in a country with established state institutions and that his detention damages the country's Western foreign course, his health is critical, and he should be taken abroad for treatment.</div><br/>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - This category includes text that argues for Mikheil (Misha) Saakashvili to remain in custody, claiming he has a satisfactory health condition, is personally responsible for his health deterioration, and does not require treatment abroad.</div><br/>
+<h4>Pro-Western or Anti-Western foreign policy</h4>
+            
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - (Pro-Western): Supports Georgia's alignment with the West.</div><br/>
+    
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - (Anti-Western): Criticizes, distrust or negative view towards Georgia's western course, western countries, politicians, institutions, or policies .</div><br/>
+<h4>Pro-Russian or anti-Russian foreign policy</h4>
+            
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - Against negotiating or cooperating with Russia</div><br/>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - Non-confrontational policy towards Russia</div><br/>
+<h4>Oligarchs and their role in political processes, who is the oligarch</h4>
+            
+                <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - Bidzina Ivanishvili is the only oligarch in Georgia, controlling the country from the shadows and having power over all politicians</div><br/>
+                <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - Bidzina Ivanishvili is a philanthropist and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili, Saakashvili, and Khazaradze instead</div><br/>
+        </div>
+        
+        <div>
+            <h2>Hate speech</h2>
+            Per party
+            Per topic
+        </div>
+        <div>
+            <h2>NER</h2>
+            Per party
+            Per topic
+        </div>
+        <div>
+            
+            <h2>Mikheil Saakashvili's custody and treatment</h2>
+            <!-- <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p> -->
+            <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - This category includes text that argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not be sentenced in a country with established state institutions, is considered "Putin's Personal Prisoner," and that his detention damages the country's Western foreign course. Additionally, it claims that Georgian authorities are responsible for his health deterioration, his health is critical, and he should be taken abroad for treatment, and that he should not be sentenced due to his critical health condition.</div><br/>
+            <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - This category includes text that argues for Mikheil (Misha) Saakashvili to remain in custody, claiming he is a criminal offender, has moral responsibility for "bloody nine years", is a Russian agent, has a satisfactory health condition, is personally responsible for his health deterioration, and does not require treatment abroad.</div><br/>
+            <div class="hor-grid" data-disc="saakashvili">
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Pro-Western or Anti-Western foreign policy</h2>
+            <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - (Pro-Western): Supports Georgia's alignment with the West.</div><br/>
+            <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - (Anti-Western): Criticizes, distrust or has negative view towards Georgia's Western foreign policy course, Western countries, politicians, institutions, or policies .</div><br/>
+            <div class="hor-grid" data-disc="west_vv">
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Pro-Russian or anti-Russian foreign policy</h2>
+            <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - Against negotiating or cooperating with Russia</div><br/>
+            <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - Non-confrontational policy towards Russia</div><br/>
+            <div class="hor-grid" data-disc="russ_vv">
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
+            <div class="plot-legend" style="color:rgba(22, 160, 133, 1)">Pole A - Bidzina Ivanishvili is the only oligarch in Georgia, controlling the country from the shadows and having power over all politicians</div><br/>
+            <div class="plot-legend" style="color:rgba(192, 57, 43, 1)">Pole B - Bidzina Ivanishvili is a philanthropist and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili, Saakashvili, and Khazaradze instead</div><br/>
+            <div class="hor-grid" data-disc="olig_vv">
+                <div data-party="გირჩი"><div>Girchi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერი"><div>ERI</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ქართული_ოცნება"><div>Georgian Dream</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="საქართველოსთვის"><div>For Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ერთიანი_ნაციონალური_მოძრაობა"><div>United National Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხისთვის"><div>For People</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="სტრატეგია_აღმაშენებელი"><div>Strategy Agmashenebeli</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="მოქალაქეები"><div>Mokalakeebi</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="კონსერვატიული_მოძრაობა"><div>Conservative Movement</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ხალხის_ძალა"><div>People's Power</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის"><div>European Georgia</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="პატრიოტთა_ალიანსი"><div>Aliance of Patriots</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლელო"><div>LELO</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="გირჩი_-_მეტი_თავისუფლება"><div>Girchi More Freedom</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="ლეიბორისტული_პარტია"><div>Labour Party</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+                <div data-party="დროა"><div>DROA</div>
+                    <div><canvas class="area" height="200"></canvas></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+
+
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script> -->
+
+<script src="../totals.js"></script>
+<script src="../time_series.js"></script>
+<!-- <script src="radar.js"></script> -->
+
+
+<script src="pie.js"></script>
+<!-- <script src="area.js"></script> -->
+</html>
