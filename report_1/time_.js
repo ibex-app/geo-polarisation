@@ -305,19 +305,19 @@ const max_count_per_party = (discourse, party) => {
 const max_eng_per_party = (discourse, party) => {
     let counts_sum_party = full_dataset[discourse][party].poleB.map((k, idx) => getEngCount(full_dataset[discourse][party].poleA[idx]) + getEngCount(full_dataset[discourse][party].neutral[idx]) + getEngCount(full_dataset.west_vv[party].poleB[idx]))
     let max_count_party = Math.max(...counts_sum_party)
-    console.log(discourse, party, max_count_party)
+    // console.log(discourse, party, max_count_party)
     return max_count_party
 }
 
 Object.keys(full_dataset).forEach(discourse => {
     max_count =  Object.keys(full_dataset[discourse]).map(party => max_count_per_party(discourse, party))
-    console.log(max_count)
+    // console.log(max_count)
     max_count = Math.max(...max_count)
 
     max_eng = Object.keys(full_dataset[discourse]).map(party => max_eng_per_party(discourse, party))
     max_eng = Math.max(...max_eng)
     // max_eng = 100
-    console.log(max_count, max_eng)
+    // console.log(max_count, max_eng)
     Object.keys(full_dataset[discourse]).forEach(party => {
         let selector = 'div[data-disc="'+discourse+'"] div[data-party="'+party.replaceAll(' ', '_')+'"] div:last-child'
         document.querySelector(selector).parentElement.style.display = 'flex'

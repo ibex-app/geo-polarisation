@@ -38,7 +38,13 @@ const col_ = (i) => colors_[i]
 function getBaseLog(x, y) {
     return Math.log(y) / Math.log(x);
   }
+  function customLog(x, a, b) {
+    return a * x + b * Math.log10(x);
+  }
 
+  const scalePow = d3.scalePow()
+  .exponent(.30)
+  .range([0, 200000])
 const split_engagement = (data_) => {
     let aggregated = ['Pole A', 'Neutral', 'Pole B'].map(key => ({
         positive: data_[key].wowCount + data_[key].favoriteCount + data_[key].likeCount + data_[key].loveCount + data_[key].careCount + data_[key].thankfulCount,
@@ -62,12 +68,12 @@ const split_engagement = (data_) => {
 
         // values.totalScore = Math.log(values.totalEng) * .006
         // values.totalScore = values.totalMean / 615
-        values.totalScore = Math.log(values.totalEng) * 0.0007
+        values.totalScore = Math.log(values.totalEng) * 0.000000008
         
         // Linear works well
         // values.totalScore = Math.log(values.totalEng) * 0.0000015
 
-        values.totalScore = Math.log(values.totalEng) * 0.00007
+        // values.totalScore = Math.log(values.totalEng) * 0.00007
         // values.totalScore = 1
 
         // values.totalScore = Math.log(values.totalScore)
@@ -87,15 +93,24 @@ const split_engagement = (data_) => {
         // values.posPercScaled = values.posPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
         // values.neutPercScaled = values.neutPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
         // values.negPercScaled = values.negPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
-
-        // values.posPercScaled =  Math.log(values.positive * .40)
-        // values.neutPercScaled = Math.log(values.neutral  * .28)
-        // values.negPercScaled =  Math.log(values.negative * .40)
+        power = 1.1
+        values.posPercScaled =  Math.log((values.positive  * 4 )**power, 10)
+        values.neutPercScaled = Math.log((values.neutral   * 3 )**power, 10)
+        values.negPercScaled =  Math.log((values.negative  * 4 )**power, 10)
+        // Coefficients: a = 0.01 , b = 9.999999999999831
 
         
-        values.posPercScaled =  getBaseLog(1.01, values.positive * .40)
-        values.neutPercScaled = getBaseLog(1.01, values.neutral  * .28)
-        values.negPercScaled =  getBaseLog(1.01, values.negative * .40)
+        values.posPercScaled =  customLog(values.positive * 4, .002, 2000)
+        values.neutPercScaled = customLog(values.neutral * 4 , .002, 2000)
+        values.negPercScaled =  customLog(values.negative * 4, .002, 2000)
+
+        values.posPercScaled =  scalePow(values.positive * 4)
+        values.neutPercScaled = scalePow(values.neutral *  3)
+        values.negPercScaled =  scalePow(values.negative * 4)
+        
+        // values.posPercScaled =  getBaseLog(1.01, values.positive * .40)
+        // values.neutPercScaled = getBaseLog(1.01, values.neutral  * .28)
+        // values.negPercScaled =  getBaseLog(1.01, values.negative * .40)
 
         values.totalMean
         // values.posPercScaled = values.posMean * .00050

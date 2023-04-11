@@ -281,8 +281,8 @@ path:hover, rect:hover {
 }
 
 .pie-legent>div>div {
-    height: 250px;
-    width: 33.33%;
+    height: 170px;
+    width: 33%;
     /* border: 1px solid red; */
     display: inline-flex;
     flex-wrap: wrap;
@@ -291,7 +291,7 @@ path:hover, rect:hover {
 }
 
 .pie-legent>div>div>div {
-    font-size: 14px;
+    /* font-size: 14px; */
 }
 
 .pie-doc-chart {
@@ -305,8 +305,8 @@ path:hover, rect:hover {
     text-align: center;
     /* border: 1px solid green; */
 }
-.pie-doc-chart svg{margin-left: -25px;
-    margin-top: -25px;
+.pie-doc-chart svg{margin-left: -45px;
+    margin-top: -45px;
     transform-origin: center;
 transform: scale(.5);
 }
@@ -345,8 +345,16 @@ transform: scale(.5);
 .pie-legent {
     border: 2px solid #bfbebe;
     padding: 20px 40px;
+    border: 1px solid #bfbebe;
+    padding: 20px 40px;
+    background: whitesmoke;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 17px;
 }
-
+.pie-legent div, .pie-legent p{
+    font-size: 13px;
+}
 .pie-legent h2, .pie-legent h1{
     font-size: initial;
 }
