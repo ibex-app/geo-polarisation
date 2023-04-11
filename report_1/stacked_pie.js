@@ -10,10 +10,10 @@ const draw_numerical = (party, i, data_aggregated) => {
     const dom = document.querySelector('#numerical div[data-party="' + party.replaceAll(' ', '_') + '"] .pie-cont_.n'+i)
     dom.innerHTML = `
         <div class="num-chart">
-        <div class="num-chart-row"><div></div><div>Posts</div> <div>Neg</div> <div>Neut</div> <div>Pos</div></div>
-        <div class="num-chart-row"><div>A</div><div>${to_num(data_aggregated[0].count)}</div><div>${to_num(data_aggregated[0].negative)}</div><div>${to_num(data_aggregated[0].neutral)}</div><div>${to_num(data_aggregated[0].positive)}</div></div>
-        <div class="num-chart-row"><div>N</div><div>${to_num(data_aggregated[1].count)}</div><div>${to_num(data_aggregated[1].negative)}</div><div>${to_num(data_aggregated[1].neutral)}</div><div>${to_num(data_aggregated[1].positive)}</div></div>
-        <div class="num-chart-row"><div>B</div><div>${to_num(data_aggregated[2].count)}</div><div>${to_num(data_aggregated[2].negative)}</div><div>${to_num(data_aggregated[2].neutral)}</div><div>${to_num(data_aggregated[2].positive)}</div></div>
+        <div class="num-chart-row"><div></div><div>Posts</div> <div>Pos</div> <div>Neut</div> <div>Neg</div></div>
+        <div class="num-chart-row"><div>A</div><div>${to_num(data_aggregated[0].count)}</div><div>${to_num(data_aggregated[0].positive)}</div><div>${to_num(data_aggregated[0].neutral)}</div><div>${to_num(data_aggregated[0].negative)}</div></div>
+        <div class="num-chart-row"><div>N</div><div>${to_num(data_aggregated[1].count)}</div><div>${to_num(data_aggregated[1].positive)}</div><div>${to_num(data_aggregated[1].neutral)}</div><div>${to_num(data_aggregated[1].negative)}</div></div>
+        <div class="num-chart-row"><div>B</div><div>${to_num(data_aggregated[2].count)}</div><div>${to_num(data_aggregated[2].positive)}</div><div>${to_num(data_aggregated[2].neutral)}</div><div>${to_num(data_aggregated[2].negative)}</div></div>
         <div class="num-chart-row"><div>Total:${sum} </div> </div>
         </div>
     `
