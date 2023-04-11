@@ -2,8 +2,24 @@
 //   const getNeutral = d => (d.viewCount*.2 + d.shareCount + d.commentCount)
 //   const getNegative = d => (d.hahaCount + d.angryCount + d.sadCount)
 //   const getEngCount = d => getNeutral(d) + getNeutral(d) + getNegative(d)
-
-
+const party_name_map = {
+"ქართული_ოცნება": "Georgian Dream",
+"ხალხის_ძალა": "People's Power",
+"ერთიანი_ნაციონალური_მოძრაობა": "United National Movement",
+"გირჩი": "Girchi",
+"გირჩი_-_მეტი_თავისუფლება": "Girchi More Freedom",
+"ევროპული_საქართველო_-_მოძრაობა_თავისუფლებისთვის": "European Georgia",
+"ლელო": "LELO",
+"დროა": "DROA",
+"საქართველოსთვის": "For Georgia",
+"ხალხისთვის": "For People",
+"სტრატეგია_აღმაშენებელი": "Strategy Agmashenebeli",
+"მოქალაქეები": "Mokalakeebi",
+"ლეიბორისტული_პარტია": "Labour Party",
+"პატრიოტთა_ალიანსი": "Alliance of Patriots",
+"ერი": "ERI",
+"კონსერვატიული_მოძრაობა": "Conservative Movement",
+}
   const draw_swarm = (discourse) => {
 
   
@@ -36,19 +52,19 @@
         data.push({
             "dateIndex": i,
             "total_engagement": engA,
-            "party": party,
+            "party": party_name_map[party.replaceAll(' ', '_')],
             "pole": "A"
         })
         data.push({
             "dateIndex": i,
             "total_engagement": engN,
-            "party": party,
+            "party": party_name_map[party.replaceAll(' ', '_')],
             "pole": "N"
         })
         data.push({
             "dateIndex": i,
             "total_engagement": engB,
-            "party": party,
+            "party": party_name_map[party.replaceAll(' ', '_')],
             "pole": "B"
         })
     })
