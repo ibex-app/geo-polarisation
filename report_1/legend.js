@@ -62,6 +62,7 @@ const arc_ = d3.arc()
     .outerRadius((d, i) => get_radius(d.data.r)+4);
 
 const colors_ = ['rgb(41 140 172)', 'rgba(167, 170, 181, 1)', 'rgb(213 116 87)']
+
 const colors_d = {pos: colors_[0], neut: colors_[1],neg: colors_[2],}
 
 let countsGroup10 = svg_c1.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');

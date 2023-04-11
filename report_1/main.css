@@ -38,10 +38,10 @@ body{
         fill: #333333;
     }
 .grid.first-grid{
-    margin-right: 9%;
+    margin-right: 4%;
 }
 .grid{
-    width: 45%;
+    width: 47%;
     font-size: 0;
     display: inline-block;
     vertical-align: top;
@@ -72,8 +72,8 @@ body{
     border-bottom: 1px solid #ddd8d8;
 }
 .grid > div  > div{
-    width: calc(70vw / 9.7);
-    height: calc(70vw / 11.7);
+    width: 200px;
+    height: 150px;
     /* display: inline-block; */
     display: flex;
     align-items: center;
@@ -82,6 +82,8 @@ body{
 }
 .grid > div  > div:first-child{
     justify-content: left;
+    width: 100px;
+    height: 100%;
 }
 .grid > div:first-child  > div{
     padding: 0 8px;
@@ -264,7 +266,6 @@ path:hover, rect:hover {
 }
 .num-chart-row > div:nth-child(5){
     color: rgba(192, 57, 43, 1);
-    
 }
 
 /* docs */
@@ -357,4 +358,17 @@ div[data-disc] div[data-party]{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tooltip-donut{
+    position: fixed;
+    background: whitesmoke;
+    /* color: gray; */
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 8px;
+    transition: .2s;
+    opacity: 0;
+    font-weight: bold;
+    font-family: monospace;
 }

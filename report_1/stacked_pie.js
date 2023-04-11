@@ -24,9 +24,9 @@ const draw_numerical = (party, i, data_aggregated) => {
 }
 
 const tone_colors = {
-    neg: 'rgba(192, 57, 43, .7)',
-    neut: 'rgb(201, 201, 201)',
-    pos: 'rgba(22, 160, 133, .7)'
+    negative: 'rgba(192, 57, 43, .7)',
+    neutral: 'rgb(201, 201, 201)',
+    positive: 'rgba(22, 160, 133, .7)'
 }
 
 // const colors_ = ['rgba(41, 128, 185, .5)', 'rgba(127, 140, 141, 0.5)', 'rgba(192, 57, 43, .5)']
@@ -35,6 +35,9 @@ const col_ = (i) => colors_[i]
 
 // const get_radius = count => count * .09
 // const get_radius = count => 8 * Math.log(count)
+function getBaseLog(x, y) {
+    return Math.log(y) / Math.log(x);
+  }
 
 const split_engagement = (data_) => {
     let aggregated = ['Pole A', 'Neutral', 'Pole B'].map(key => ({
@@ -49,30 +52,58 @@ const split_engagement = (data_) => {
         values.totalEng = values.positive + values.neutral + values.negative
 
         values.totalMean = values.totalEng / values.count
-        values.posMean = values.positive / values.count
-        values.neutMean = values.neutral / values.count
-        values.negMean = values.negative / values.count
+        // values.posMean =  values.positive / values.count
+        // values.neutMean = values.neutral / values.count
+        // values.negMean =  values.negative / values.count
 
-        values.totalScore = values.totalMean / 615
+        // values.posMean =  values.positive // values.count
+        // values.neutMean = values.neutral // values.count
+        // values.negMean =  values.negative // values.count
+
+        // values.totalScore = Math.log(values.totalEng) * .006
+        // values.totalScore = values.totalMean / 615
+        values.totalScore = Math.log(values.totalEng) * 0.0007
+        
+        // Linear works well
+        // values.totalScore = Math.log(values.totalEng) * 0.0000015
+
+        values.totalScore = Math.log(values.totalEng) * 0.00007
+        // values.totalScore = 1
 
         // values.totalScore = Math.log(values.totalScore)
         // values.totalScore = 1
-        values.posScore = values.posMean / 415
-        values.neutScore = values.neutMean / 153
-        values.negScore = values.negMean / 48
+        // values.posScore = values.posMean / 415
+        // values.neutScore = values.neutMean / 153
+        // values.negScore = values.negMean / 48
 
         return values
     }).map(values => {
         if (values.count == 0) return values
 
-        values.posPercLog = values.posScore * .50
-        values.neutPercLog = values.neutScore * .28
-        values.negPercLog = values.negScore * .22
+        // values.posPercLog = values.posScore   * .50
+        // values.neutPercLog = values.neutScore * .28
+        // values.negPercLog = values.negScore   * .22
 
-        values.posPercScaled = values.posPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
-        values.neutPercScaled = values.neutPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
-        values.negPercScaled = values.negPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
+        // values.posPercScaled = values.posPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
+        // values.neutPercScaled = values.neutPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
+        // values.negPercScaled = values.negPercLog / (values.posPercLog + values.neutPercLog + values.negPercLog)
 
+        // values.posPercScaled =  Math.log(values.positive * .40)
+        // values.neutPercScaled = Math.log(values.neutral  * .28)
+        // values.negPercScaled =  Math.log(values.negative * .40)
+
+        
+        values.posPercScaled =  getBaseLog(1.01, values.positive * .40)
+        values.neutPercScaled = getBaseLog(1.01, values.neutral  * .28)
+        values.negPercScaled =  getBaseLog(1.01, values.negative * .40)
+
+        values.totalMean
+        // values.posPercScaled = values.posMean * .00050
+        // values.neutPercScaled = values.neutMean * .000`28
+        // values.negPercScaled = values.negMean  * .00022`
+        // values.posPercScaled =  values.positive * .000003
+        // values.neutPercScaled = values.neutral * .000003
+        // values.negPercScaled =  values.negative  * .000003
         // console.log('totalScore', values.totalScore)
         // console.log('-----------------')
         // console.log('pos--', Math.round(values.posMean * 100)/100, Math.round(values.posScore * 100)/100,  Math.round(values.posPercLog  * 100)/100, Math.round(values.posPercScaled * 100)/100, )
@@ -120,6 +151,31 @@ const split_engagement = (data_) => {
 //     .attr('mode', 'normal');
 // }
 
+var pieTooltipDom = d3.select("body").append("div")
+     .attr("class", "tooltip-donut")
+    //  .style("opacity", 0);
+poleName = ['Pole A:', 'Neutral:', 'Pole B:']
+const colors_op = ['#b3ccd9', '#d7d5d1', '#e1b6ae']
+const colors_font = {
+    positive:"rgba(22, 160, 133, 1)",
+    neutral:  "gray", 
+    negative: "rgba(192, 57, 43, 1)"
+}
+
+const mouseover = (e, d, pole, i) => {
+    // console.log(e, d, pole, i)
+    pieTooltipDom.style("color", colors_font[pole]);
+    pieTooltipDom.style("background-color", colors_op[d.index]);
+    pieTooltipDom.style("opacity", 1);
+    pieTooltipDom.html(poleName[d.index] + d.data[pole])
+            .style("left", (e.clientX + 10) + "px")
+            .style("top", (e.clientY - 15) + "px");
+}
+
+const mouseout = d => {
+    pieTooltipDom.style("opacity", 0);
+}
+
 const draw_eng_pie = (init_data, party, i) => {
     //      Mean  LogMean  LogMeanPrec
     //pos   415   6        40
@@ -142,23 +198,24 @@ const draw_eng_pie = (init_data, party, i) => {
     //  x - 
     
     let radius = get_radius_log(sum)
-
+    let radius_area = 30
     
     // console.log(d3.selectAll('div[data-party="' + party.replaceAll(' ', '_') + '"] .pie-cont')[0][i])
-    let size = 350
-    let svg = d3.select('#stacked-pie div[data-party="' + party.replaceAll(' ', '_') + '"] .pie-cont_.n'+i).append('svg').attr('width', size).attr('height', size);
+    let size = 200
+    let svg = d3.select('#stacked-pie div[data-party="' + party.replaceAll(' ', '_') + '"] .pie-cont_.n'+i)
+        .append('svg').attr('width', size).attr('height', size);
     // def_shadows(svg)
     const arc = d3.arc()
         .innerRadius(0)
-        .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * d.data.posPercScaled);
+        .outerRadius((d, i) => d.data.count == 0 ? 0 : radius_area * d.data.totalScore * d.data.negPercScaled);
 
     const arc1 = d3.arc()
-        .innerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * d.data.posPercScaled)
-        .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * (d.data.posPercScaled + d.data.neutPercScaled));
+        .innerRadius((d, i) => d.data.count == 0 ? 0 : radius_area * d.data.totalScore * d.data.negPercScaled)
+        .outerRadius((d, i) => d.data.count == 0 ? 0 : radius_area * d.data.totalScore * (d.data.negPercScaled + d.data.neutPercScaled));
 
     const arc2 = d3.arc()
-        .innerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore * (d.data.posPercScaled + d.data.neutPercScaled))
-        .outerRadius((d, i) => d.data.count == 0 ? 0 : radius * d.data.totalScore);
+        .innerRadius((d, i) => d.data.count == 0 ? 0 : radius_area * d.data.totalScore * (d.data.negPercScaled + d.data.neutPercScaled))
+        .outerRadius((d, i) => d.data.count == 0 ? 0 : radius_area * d.data.totalScore * (d.data.negPercScaled + d.data.neutPercScaled + d.data.posPercScaled));
 
 
     const arc3 = d3.arc()
@@ -174,36 +231,45 @@ const draw_eng_pie = (init_data, party, i) => {
     let countsGroup = svg.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');
     let scalesGroup = svg.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');
     
+    
+
+    
     poleAGroup.selectAll('path')
         .data(pieData)
         .enter()
         .append('path')
         .attr('d', arc)
-        .attr('fill', tone_colors.pos)
-        .attr('stroke', 'white');
+        .attr('fill', tone_colors.negative)
+        .attr('stroke', 'white')
+        .on('mouseover', (e,d,i) => mouseover(e,d,'negative',i))
+        .on('mouseout',  mouseout)
     
     neutralGroup.selectAll('path')
         .data(pieData)
         .enter()
         .append('path')
         .attr('d', arc1)
-        .attr('fill', tone_colors.neut)
-        .attr('stroke', 'white');
+        .attr('fill', tone_colors.neutral)
+        .attr('stroke', 'white')
+        .on('mouseover', (e,d,i) => mouseover(e,d,'neutral',i))
+        .on('mouseout',  mouseout)
 
     poleBGroup.selectAll('path')
         .data(pieData)
         .enter()
         .append('path')
         .attr('d', arc2)
-        .attr('fill', tone_colors.neg)
-        .attr('stroke', 'white');
+        .attr('fill', tone_colors.positive)
+        .attr('stroke', 'white')
+        .on('mouseover', (e,d,i) => mouseover(e,d,'positive',i))
+        .on('mouseout',  mouseout)
 
     countsGroup.selectAll('path')
         .data(pieData)
         .enter()
         .append('path')
         .attr('d', arc3)
-        .attr('fill', (d, i) => col_(i))
+        .attr('fill', (d, i) => colors_[i])
         // .attr('stroke', 'white');
         // .style("filter", "url(#drop-shadow)")
     
