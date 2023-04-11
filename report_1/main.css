@@ -237,17 +237,17 @@ path:hover, rect:hover {
 }
 .num-chart > .num-chart-row:nth-child(2){
     border-left: 2px solid rgba(41, 128, 185, .7);
-    /* color:rgba(22, 160, 133, 1); */
+    color:rgba(41, 128, 185, 1);;
     background: rgba(41, 128, 185, .3);
 }
 .num-chart > .num-chart-row:nth-child(3){
     border-left: 2px solid gray;
-    /* color: gray; */
+    color: rgba(158, 158, 158, 1);
     background: rgba(158, 158, 158, 0.3);
 }
 .num-chart > .num-chart-row:nth-child(4){
     border-left: 2px solid rgba(192, 57, 43, 1);;
-    /* color: rgba(192, 57, 43, 1); */
+    color: rgba(192, 57, 43, 1);
     background: rgba(192, 57, 43, .3);
 }
 .num-chart-row > div:first-child{
