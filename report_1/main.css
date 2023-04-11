@@ -353,3 +353,8 @@ transform: scale(.5);
 div[data-disc] div[data-party]{
     display: none;
 }
+.swarm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

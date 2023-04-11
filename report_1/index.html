@@ -502,6 +502,7 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
+            <div class="swarm" data-disc="saakashvili"></div>
         </div>
         <div>
             <h2>Pro-Western or Anti-Western foreign policy</h2>
@@ -576,6 +577,7 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
+            <div class="swarm" data-disc="west_vv"></div>
         </div>
         <div>
             <h2>Pro-Russian or anti-Russian foreign policy</h2>
@@ -649,6 +651,7 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
+            <div class="swarm" data-disc="russ_vv"></div>
         </div>
         <div>
             <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
@@ -724,6 +727,7 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
+            <div class="swarm" data-disc="olig_vv"></div>
         </div>
         <h3>Next Steps</h3>
         
@@ -741,12 +745,18 @@ Political parties covered in the study:<br /><br />
 
 <script src="../totals.js"></script>
 <script src="../time_series.js"></script>
+<script src="time_series.js"></script>
 <script src="legend.js"></script>
 <script src="time_.js"></script>
 <!-- <script src="radar.js"></script> -->
 
 
 <script src="stacked_pie.js"></script>
-<!-- <script src="area.js"></script> -->
-
+<script src="swarm.js"></script>
+<script>
+    draw_swarm('west_vv')        
+    draw_swarm('russ_vv')        
+    draw_swarm('olig_vv')        
+    draw_swarm('saakashvili')        
+    </script>
 </html>
