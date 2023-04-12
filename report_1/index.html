@@ -24,22 +24,47 @@
     <!-- <div id="my_dataviz"></div> -->
     <div class="right">
         <div id="methodology">
+            <img src="logos/top/eu2geo.png" class="top-logo">
             <h1>Exploring Political Polarization in Georgia: A Social Media-Based Analysis of Key Discourses and
                 Contributing Factors using LLM</h1>
-            
+
             <h2>Methodology</h2>
             <h3>Abstract</h3>
 
-<p>This investigation delves into political polarization in Georgia, examining social media discourses and influential factors using machine learning methodologies grounded in language models. In line with the European Union's recommendations to the Georgian government, the study aims to monitor and assess the country's efforts to decrease polarization as part of its EU integration process. We amassed a dataset of 120,000 posts from 154 social media accounts linked to diverse political parties, originating from four leading platforms. By dissecting ten primary polarization discourses, we scrutinized opposing narratives fueling polarization. We applied 42,000 annotation points from 5,000 distinctive posts to develop and validate text classification models. The study employed three pre-trained models—BERT-Multilingual, XLM-RoBERTa, and Electra-Ka—for accurate classification and analysis of Georgia's political polarization discourse and narratives.</p>
+            <p>This investigation delves into political polarization in Georgia, examining social media discourses and
+                influential factors using machine learning methodologies grounded in language models. In line with the
+                European Union's recommendations to the Georgian government, the study aims to monitor and assess the
+                country's efforts to decrease polarization as part of its EU integration process. We amassed a dataset
+                of 120,000 posts from 154 social media accounts linked to diverse political parties, originating from
+                four leading platforms. By dissecting ten primary polarization discourses, we scrutinized opposing
+                narratives fueling polarization. We applied 42,000 annotation points from 5,000 distinctive posts to
+                develop and validate text classification models. The study employed three pre-trained
+                models—BERT-Multilingual, XLM-RoBERTa, and Electra-Ka—for accurate classification and analysis of
+                Georgia's political polarization discourse and narratives.</p>
 
-<h3>Introduction</h3>
+            <h3>Introduction</h3>
 
-<p>Since its independence, Georgia has consistently expressed its European aspirations, which are enshrined in the Georgian Constitution and supported by the country's citizens and political spectrum. The Georgian government's commitment to progress on its European path is exemplified by its initial intention to submit an EU membership application in 2024. In response to the European Union's recommendations, this study aims to monitor Georgia's efforts to reduce political polarization, a critical aspect of the country's integration process. By analyzing social media discourses and key factors contributing to polarization, we hope to provide valuable insights into Georgia's progress toward meeting the EU's expectations and fostering a more inclusive and cooperative political landscape.</p>
+            <p>Since its independence, Georgia has consistently expressed its European aspirations, which are enshrined
+                in the Georgian Constitution and supported by the country's citizens and political spectrum. The
+                Georgian government's commitment to progress on its European path is exemplified by its initial
+                intention to submit an EU membership application in 2024. In response to the European Union's
+                recommendations, this study aims to monitor Georgia's efforts to reduce political polarization, a
+                critical aspect of the country's integration process. By analyzing social media discourses and key
+                factors contributing to polarization, we hope to provide valuable insights into Georgia's progress
+                toward meeting the EU's expectations and fostering a more inclusive and cooperative political landscape.
+            </p>
 
-<h3>Methodology and Data Collection</h3>
+            <h3>Methodology and Data Collection</h3>
 
-<p>The methodology employed in this study involved a thorough examination of data collected from diverse social media accounts associated with various political parties and their members. In total, 154 public accounts were carefully monitored using a rigorous selection process, which facilitated the analysis of political polarization in Georgia. The dataset encompassed posts published between 2021 and March 2023, amounting to 120,000 posts extracted from four major social media platforms: Facebook, YouTube, Telegram, and Vkontakte. This comprehensive approach to data collection allowed for a wide-ranging perspective on Georgia's political landscape, ensuring a balanced representation of political opinions and ideologies.</p>
-Political parties covered in the study:<br /><br />
+            <p>The methodology employed in this study involved a thorough examination of data collected from diverse
+                social media accounts associated with various political parties and their members. In total, 154 public
+                accounts were carefully monitored using a rigorous selection process, which facilitated the analysis of
+                political polarization in Georgia. The dataset encompassed posts published between 2021 and March 2023,
+                amounting to 120,000 posts extracted from four major social media platforms: Facebook, YouTube,
+                Telegram, and Vkontakte. This comprehensive approach to data collection allowed for a wide-ranging
+                perspective on Georgia's political landscape, ensuring a balanced representation of political opinions
+                and ideologies.</p>
+            Political parties covered in the study:<br /><br />
             <ul>
                 <li> ● Georgian Dream</li>
                 <li> ● United National Movement</li>
@@ -78,63 +103,102 @@ Political parties covered in the study:<br /><br />
             </ul><br />
             <div class="pie-legent">
                 <h1>Polarisation Poles</h1>
-            <h2>Mikheil Saakashvili's custody and treatment</h2>
-            <div class="plot-legend"><span class="color-legent blue"></span> Pole A - This category includes text that
-                argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not be
-                sentenced in a country with established state institutions and that his detention damages the country's
-                Western foreign course, his health is critical, and he should be taken abroad for treatment.</div><br />
-            <div class="plot-legend"><span class="color-legent red"></span> Pole B - This category includes text that argues
-                for Mikheil (Misha) Saakashvili to remain in custody, claiming he has a satisfactory health condition,
-                is personally responsible for his health deterioration, and does not require treatment abroad.</div>
-            <br />
-            <h2>Pro-Western or Anti-Western foreign policy</h2>
+                <h2>Mikheil Saakashvili's custody and treatment</h2>
+                <div class="plot-legend"><span class="color-legent blue"></span> Pole A - This category includes text
+                    that
+                    argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not
+                    be
+                    sentenced in a country with established state institutions and that his detention damages the
+                    country's
+                    Western foreign course, his health is critical, and he should be taken abroad for treatment.</div>
+                <br />
+                <div class="plot-legend"><span class="color-legent red"></span> Pole B - This category includes text
+                    that argues
+                    for Mikheil (Misha) Saakashvili to remain in custody, claiming he has a satisfactory health
+                    condition,
+                    is personally responsible for his health deterioration, and does not require treatment abroad.</div>
+                <br />
+                <h2>Pro-Western or Anti-Western foreign policy</h2>
 
-            <div class="plot-legend"><span class="color-legent blue"></span> Pole A - (Pro-Western): Supports Georgia's
-                alignment with the West.</div><br />
+                <div class="plot-legend"><span class="color-legent blue"></span> Pole A - (Pro-Western): Supports
+                    Georgia's
+                    alignment with the West.</div><br />
 
-            <div class="plot-legend"><span class="color-legent red"></span> Pole B - (Anti-Western): Criticizes, distrust or
-                negative view towards Georgia's western course, western countries, politicians, institutions, or
-                policies .</div><br />
-            <h2>Pro-Russian or anti-Russian foreign policy</h2>
+                <div class="plot-legend"><span class="color-legent red"></span> Pole B - (Anti-Western): Criticizes,
+                    distrust or
+                    negative view towards Georgia's western course, western countries, politicians, institutions, or
+                    policies .</div><br />
+                <h2>Pro-Russian or anti-Russian foreign policy</h2>
 
-            <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Against negotiating or cooperating
-                with Russia</div><br />
-            <div class="plot-legend"><span class="color-legent red"></span> Pole B - Non-confrontational policy towards
-                Russia</div><br />
-            <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
+                <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Against negotiating or
+                    cooperating
+                    with Russia</div><br />
+                <div class="plot-legend"><span class="color-legent red"></span> Pole B - Non-confrontational policy
+                    towards
+                    Russia</div><br />
+                <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
 
-            <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Bidzina Ivanishvili is the only
-                oligarch in Georgia, controlling the country from the shadows and having power over all politicians
-            </div><br />
-            <div class="plot-legend"><span class="color-legent red"></span> Pole B - Bidzina Ivanishvili is a philanthropist
-                and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili,
-                Saakashvili, and Khazaradze instead</div><br />
+                <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Bidzina Ivanishvili is the
+                    only
+                    oligarch in Georgia, controlling the country from the shadows and having power over all politicians
+                </div><br />
+                <div class="plot-legend"><span class="color-legent red"></span> Pole B - Bidzina Ivanishvili is a
+                    philanthropist
+                    and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili,
+                    Saakashvili, and Khazaradze instead</div><br />
             </div>
             <br />
             By examining these discourses, we aim to provide a comprehensive understanding of the complex dynamics
             shaping political polarization in Georgia and the underlying factors driving these divisive narratives.
             <br /><br />
-            Two additional discourses Law against foreign agents, and Sanctions against Gororgian Court members, will be added in the next phase of the study.
+            Two additional discourses Law against foreign agents, and Sanctions against Gororgian Court members, will be
+            added in the next phase of the study.
             <h3>Data Annotation</h3>
 
-<p>To facilitate a robust data annotation process, 26 master's students from Tbilisi State University and ILIA University, with a focus on Political and Social studies, were chosen to partake in the text annotation exercise. This exercise produced a total of 42,000 annotation points, addressing 5,000 unique posts from the collected dataset. To guarantee the quality and reliability of the annotated text examples, each post was independently annotated by four distinct annotators. This strategy minimized the risk of bias or misinterpretation, leading to a more objective analysis. The annotated examples were then used to train the text classification models, as well as to validate the accuracy of the discourse and narrative prediction models, thus reinforcing the rigor and robustness of our research framework.</p>
+            <p>To facilitate a robust data annotation process, 26 master's students from Tbilisi State University and
+                ILIA University, with a focus on Political and Social studies, were chosen to partake in the text
+                annotation exercise. This exercise produced a total of 42,000 annotation points, addressing 5,000 unique
+                posts from the collected dataset. To guarantee the quality and reliability of the annotated text
+                examples, each post was independently annotated by four distinct annotators. This strategy minimized the
+                risk of bias or misinterpretation, leading to a more objective analysis. The annotated examples were
+                then used to train the text classification models, as well as to validate the accuracy of the discourse
+                and narrative prediction models, thus reinforcing the rigor and robustness of our research framework.
+            </p>
 
-<h3>Classification Models</h3>
+            <h3>Classification Models</h3>
 
-<p>For effective text and entity classification, we selected three pre-trained models: BERT-Multilingual, XLM-RoBERTa, and Electra-Ka. These models were fine-tuned using a multi-class, multi-label architecture, employing the collected dataset to optimize performance for our specific task. The table below outlines the scores for the model training exercises, offering a thorough understanding of the process and its outcomes.</p>
+            <p>For effective text and entity classification, we selected three pre-trained models: BERT-Multilingual,
+                XLM-RoBERTa, and Electra-Ka. These models were fine-tuned using a multi-class, multi-label architecture,
+                employing the collected dataset to optimize performance for our specific task. The table below outlines
+                the scores for the model training exercises, offering a thorough understanding of the process and its
+                outcomes.</p>
 
-<h3>Discussion and Implications</h3>
+            <h3>Discussion and Implications</h3>
 
-<p>The findings of this study provide a comprehensive understanding of the complex dynamics shaping political polarization in Georgia, including the key factors driving these divisive narratives. By examining the identified discourses and opposing narrative groups, we have illuminated areas where cooperation and collaboration between political parties can be encouraged, as recommended by the EU.</p>
+            <p>The findings of this study provide a comprehensive understanding of the complex dynamics shaping
+                political polarization in Georgia, including the key factors driving these divisive narratives. By
+                examining the identified discourses and opposing narrative groups, we have illuminated areas where
+                cooperation and collaboration between political parties can be encouraged, as recommended by the EU.</p>
 
-<p>Our analysis reveals that Georgia has made some strides in addressing political polarization, with tangible progress evident in specific discourses. However, further efforts are needed to ensure robust cooperation and mutual understanding across the political landscape. The country's ongoing commitment to EU integration requires addressing the root causes of polarization, fostering a more inclusive political environment, and strengthening democratic institutions.</p>
+            <p>Our analysis reveals that Georgia has made some strides in addressing political polarization, with
+                tangible progress evident in specific discourses. However, further efforts are needed to ensure robust
+                cooperation and mutual understanding across the political landscape. The country's ongoing commitment to
+                EU integration requires addressing the root causes of polarization, fostering a more inclusive political
+                environment, and strengthening democratic institutions.</p>
 
-<h3>Conclusion</h3>
+            <h3>Conclusion</h3>
 
-<p>This research offers valuable insights into Georgia's political polarization, delving into discourses and influential factors through a social media-based analysis. By leveraging state-of-the-art language models and machine learning methodologies, we were able to examine a comprehensive dataset spanning multiple platforms and political parties. Our findings underscore the importance of continued efforts in reducing political polarization in Georgia, aligned with the EU's recommendations, to facilitate the country's integration process and promote a more inclusive political climate. This study provides a solid foundation for future research on Georgia's political landscape and serves as a useful model for analyzing polarization in other contexts.</p>
+            <p>This research offers valuable insights into Georgia's political polarization, delving into discourses and
+                influential factors through a social media-based analysis. By leveraging state-of-the-art language
+                models and machine learning methodologies, we were able to examine a comprehensive dataset spanning
+                multiple platforms and political parties. Our findings underscore the importance of continued efforts in
+                reducing political polarization in Georgia, aligned with the EU's recommendations, to facilitate the
+                country's integration process and promote a more inclusive political climate. This study provides a
+                solid foundation for future research on Georgia's political landscape and serves as a useful model for
+                analyzing polarization in other contexts.</p>
 
-<h3>Data flow</h3>
-<img src="polar-llm-flow.jpg"/>
+            <h3>Data flow</h3>
+            <img src="polar-llm-flow.jpg" class="mdl-img" />
             <!-- <h3>LLMs (GPT3.5, GPT4, curie, davinchi)</h3> -->
             <!-- <h3>Prompt Eningeering</h3> -->
             <!-- Discourse detection -> pole detection<br/>
@@ -154,7 +218,7 @@ Political parties covered in the study:<br /><br />
             <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
             <!-- <h3>Limitation</h3> -->
             <!-- <h3>Error Scores Validation</h3> -->
-            
+
             <!-- Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos. -->
             <br />
             <br />
@@ -200,7 +264,8 @@ Political parties covered in the study:<br /><br />
                         The median engagement per post in the dataset is 644 engagement actions per post</p>
                     <p><span class="color-legent green1"></span> Positive, <span class="color-legent grey1"></span>
                         Neutral and <span class="color-legent red1"></span> Negative Engagement per pole</p>
-                    <p>Engagement per pole is represented by radius of green, gray and red segments of the sector, longer the radius more engagement the pole hase.
+                    <p>Engagement per pole is represented by radius of green, gray and red segments of the sector,
+                        longer the radius more engagement the pole hase.
 
                         The median positive engagement per post in the dataset is 415 engagement actions per post,
                         The median neutral engagement per post in the dataset is 153 engagement actions per post,
@@ -210,7 +275,7 @@ Political parties covered in the study:<br /><br />
                 <div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-eng-1"></div>
-                        <div class="pie-doc-descr">Logarithmic scale</br> 10,000 posts Pole A:  positive engagement - ,
+                        <div class="pie-doc-descr">Logarithmic scale</br> 10,000 posts Pole A: positive engagement - ,
                             Neutral average 300 emgagement per post,
                             average 300 emgagement per postPole B</div>
                     </div>
@@ -228,15 +293,17 @@ Political parties covered in the study:<br /><br />
                     </div>
                 </div>
             </div>
-            
-            
+
+
         </div>
         <div id="full">
             <h2>First Phase Results
                 <!-- <button id="pos" >Positive Engagement Scores</button><button id="neg" >Negative Engagement Scores</button><button id="engage">Total Engagement</button><button id="count" class="active">Posts Count</button> -->
             </h2>
             <p>
-                First phase covers the period from Jnuary 1, 2023 to March 27, 2023 and four polarisation discourses: Mikheil Saakashvili's custody and treatment,                 Pro-Western or Anti-Western foreign policy,                 Pro-Russian or anti-Russian foreign policy, and                 Oligarchs and their role in political processes
+                First phase covers the period from Jnuary 1, 2023 to March 27, 2023 and four polarisation discourses:
+                Mikheil Saakashvili's custody and treatment, Pro-Western or Anti-Western foreign policy, Pro-Russian or
+                anti-Russian foreign policy, and Oligarchs and their role in political processes
             </p>
             <div id="stacked-pie">
                 <div class="grid first-grid">
@@ -397,7 +464,7 @@ Political parties covered in the study:<br /><br />
                 </div>
             </div>
             <!-- <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p> -->
-            
+
         </div>
 
         <!-- <div>
@@ -412,35 +479,55 @@ Political parties covered in the study:<br /><br />
         </div> -->
         <div class="pie-legent">
             <h2>Time Series Data</h2>
-            <p>Data below represents the dinamics of polarisation discourses and coresponding engagements.<br/><br/>
-                <span class="color-legent blue"></span> Blue area corespondes to the number of posts with pole A narative<br/>
-                <span class="color-legent gray"></span> Gray area corespondes to the number of posts with neutral narative<br/>
-                <span class="color-legent red"></span> Red area corespondes to the number of posts with pole B narative<br/>
-                <br/>
-                The bars on the chart represents the engagement for the posts<br/><br/>
-                <span class="color-legent blue"></span> Dark blue part of a bar corespondes to pole A, positive engagement<br/>
-                <span class="color-legent blue" style="opacity: .7;"></span> Lighter blue part of a bar corespondes to pole A, neutral engagement<br/>
-                <span class="color-legent blue"  style="opacity: .3;"></span> The lightest blue part of a bar corespondes to pole A, negative engagement<br/>
-                <span class="color-legent gray"></span> Dark gray part of a bar corespondes to neutral pole, positive engagement<br/>
-                <span class="color-legent gray" style="opacity: .7;"></span> Lighter gray part of a bar corespondes to neutral pole, neutral engagement<br/>
-                <span class="color-legent gray"  style="opacity: .3;"></span> The lightest gray part of a bar corespondes to neutral pole, negative engagement<br/>
-                <span class="color-legent red"></span> Dark red part of a bar corespondes to pole B, positive engagement<br/>
-                <span class="color-legent red" style="opacity: .7;"></span> Lighter red part of a bar corespondes to pole B, neutral engagement<br/>
-                <span class="color-legent red"  style="opacity: .3;"></span> The lightest red part of a bar corespondes to pole B, negative engagement<br/>
-            
+            <p>Data below represents the dinamics of polarisation discourses and coresponding engagements.<br /><br />
+                <span class="color-legent blue"></span> Blue area corespondes to the number of posts with pole A
+                narative<br />
+                <span class="color-legent gray"></span> Gray area corespondes to the number of posts with neutral
+                narative<br />
+                <span class="color-legent red"></span> Red area corespondes to the number of posts with pole B
+                narative<br />
+                <br />
+                The bars on the chart represents the engagement for the posts<br /><br />
+                <span class="color-legent blue"></span> Dark blue part of a bar corespondes to pole A, positive
+                engagement<br />
+                <span class="color-legent blue" style="opacity: .7;"></span> Lighter blue part of a bar corespondes to
+                pole A, neutral engagement<br />
+                <span class="color-legent blue" style="opacity: .3;"></span> The lightest blue part of a bar corespondes
+                to pole A, negative engagement<br />
+                <span class="color-legent gray"></span> Dark gray part of a bar corespondes to neutral pole, positive
+                engagement<br />
+                <span class="color-legent gray" style="opacity: .7;"></span> Lighter gray part of a bar corespondes to
+                neutral pole, neutral engagement<br />
+                <span class="color-legent gray" style="opacity: .3;"></span> The lightest gray part of a bar corespondes
+                to neutral pole, negative engagement<br />
+                <span class="color-legent red"></span> Dark red part of a bar corespondes to pole B, positive
+                engagement<br />
+                <span class="color-legent red" style="opacity: .7;"></span> Lighter red part of a bar corespondes to
+                pole B, neutral engagement<br />
+                <span class="color-legent red" style="opacity: .3;"></span> The lightest red part of a bar corespondes
+                to pole B, negative engagement<br />
+
             </p>
-        </div>    
+        </div>
         <div>
 
             <h2>Mikheil Saakashvili's custody and treatment</h2>
             <!-- <p>Over the past 30 years, Mike Schulman’s one-man operation has dispatched an enormous volume of quietly influential records. From The Aislers Set’s analog garage pop to Glenn Donaldson’s polychromatic kitchen pop; from the first entry in Stereolab’s Switched On series to Veronica Falls’ gorgeous juxtaposition of sweet and sinister, the Bay Area label’s archives are a treasure trove of melodic, inventive guitar music and its adjacent acquaintances.“Slumberland was started in 1989 to document the weird, primitive music that a small group of friends were making in various combinations/configurations,” says Schulman, who played in one such configuration: Black Tambourine. Although his label would quickly grow to document less primitive, less weird music—one Velocity Girl track was deemed palatable enough for the teen comedy Clueless, and Frankie Rose’s masterpiece Interstellar is as expansive as they come—Schulman has never diverted from this initial aim.“The process for me hasn’t really changed,” he says. “I work mostly with friends, or friends of friends—the personal connection is key. I’m generally turned off by excessive ambition; I like people for whom making music seems like an urgent undertaking.” Never boasting a flagship band or bands, Slumberland is underpinned by this equitable DIY ethos.</p> -->
-            <div class="plot-legend"><span class="color-legent blue"></span> Pole A - This category includes text that
-                argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not be
-                sentenced in a country with established state institutions and that his detention damages the country's
-                Western foreign course, his health is critical, and he should be taken abroad for treatment.</div><br />
-            <div class="plot-legend"><span class="color-legent red"></span> Pole B - This category includes text that argues
-                for Mikheil (Misha) Saakashvili to remain in custody, claiming he has a satisfactory health condition,
-                is personally responsible for his health deterioration, and does not require treatment abroad.</div>
+            <div class="pie-legent">
+                <div class="plot-legend"><span class="color-legent blue"></span> Pole A - This category includes text
+                    that
+                    argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not
+                    be
+                    sentenced in a country with established state institutions and that his detention damages the
+                    country's
+                    Western foreign course, his health is critical, and he should be taken abroad for treatment.</div>
+                <br />
+                <div class="plot-legend"><span class="color-legent red"></span> Pole B - This category includes text
+                    that argues
+                    for Mikheil (Misha) Saakashvili to remain in custody, claiming he has a satisfactory health
+                    condition,
+                    is personally responsible for his health deterioration, and does not require treatment abroad.</div>
+            </div>
             <div class="hor-grid" data-disc="saakashvili">
                 <div data-party="გირჩი">
                     <div>Girchi</div>
@@ -507,15 +594,42 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
-            <div class="swarm" data-disc="saakashvili"></div>
+            <h2>Posts distribution and engagement</h2>
+            <div class="pie-legent">
+                <div class="plot-legend"><span class="color-legent blue circle"></span> Pole A - This category includes
+                    text that
+                    argues against Mikheil (Misha) Saakashvili's imprisonment, stating that he is innocent, should not
+                    be
+                    sentenced in a country with established state institutions and that his detention damages the
+                    country's
+                    Western foreign course, his health is critical, and he should be taken abroad for treatment.</div>
+                <br />
+                <div class="plot-legend"><span class="color-legent red circle"></span> Pole B - This category includes
+                    text that argues
+                    for Mikheil (Misha) Saakashvili to remain in custody, claiming he has a satisfactory health
+                    condition,
+                    is personally responsible for his health deterioration, and does not require treatment abroad.</div>
+                <br />
+                <span class="color-legent gray circle circle-s"></span>
+                <span class="color-legent gray circle "></span>
+                <span class="color-legent gray circle circle-l"></span> -
+                The size of the circle corespondes to engagement for the posts
+            </div>
+            <!-- <div class="swarm" data-disc="saakashvili"></div> -->
+            <img src="swarm_1.jpg" class="mdl-img" />
         </div>
         <div>
             <h2>Pro-Western or Anti-Western foreign policy</h2>
-            <div class="plot-legend"> <span class="color-legent blue"></span> Pole A - (Pro-Western): Supports Georgia's
-                alignment with the West.</div><br />
-            <div class="plot-legend"> <span class="color-legent red"></span> Pole B - (Anti-Western): Criticizes, distrust or
-                has negative view towards Georgia's Western foreign policy course, Western countries, politicians,
-                institutions, or policies .</div><br />
+            <div class="pie-legent">
+
+                <div class="plot-legend"> <span class="color-legent blue"></span> Pole A - (Pro-Western): Supports
+                    Georgia's
+                    alignment with the West.</div><br />
+                <div class="plot-legend"> <span class="color-legent red"></span> Pole B - (Anti-Western): Criticizes,
+                    distrust or
+                    has negative view towards Georgia's Western foreign policy course, Western countries, politicians,
+                    institutions, or policies .</div><br />
+            </div>
             <div class="hor-grid" data-disc="west_vv">
                 <div data-party="გირჩი">
                     <div>Girchi</div>
@@ -582,14 +696,33 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
-            <div class="swarm" data-disc="west_vv"></div>
+            <h2>Posts distribution and engagement</h2>
+            <div class="pie-legent">
+                <div class="plot-legend"><span class="color-legent blue circle"></span> Pole A - (Pro-Western): Supports
+                    Georgia's
+                    alignment with the West.</div><br />
+                <div class="plot-legend"> <span class="color-legent red circle"></span> Pole B - (Anti-Western):
+                    Criticizes, distrust or
+                    has negative view towards Georgia's Western foreign policy course, Western countries, politicians,
+                    institutions, or policies .</div>
+                <br />
+                <span class="color-legent gray circle circle-s"></span>
+                <span class="color-legent gray circle "></span>
+                <span class="color-legent gray circle circle-l"></span> -
+                The size of the circle corespondes to engagement for the posts
+            </div>
+            <!-- <div class="swarm" data-disc="west_vv"></div> -->
+            <img src="swarm_west.jpg" class="mdl-img" />
         </div>
         <div>
             <h2>Pro-Russian or anti-Russian foreign policy</h2>
-            <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Against negotiating or cooperating
-                with Russia</div><br />
-            <div class="plot-legend"><span class="color-legent red"></span> Pole B - Non-confrontational policy towards
-                Russia</div><br />
+            <div class="pie-legent">
+
+                <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Against negotiating or
+                    cooperating
+                    with Russia</div><br />
+                <div class="plot-legend"><span class="color-legent red"></span> Pole B - Non-confrontational policy towards Russia</div><br />
+            </div>
             <div class="hor-grid" data-disc="russ_vv">
                 <div data-party="გირჩი">
                     <div>Girchi</div>
@@ -656,16 +789,33 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
-            <div class="swarm" data-disc="russ_vv"></div>
+            <h2>Posts distribution and engagement</h2>
+            <div class="pie-legent">
+                <div class="plot-legend"><span class="color-legent blue circle"></span>  Pole A - Against negotiating or cooperating with Russia</div>
+                <br />
+                <div class="plot-legend"><span class="color-legent red circle"></span> Pole B - Non-confrontational policy towards Russia</div>
+                <br />
+                <span class="color-legent gray circle circle-s"></span>
+                <span class="color-legent gray circle "></span>
+                <span class="color-legent gray circle circle-l"></span> -
+                The size of the circle corespondes to engagement for the posts
+            </div>
+            <!-- <div class="swarm" data-disc="russ_vv"></div> -->
+            <img src="swarm_russ.jpg" class="mdl-img" />
         </div>
         <div>
             <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
-            <div class="plot-legend"> <span class="color-legent blue"></span> Pole A - Bidzina Ivanishvili is the only
-                oligarch in Georgia, controlling the country from the shadows and having power over all politicians
-            </div><br />
-            <div class="plot-legend"> <span class="color-legent red"></span> Pole B - Bidzina Ivanishvili is a philanthropist
-                and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili,
-                Saakashvili, and Khazaradze instead</div><br />
+            <div class="pie-legent">
+
+                <div class="plot-legend"> <span class="color-legent blue"></span> Pole A - Bidzina Ivanishvili is the
+                    only
+                    oligarch in Georgia, controlling the country from the shadows and having power over all politicians
+                </div><br />
+                <div class="plot-legend"> <span class="color-legent red"></span> Pole B - Bidzina Ivanishvili is a
+                    philanthropist
+                    and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili,
+                    Saakashvili, and Khazaradze instead</div><br />
+            </div>
             <div class="hor-grid" data-disc="olig_vv">
                 <div data-party="გირჩი">
                     <div>Girchi</div>
@@ -732,17 +882,40 @@ Political parties covered in the study:<br /><br />
                     <div></div>
                 </div>
             </div>
-            <div class="swarm" data-disc="olig_vv"></div>
+            <h2>Posts distribution and engagement</h2>
+            <div class="pie-legent">
+                <div class="plot-legend"><span class="color-legent blue circle"></span> Pole A - Bidzina Ivanishvili is the only oligarch in Georgia, controlling the country from the shadows and having power over all politicians</div>
+                <br />
+                <div class="plot-legend"><span class="color-legent red circle"></span>ole B - Bidzina Ivanishvili is a
+                    philanthropist
+                    and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili,
+                    Saakashvili, and Khazaradze instead</div>
+                <br />
+                <span class="color-legent gray circle circle-s"></span>
+                <span class="color-legent gray circle "></span>
+                <span class="color-legent gray circle circle-l"></span> -
+                The size of the circle corespondes to engagement for the posts
+            </div>
+            <!-- <div class="swarm" data-disc="olig_vv"></div> -->
+            <img src="swarm_olig.jpg" class="mdl-img" />
         </div>
-        <h3>Next Steps</h3>
-        
+        <!-- <h3>Next Steps</h3> -->
+
         <h3>Authors</h3>
-        <p>Davit Janezashvili - Data Scientist and Founder at Mettamine 
-            <br> djanezashvili[a]gmail.com<br>
+        <p>Davit Janezashvili - Data Scientist and Founder at Mettamine <i> djanezashvili[a]gmail.com</i> <br />
             Lia Chkhetiani - MA Candidate in Political Science ('23) at CEU, Vienna, Austria
-            <br><br> Contact: 
+
         </p>
         <!-- <h3>Resourses</h3> -->
+        <div class="footer-logos">
+            <img src="logos/footer/1. KAS.png" alt="">
+            <img src="logos/footer/2. CSI.png" alt="">
+            <img src="logos/footer/3. CTC.png" alt="">
+            <img src="logos/footer/4. EDEC.png" alt="">
+            <img src="logos/footer/5. IEP.png" alt="">
+
+        </div>
+
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
@@ -752,18 +925,19 @@ Political parties covered in the study:<br /><br />
 
 <script src="../totals.js"></script>
 <script src="../time_series.js"></script>
-<script src="time_series.js"></script>
+<!-- <script src="time_series.js"></script> -->
 <script src="legend.js"></script>
 <script src="time_.js"></script>
 <!-- <script src="radar.js"></script> -->
 
 
 <script src="stacked_pie.js"></script>
-<script src="swarm.js"></script>
+<!-- <script src="swarm.js"></script>
 <script>
     draw_swarm('west_vv')        
     draw_swarm('russ_vv')        
     draw_swarm('olig_vv')        
     draw_swarm('saakashvili')        
-    </script>
+    </script> -->
+
 </html>

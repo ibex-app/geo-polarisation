@@ -319,6 +319,18 @@ transform: scale(.5);
     width: 20px;
     height: 15px;
 }
+.color-legent.circle{
+    width: 15px;
+    border-radius: 100%;
+}
+.color-legent.circle.circle-l{
+    width: 20px;
+    height: 20px;
+}
+.color-legent.circle.circle-s{
+    width: 10px;
+    height: 10px;
+}
 .color-legent.blue{
     background-color: rgba(41, 128, 185, .7);
 }
@@ -379,4 +391,27 @@ div[data-disc] div[data-party]{
     opacity: 0;
     font-weight: bold;
     font-family: monospace;
+}
+
+.footer-logos{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: white;
+    padding: 15px;
+}
+
+.footer-logos > img{
+    height: 100px;
+}
+
+.top-logo{
+    height: 100px;
+    background: white;
+    padding: 10px 20px 10px 10px;
+}
+
+.mdl-img{
+    margin: 0 auto;
+    display: block;
 }
