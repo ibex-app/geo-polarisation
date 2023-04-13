@@ -23,6 +23,7 @@ body{
     right: 10vw;
     /* overflow-y: scroll; */
     padding: 15px;
+    min-width: 1200px;
 }
 .chart{
     width: 70vw;
@@ -61,7 +62,7 @@ body{
     width: 100%;
     display: flex;
     /* height: calc(70vw / 11.7); */
-    height: calc(70vw / 9);
+    height: 180px;
     border-bottom: 1px solid #ddd8d8;
 }
 .hor-grid > div{
@@ -72,13 +73,14 @@ body{
     border-bottom: 1px solid #ddd8d8;
 }
 .grid > div  > div{
-    width: 200px;
-    height: 150px;
+    width: 150px;
     /* display: inline-block; */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 .grid > div  > div:first-child{
     justify-content: left;
@@ -391,6 +393,7 @@ div[data-disc] div[data-party]{
     opacity: 0;
     font-weight: bold;
     font-family: monospace;
+    color:rgba(158, 158, 158, 1);
 }
 
 .footer-logos{
@@ -399,6 +402,7 @@ div[data-disc] div[data-party]{
     justify-content: space-between;
     background: white;
     padding: 15px;
+    align-items: center;
 }
 
 .footer-logos > img{
@@ -409,9 +413,31 @@ div[data-disc] div[data-party]{
     height: 100px;
     background: white;
     padding: 10px 20px 10px 10px;
+    float: left;
 }
 
+.top-logo-r{
+    height: 100px;
+    background: white;
+    padding: 10px 20px 10px 10px;
+    float: right;
+}
 .mdl-img{
     margin: 0 auto;
     display: block;
+}
+
+.data-top{
+    width: 100%;
+    text-align: right;
+    font-size: 13px;
+}
+
+.top-logos{
+    width: 100%;
+    height: 120px;
+}
+
+.footer-logos > img.smlr{
+    height: 60px;
 }

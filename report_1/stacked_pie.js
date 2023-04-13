@@ -169,20 +169,23 @@ const split_engagement = (data_) => {
 var pieTooltipDom = d3.select("body").append("div")
      .attr("class", "tooltip-donut")
     //  .style("opacity", 0);
-poleName = ['Pole A:', 'Neutral:', 'Pole B:']
-const colors_op = ['#b3ccd9', '#d7d5d1', '#e1b6ae']
+poleName = ['Pole A', 'Neutral', 'Pole B']
+// const colors_op = ['#b3ccd9', '#d7d5d1', '#e1b6ae']
 const colors_font = {
     positive:"rgba(22, 160, 133, 1)",
     neutral:  "gray", 
     negative: "rgba(192, 57, 43, 1)"
 }
 
-const mouseover = (e, d, pole, i) => {
+const mouseover = (e, d, eng, i) => {
     // console.log(e, d, pole, i)
-    pieTooltipDom.style("color", colors_font[pole]);
-    pieTooltipDom.style("background-color", colors_op[d.index]);
+    // pieTooltipDom.style("color", colors_font[eng]);
+    // pieTooltipDom.style("background-color", colors_op[d.index]);
     pieTooltipDom.style("opacity", 1);
-    pieTooltipDom.html(poleName[d.index] + d.data[pole])
+    html = `Pole: <span style="color:${colors_[d.index]}">${poleName[d.index]}</span><br/>
+    Engagement: <span style="color:${colors_font[eng]}">${eng}</span><br/>
+    Engagement count: ${d.data[eng]}`
+    pieTooltipDom.html(html)
             .style("left", (e.clientX + 10) + "px")
             .style("top", (e.clientY - 15) + "px");
 }
