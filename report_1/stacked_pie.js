@@ -4,19 +4,23 @@ const to_num = (n) => {
     }
     return n
 }
-    
-const draw_numerical = (party, i, data_aggregated) => {
+const get_table_html = (data_aggregated) => {
     const sum = data_aggregated.map(k => k.count).reduce((a, b) => a + b)
-    const dom = document.querySelector('#numerical div[data-party="' + party.replaceAll(' ', '_') + '"] .pie-cont_.n'+i)
-    dom.innerHTML = `
+    const innerHTML = `
         <div class="num-chart">
         <div class="num-chart-row"><div></div><div>Posts</div> <div>Pos</div> <div>Neut</div> <div>Neg</div></div>
         <div class="num-chart-row"><div>A</div><div>${to_num(data_aggregated[0].count)}</div><div>${to_num(data_aggregated[0].positive)}</div><div>${to_num(data_aggregated[0].neutral)}</div><div>${to_num(data_aggregated[0].negative)}</div></div>
         <div class="num-chart-row"><div>N</div><div>${to_num(data_aggregated[1].count)}</div><div>${to_num(data_aggregated[1].positive)}</div><div>${to_num(data_aggregated[1].neutral)}</div><div>${to_num(data_aggregated[1].negative)}</div></div>
         <div class="num-chart-row"><div>B</div><div>${to_num(data_aggregated[2].count)}</div><div>${to_num(data_aggregated[2].positive)}</div><div>${to_num(data_aggregated[2].neutral)}</div><div>${to_num(data_aggregated[2].negative)}</div></div>
         <div class="num-chart-row"><div>Total:${sum} </div> </div>
-        </div>
-    `
+        </div>`
+    return innerHTML
+}
+
+const draw_numerical = (party, i, data_aggregated) => {
+    
+    const dom = document.querySelector('#numerical div[data-party="' + party.replaceAll(' ', '_') + '"] .pie-cont_.n'+i)
+    dom.innerHTML = get_table_html(data_aggregated)
     // console.log(i, party, 'Tottal:', sum)
     // console.log(i, data_aggregated[0].count, '----', data_aggregated[0].positive, data_aggregated[0].neutral, data_aggregated[0].negative)
     // console.log(i, data_aggregated[1].count, '----', data_aggregated[1].positive, data_aggregated[1].neutral, data_aggregated[1].negative)
@@ -78,9 +82,9 @@ const split_engagement = (data_) => {
 
         // values.totalScore = Math.log(values.totalScore)
         // values.totalScore = 1
-        // values.posScore = values.posMean / 415
+        // values.posScore = values.posMean /   415
         // values.neutScore = values.neutMean / 153
-        // values.negScore = values.negMean / 48
+        // values.negScore = values.negMean /   48
 
         return values
     }).map(values => {
@@ -177,14 +181,15 @@ const colors_font = {
     negative: "rgba(192, 57, 43, 1)"
 }
 
-const mouseover = (e, d, eng, i) => {
+const mouseover = (e, d, eng, i, data_aggregated) => {
     // console.log(e, d, pole, i)
     // pieTooltipDom.style("color", colors_font[eng]);
     // pieTooltipDom.style("background-color", colors_op[d.index]);
     pieTooltipDom.style("opacity", 1);
+    pieTooltipDom.style("visibility", 'visible');
     html = `Pole: <span style="color:${colors_[d.index]}">${poleName[d.index]}</span><br/>
     Engagement: <span style="color:${colors_font[eng]}">${eng}</span><br/>
-    Engagement count: ${d.data[eng]}`
+    Engagement count: ${d.data[eng]}` + get_table_html(data_aggregated)
     pieTooltipDom.html(html)
             .style("left", (e.clientX + 10) + "px")
             .style("top", (e.clientY - 15) + "px");
@@ -192,6 +197,7 @@ const mouseover = (e, d, eng, i) => {
 
 const mouseout = d => {
     pieTooltipDom.style("opacity", 0);
+    pieTooltipDom.style("visibility", 'hidden');
 }
 
 const draw_eng_pie = (init_data, party, i) => {
@@ -250,7 +256,7 @@ const draw_eng_pie = (init_data, party, i) => {
     let scalesGroup = svg.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');
     
     
-
+    // data_aggregated.forEach(i => i.data_aggregated = data_aggregated)
     
     poleAGroup.selectAll('path')
         .data(pieData)
@@ -259,7 +265,7 @@ const draw_eng_pie = (init_data, party, i) => {
         .attr('d', arc)
         .attr('fill', tone_colors.negative)
         .attr('stroke', 'white')
-        .on('mouseover', (e,d,i) => mouseover(e,d,'negative',i))
+        .on('mouseover', (e,d,i) => mouseover(e,d,'negative',i, data_aggregated))
         .on('mouseout',  mouseout)
     
     neutralGroup.selectAll('path')
@@ -269,7 +275,7 @@ const draw_eng_pie = (init_data, party, i) => {
         .attr('d', arc1)
         .attr('fill', tone_colors.neutral)
         .attr('stroke', 'white')
-        .on('mouseover', (e,d,i) => mouseover(e,d,'neutral',i))
+        .on('mouseover', (e,d,i) => mouseover(e,d,'neutral',i, data_aggregated))
         .on('mouseout',  mouseout)
 
     poleBGroup.selectAll('path')
@@ -279,7 +285,7 @@ const draw_eng_pie = (init_data, party, i) => {
         .attr('d', arc2)
         .attr('fill', tone_colors.positive)
         .attr('stroke', 'white')
-        .on('mouseover', (e,d,i) => mouseover(e,d,'positive',i))
+        .on('mouseover', (e,d,i) => mouseover(e,d,'positive',i, data_aggregated))
         .on('mouseout',  mouseout)
 
     countsGroup.selectAll('path')
