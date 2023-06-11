@@ -283,7 +283,7 @@ path:hover, rect:hover {
 }
 
 .pie-legent>div>div {
-    height: 170px;
+    height: 350px;
     width: 33%;
     /* border: 1px solid red; */
     display: inline-flex;
@@ -299,7 +299,7 @@ path:hover, rect:hover {
 .pie-doc-chart {
     /* border: 1px solid blue; */
     width: 100px;
-    height: 100px;
+    height: 170px;
 }
 .pie-doc-descr{
     width: 100%;
@@ -308,9 +308,9 @@ path:hover, rect:hover {
     /* border: 1px solid green; */
 }
 .pie-doc-chart svg{margin-left: -45px;
-    margin-top: -45px;
+    margin-top: -5px;
     transform-origin: center;
-transform: scale(.5);
+/* transform: scale(.5); */
 }
 
 .pie-legent h3{font-size: 18px;}
@@ -394,6 +394,7 @@ div[data-disc] div[data-party]{
     font-weight: bold;
     font-family: monospace;
     color:rgba(158, 158, 158, 1);
+    height: 180px;
 }
 
 .footer-logos{
@@ -441,3 +442,4 @@ div[data-disc] div[data-party]{
 .footer-logos > img.smlr{
     height: 53px;
 }
+
