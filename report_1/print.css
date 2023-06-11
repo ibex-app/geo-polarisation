@@ -1,0 +1,67 @@
+.top-logos {
+    width: 92%;
+}
+
+.pie-legent, .footer-logos{
+    width: 90%;
+    margin-left: 0;
+}
+
+
+.mdl-img {
+    width: 90%;
+    margin-left: 0;
+}
+
+.hor-grid{
+    height: auto;
+}
+
+.grid {
+    width: 90%;
+}
+
+.grid.first-grid {
+    margin-right: 0%;
+}
+
+.grid > div > div {
+    width: 20%;
+}
+
+.grid > div > div:first-child {
+    width: 20%;
+}
+
+.grid > div {
+    height: 165px;
+}
+
+.pagebreak { 
+    clear: both;
+    page-break-after: always;
+}
+
+.pie-legent {
+    margin-bottom: 100px;
+}
+
+*{
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+/* body {} */
+
+
+.hor-grid > div > div:first-child {
+width: 20%;
+}
+
+.hor-grid > div > div:last-child {
+    width: 80%;
+}
+
+.p-r-print{
+    padding-right: 10%;
+}
