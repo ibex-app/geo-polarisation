@@ -16,7 +16,9 @@
     <!-- D3.js -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>     -->
     <script src="https://d3js.org/d3.v7.js"></script>
-    <link href='main.css' rel='stylesheet' type='text/css'>
+    <link href='main.css'  rel='stylesheet' type='text/css'>
+    <link href="print.css" rel="stylesheet" media="print" />
+
 </head>
 
 <body>
@@ -28,12 +30,12 @@
                 <img src="logos/top/GEO-EU-POS.jpg" class="top-logo">
                 <img src="logos/footer/6. CSRDG.png" class="top-logo-r">
             </div>
-            <h1>Exploring Political Polarization in Georgia: A Social Media-Based Analysis of Key Discourses and
+            <h1 class="p-r-print">Exploring Political Polarization in Georgia: A Social Media-Based Analysis of Key Discourses and
                 Contributing Factors using LLMs</h1>
-        <div class="data-top">14 March, 2023</div>
+        <div class="data-top">14 March 2023</div>
             <h2>Methodology</h2>
             <h3>Abstract</h3>
-
+            <div class="p-r-print">
             <p>This investigation delves into political polarization in Georgia, examining social media discourses and
                 influential factors using machine learning methodologies grounded in language models. In line with the
                 European Union's recommendations to the Georgian government, the study aims to monitor and assess the
@@ -104,6 +106,8 @@
                 <li> ● Media independence and the role of media in political processes</li>
                 <li> ● The influence of oligarchs in political processes</li>
             </ul><br />
+            </div>
+            <div class="pagebreak"> </div>
             <div class="pie-legent">
                 <h1>Polarisation Poles</h1>
                 <h2>Mikheil Saakashvili's custody and treatment</h2>
@@ -128,9 +132,8 @@
                     alignment with the West.</div><br />
 
                 <div class="plot-legend"><span class="color-legent red"></span> Pole B - (Anti-Western): Criticizes,
-                    distrust or
-                    negative view towards Georgia's western course, western countries, politicians, institutions, or
-                    policies .</div><br />
+                    distrusts, or negative view towards Georgia's western course, western countries, politicians, institutions, or
+                    policies.</div><br />
                 <h2>Pro-Russian or anti-Russian foreign policy</h2>
 
                 <div class="plot-legend"><span class="color-legent blue"></span> Pole A - Against negotiating or
@@ -150,11 +153,12 @@
                     and businessman, and the term 'oligarch' applies to other opposition figures like Kezerashvili,
                     Saakashvili, and Khazaradze instead</div><br />
             </div>
+            <div class="p-r-print">
             <br />
             By examining these discourses, we aim to provide a comprehensive understanding of the complex dynamics
             shaping political polarization in Georgia and the underlying factors driving these divisive narratives.
             <br /><br />
-            Two additional discourses Law against foreign agents, and Sanctions against Gororgian Court members, will be
+            Two additional discourses Law against foreign agents, and Sanctions against Georgian Court members, will be
             added in the next phase of the study.
             <h3>Data Annotation</h3>
 
@@ -192,13 +196,15 @@
             <h3>Conclusion</h3>
 
             <p>This research offers valuable insights into Georgia's political polarization, delving into discourses and
-                influential factors through a social media-based analysis. By leveraging state-of-the-art language
+                influential factors through social media-based analysis. By leveraging state-of-the-art language
                 models and machine learning methodologies, we were able to examine a comprehensive dataset spanning
                 multiple platforms and political parties. Our findings underscore the importance of continued efforts in
                 reducing political polarization in Georgia, aligned with the EU's recommendations, to facilitate the
                 country's integration process and promote a more inclusive political climate. This study provides a
                 solid foundation for future research on Georgia's political landscape and serves as a useful model for
                 analyzing polarization in other contexts.</p>
+            </div>
+            <div class="pagebreak"> </div>
 
             <h3>Data flow</h3>
             <img src="polar-llm-flow_.png" class="mdl-img" />
@@ -228,61 +234,57 @@
 
 
         </div>
+        <div class="pagebreak"> </div>
         <div id="full">
             <h2>First Phase Results
                 
                 <!-- <button id="pos" >Positive Engagement Scores</button><button id="neg" >Negative Engagement Scores</button><button id="engage">Total Engagement</button><button id="count" class="active">Posts Count</button> -->
             </h2>
+            <div class="p-r-print">
             <p>
                 The study was conducted in two distinct stages, with each stage focusing on different discourses and timeframes. During the first stage, we concentrated on four polarization discourses, analyzing social media data from January 1st, 2023, to April 1st, 2023. This phase laid the groundwork for understanding the emerging trends and patterns of polarization in the Georgian political landscape.
                 <br/><br/>
                 In the second stage, which is currently planned, we aim to expand the scope of our analysis by including all 12 polarization discourses. Furthermore, we intend to incorporate transcriptions from video content and broaden the dataset to cover a more extensive timeframe, spanning from January 1st, 2021, to June 1st, 2023. This comprehensive approach will enable a deeper exploration of the intricacies of political polarization in Georgia, providing valuable insights into the underlying factors that contribute to its persistence. By analyzing an extended period, the second stage will offer a better view of polarization dynamics over time, illuminating how these discourses have evolved and their potential impact on Georgia's political climate.
             </p>
+            </div>
             <br />
             <br />
             <div class="pie-legent">
                 <div>
                     <h2>Pie Chart Legend</h2>
-                    Switch between loarothmic And linear
                     <h3>Number of posts per discourse</h3>
                     <p>The size of the stroke represents the number of posts per discourse</p>
-                    <p>Logarithmic scale is used to supress high values, and make it possible to explore charts with
-                        low values</p>
-                    <p>Use switch to change betwen logarithmic and linear scales</p>
-                    <p><span class="color-legent blue"></span> blue part of the arc represents the number of postes for
-                        Pole A,
-                        <span class="color-legent gray"></span> gray part of the arc represents neutral polarity posts
-                        number, ones that do not fit not into pole A neither to pole B ,
-                        and <span class="color-legent red"></span> red part of the arc represents the number of postes
-                        for Pole B
+                    <p>The logarithmic scale is used to suppress high values and make it possible to explore charts with low values</p>
+                    <p><span class="color-legent blue"></span> The blue part of the arc represents the number of posts for
+                        pole A,
+                        <span class="color-legent gray"></span> the gray part of the arc represents the number of neutral polarity posts, 
+                        ones that do not fit not into pole A or pole B, and <span class="color-legent red"></span> the red part of the arc represents the number of posts
+                        for pole B.
                     </p>
                 </div>
                 <div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-counts-1"></div>
-                        <div class="pie-doc-descr">Logarithmic scale </br> Total: 12 posts, Pole A: 4 , Neutral: 4, Pole
-                            B: 4 </div>
+                        <div class="pie-doc-descr">Total: 12 posts, <br/>pole A - 4 posts, neutral - 4 posts, pole B - 4 posts.</div>
                     </div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-counts-2"></div>
-                        <div class="pie-doc-descr">Logarithmic scale</br> Total: 10,000 posts, Pole A: 5000 , Neutral:
-                            2500, Pole B: 2500</div>
+                        <div class="pie-doc-descr">Total: 1,000 posts, <br/>pole A - 500 posts, neutral - 250 posts, pole B - 250 posts.</div>
                     </div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-counts-3"></div>
-                        <div class="pie-doc-descr">Linear scale</br> Total: 1,000 posts, Pole A: 125 , Neutral: 750,
-                            Pole B: 125</div>
+                        <div class="pie-doc-descr">Total: 10,000 posts, <br/>pole A - 1,250 posts, neutral - 7,500 posts, pole B - 1,250 posts.</div>
                     </div>
                 </div>
                 <div>
                     <h3>Engagement</h3>
-                    <p>Engagement per pole is represented by radius of sector, larger the radius more
-                        engagement the pole hase.
+                    <p>Engagement per pole is represented by the radius of a sector, the larger the radius more
+                        engagement the pole has.
                         The median engagement per post in the dataset is 644 engagement actions per post</p>
                     <p><span class="color-legent green1"></span> Positive, <span class="color-legent grey1"></span>
-                        Neutral and <span class="color-legent red1"></span> Negative Engagement per pole</p>
-                    <p>Engagement per pole is represented by radius of green, gray and red segments of the sector,
-                        longer the radius more engagement the pole hase.
+                        Neutral, and <span class="color-legent red1"></span> Negative Engagement per pole</p>
+                    <p>Engagement per pole is represented by the radius of green, gray, and red segments of the sector,
+                        the longer the radius more engagement the pole has.
 
                         The median positive engagement per post in the dataset is 415 engagement actions per post,
                         The median neutral engagement per post in the dataset is 153 engagement actions per post,
@@ -292,21 +294,27 @@
                 <div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-eng-1"></div>
-                        <div class="pie-doc-descr">Logarithmic scale</br> 10,000 posts Pole A: positive engagement - ,
-                            Neutral average 300 engagement per post,
-                            average 300 engagement per postPole B</div>
+                        <div class="pie-doc-descr">Total: 1,000 posts, <br/>333 posts for pole A, 333 posts for neutral, and 334 posts pole B.</div>
+                        <div class="pie-doc-descr">
+                            Equal distribution of positive, neutral, and negative engagements for pole A. <br/>
+                            No engagement for pole B and neutral posts.
+                        </div>
                     </div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-eng-2"></div>
-                        <div class="pie-doc-descr">Logarithmic scale</br> Pole A average 644 engagement per post,
-                            Neutral average 300 engagement per post,
-                            average 300 engagement per postPole B</div>
+                        <div class="pie-doc-descr">Total: 1,000 posts, <br/>333 posts for pole A, 333 posts for neutral, and 334 posts pole B.</div>
+                        <div class="pie-doc-descr">
+                            Mostly negative engagement for neutral posts.<br/>
+                            No engagement for pole A and B posts.
+                        </div>
                     </div>
                     <div>
                         <div class="pie-doc-chart" id="pie-doc-eng-3"></div>
-                        <div class="pie-doc-descr">Linear scale</br> Pole A average 644 engagement per post, Neutral
-                            average 300 engagement per post,
-                            average 300 engagement per postPole B</div>
+                        <div class="pie-doc-descr">Total: 1,000 posts, <br/>333 posts for pole A, 333 posts for neutral, and 334 posts pole B.</div>
+                        <div class="pie-doc-descr">
+                            Mostly positive engagement for posts in pole B.<br/>
+                            No engagement for neutral and pole A posts
+                        </div>
                     </div>
                 </div>
             </div>
@@ -388,9 +396,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="pagebreak"> </div>
+        <div class="full">
             <div id="numerical">
-                <br /><br />
-                <h2>Numerical values</h2>
+                <!-- <h2>Numerical values</h2> -->
+                
                 <div class="grid first-grid">
                     <div>
                         <div>
@@ -482,33 +493,37 @@
             Per party
             Per topic
         </div> -->
-        <div class="pie-legent">
+        <div class="pagebreak"> </div>
+        <div id="full" >
             <h2>Time Series Data</h2>
-            <p>Data below represents the dinamics of polarisation discourses and corresponding engagements.<br /><br />
-                <span class="color-legent blue"></span> Blue area corresponds to the number of posts with pole A
-                narative<br />
-                <span class="color-legent gray"></span> Gray area corresponds to the number of posts with neutral
-                narative<br />
-                <span class="color-legent red"></span> Red area corresponds to the number of posts with pole B
-                narative<br />
+        </div>
+        <div class="pie-legent">
+            
+            <p>The data below represents the dynamics of polarisation discourses and corresponding engagements.<br /><br />
+                <span class="color-legent blue"></span> The blue area corresponds to the number of posts with pole A
+                narrative<br />
+                <span class="color-legent gray"></span> The gray area corresponds to the number of posts with a neutral
+                narrative<br />
+                <span class="color-legent red"></span> The red area corresponds to the number of posts with pole B
+                narrative<br />
                 <br />
-                The bars on the chart represents the engagement for the posts<br /><br />
-                <span class="color-legent blue"></span> Dark blue part of a bar corresponds to pole A, positive
+                The bars on the chart represent the engagement for the posts<br /><br />
+                <span class="color-legent blue"></span> The dark blue part of a bar corresponds to pole A, positive
                 engagement<br />
-                <span class="color-legent blue" style="opacity: .7;"></span> Lighter blue part of a bar corresponds to
+                <span class="color-legent blue" style="opacity: .7;"></span> The lighter blue part of a bar corresponds to
                 pole A, neutral engagement<br />
                 <span class="color-legent blue" style="opacity: .3;"></span> The lightest blue part of a bar corresponds
                 to pole A, negative engagement<br />
-                <span class="color-legent gray"></span> Dark gray part of a bar corresponds to neutral pole, positive
+                <span class="color-legent gray"></span> The dark gray part of a bar corresponds to a neutral pole, positive
                 engagement<br />
-                <span class="color-legent gray" style="opacity: .7;"></span> Lighter gray part of a bar corresponds to
-                neutral pole, neutral engagement<br />
+                <span class="color-legent gray" style="opacity: .7;"></span> The lighter gray part of a bar corresponds to
+                a neutral pole, neutral engagement<br />
                 <span class="color-legent gray" style="opacity: .3;"></span> The lightest gray part of a bar corresponds
-                to neutral pole, negative engagement<br />
-                <span class="color-legent red"></span> Dark red part of a bar corresponds to pole B, positive
+                to a neutral pole, negative engagement<br />
+                <span class="color-legent red"></span> The dark red part of a bar corresponds to pole B, positive
                 engagement<br />
-                <span class="color-legent red" style="opacity: .7;"></span> Lighter red part of a bar corresponds to
-                pole B, neutral engagement<br />
+                <span class="color-legent red" style="opacity: .7;"></span> The lighter red part of a bar corresponds to
+                pole B, a neutral engagement<br />
                 <span class="color-legent red" style="opacity: .3;"></span> The lightest red part of a bar corresponds
                 to pole B, negative engagement<br />
 
@@ -599,6 +614,7 @@
                     <div></div>
                 </div>
             </div>
+            <div class="pagebreak"> </div>
             <h2>Posts distribution and engagement</h2>
             <div class="pie-legent">
                 <div class="plot-legend"><span class="color-legent blue circle"></span> Pole A - This category includes
@@ -618,11 +634,12 @@
                 <span class="color-legent gray circle circle-s"></span>
                 <span class="color-legent gray circle "></span>
                 <span class="color-legent gray circle circle-l"></span> -
-                The size of the circle corespondes to engagement for the posts
+                The size of the circle correspondence to engagement for the posts
             </div>
             <!-- <div class="swarm" data-disc="saakashvili"></div> -->
             <img src="swarm_1.jpg" class="mdl-img" />
         </div>
+        <div class="pagebreak"> </div>
         <div>
             <h2>Pro-Western or Anti-Western foreign policy</h2>
             <div class="pie-legent">
@@ -631,9 +648,9 @@
                     Georgia's
                     alignment with the West.</div><br />
                 <div class="plot-legend"> <span class="color-legent red"></span> Pole B - (Anti-Western): Criticizes,
-                    distrust or
-                    has negative view towards Georgia's Western foreign policy course, Western countries, politicians,
-                    institutions, or policies .</div><br />
+                    distrusts, or
+                    has a negative view towards Georgia's Western foreign policy course, Western countries, politicians,
+                    institutions, or policies.</div><br />
             </div>
             <div class="hor-grid" data-disc="west_vv">
                 <div data-party="გირჩი">
@@ -701,24 +718,26 @@
                     <div></div>
                 </div>
             </div>
+            <div class="pagebreak"> </div>
             <h2>Posts distribution and engagement</h2>
             <div class="pie-legent">
                 <div class="plot-legend"><span class="color-legent blue circle"></span> Pole A - (Pro-Western): Supports
                     Georgia's
                     alignment with the West.</div><br />
                 <div class="plot-legend"> <span class="color-legent red circle"></span> Pole B - (Anti-Western):
-                    Criticizes, distrust or
-                    has negative view towards Georgia's Western foreign policy course, Western countries, politicians,
-                    institutions, or policies .</div>
+                    Criticizes, distrusts, or
+                    has a negative view towards Georgia's Western foreign policy course, Western countries, politicians,
+                    institutions, or policies.</div>
                 <br />
                 <span class="color-legent gray circle circle-s"></span>
                 <span class="color-legent gray circle "></span>
                 <span class="color-legent gray circle circle-l"></span> -
-                The size of the circle corespondes to engagement for the posts
+                The size of the circle correspondence to engagement for the posts
             </div>
             <!-- <div class="swarm" data-disc="west_vv"></div> -->
             <img src="swarm_west.jpg" class="mdl-img" />
         </div>
+        <div class="pagebreak"> </div>
         <div>
             <h2>Pro-Russian or anti-Russian foreign policy</h2>
             <div class="pie-legent">
@@ -794,6 +813,7 @@
                     <div></div>
                 </div>
             </div>
+            <div class="pagebreak"> </div>
             <h2>Posts distribution and engagement</h2>
             <div class="pie-legent">
                 <div class="plot-legend"><span class="color-legent blue circle"></span>  Pole A - Against negotiating or cooperating with Russia</div>
@@ -803,11 +823,12 @@
                 <span class="color-legent gray circle circle-s"></span>
                 <span class="color-legent gray circle "></span>
                 <span class="color-legent gray circle circle-l"></span> -
-                The size of the circle corespondes to engagement for the posts
+                The size of the circle correspondence to engagement for the posts
             </div>
             <!-- <div class="swarm" data-disc="russ_vv"></div> -->
             <img src="swarm_russ.jpg" class="mdl-img" />
         </div>
+        <div class="pagebreak"> </div>
         <div>
             <h2>Oligarchs and their role in political processes, who is the oligarch</h2>
             <div class="pie-legent">
@@ -887,6 +908,7 @@
                     <div></div>
                 </div>
             </div>
+            <div class="pagebreak"> </div>
             <h2>Posts distribution and engagement</h2>
             <div class="pie-legent">
                 <div class="plot-legend"><span class="color-legent blue circle"></span> Pole A - Bidzina Ivanishvili is the only oligarch in Georgia, controlling the country from the shadows and having power over all politicians</div>
@@ -899,13 +921,13 @@
                 <span class="color-legent gray circle circle-s"></span>
                 <span class="color-legent gray circle "></span>
                 <span class="color-legent gray circle circle-l"></span> -
-                The size of the circle corespondes to engagement for the posts
+                The size of the circle correspondence to engagement for the posts
             </div>
             <!-- <div class="swarm" data-disc="olig_vv"></div> -->
             <img src="swarm_olig.jpg" class="mdl-img" />
         </div>
         <!-- <h3>Next Steps</h3> -->
-
+        <div class="p-r-print">
         <h3>Authors</h3>
         <p>Davit Janezashvili - Data Scientist and Founder at Mettamine <i> djanezashvili[a]gmail.com</i> <br />
             Emillie V. de Keulenaar - PhD at RUG and Research Consultant at UN Innovation Network. Digital Democracies GroupUniversity of Amsterdam. Nederland.  <br />
@@ -913,15 +935,13 @@
 
         </p>
         <!-- <h3>Resourses</h3> -->
-        <br/>
         <p>
-            This Publication has been produced with the support of Center for Strategic Research and Development of Georgia (CSRDG) in frames of the European Union (EU) and Konrad-Adenauer-Stiftung (KAS) funded project 
+            This Publication has been produced with the support of the Center for Strategic Research and Development of Georgia (CSRDG) in frames of the European Union (EU) and Konrad-Adenauer-Stiftung (KAS) funded project 
             ‘<b>Civil Society STAR Initiative</b>: <i>CSOs as Sustainable, Transparent, Accountable and Resilient Development Actors in Georgia’. </i> Its contents are the sole responsibility of Mettamine and do not necessarily reflect the views of the European Union or Konrad-Adenauer-Stiftung.
-<br/>
 <br/>
 The project is implemented by the Consortium led by the Konrad-Adenauer-Stiftung (KAS) and composed of the following CSOs: Center for Strategic Research and Development of Georgia (CSRDG), Civil Society Institute (CSI), Center for Training and Consultancy (CTC), Education Development and Employment Center (EDEC), and Institute for European Politics (IEP).
         </p>
-<br/>
+    </div>
 <br/>
 
         <div class="footer-logos">
