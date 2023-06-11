@@ -46,7 +46,7 @@ let svg_c2 = d3.select('#pie-doc-counts-2').append('svg').attr('width', size).at
 let svg_c3 = d3.select('#pie-doc-counts-3').append('svg').attr('width', size).attr('height', size);
 draw_scales(svg_c1, get_radius_log, [10, 100, 1000, 10000])
 draw_scales(svg_c2, get_radius_log, [10, 100, 1000, 10000])
-draw_scales(svg_c3, get_radius, [250, 500, 750, 1000])
+draw_scales(svg_c3, get_radius_log, [10, 100, 1000, 10000])
 
 const pie = d3.pie()
     .sort(null)
@@ -58,8 +58,8 @@ const arc_log = d3.arc()
     .outerRadius((d, i) => get_radius_log(d.data.r)+4);
 
 const arc_ = d3.arc()
-    .innerRadius((d, i) => get_radius(d.data.r)-4)
-    .outerRadius((d, i) => get_radius(d.data.r)+4);
+    .innerRadius((d, i) => get_radius_log(d.data.r)-4)
+    .outerRadius((d, i) => get_radius_log(d.data.r)+4);
 
 const colors_ = ['rgb(41 140 172)', 'rgba(167, 170, 181, 1)', 'rgb(213 116 87)']
 
@@ -75,7 +75,7 @@ countsGroup10.selectAll('path')
 
 let countsGroup1000 = svg_c2.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');
 countsGroup1000.selectAll('path')
-    .data(pie([{r:10000, a:180}, {r:10000, a:90}, {r:10000, a:90}]))
+    .data(pie([{r:1000, a:180}, {r:1000, a:90}, {r:1000, a:90}]))
     .enter()
     .append('path')
     .attr('d', arc_log)
@@ -83,7 +83,7 @@ countsGroup1000.selectAll('path')
 
 let countsGroup100000 = svg_c3.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');
 countsGroup100000.selectAll('path')
-    .data(pie([{r:1000, a:45}, {r:1000, a:270}, {r:1000, a:45}]))
+    .data(pie([{r:10000, a:45}, {r:10000, a:270}, {r:10000, a:45}]))
     .enter()
     .append('path')
     .attr('d', arc_)
@@ -131,16 +131,16 @@ const draw_pies = (svg, data, col) => {
 // poleB: 'rgba(22, 160, 133, .7)',
 // neutral: '',
 // poleA: 'rgba(192, 57, 43, .7)'
-draw_pies(svg_e1, [{r:1000, a:135, i:0, o:25}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}], 'rgba(192, 57, 43, .7)')
+draw_pies(svg_e1, [{r:1000, a:135, i:0 , o:25}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}], 'rgba(192, 57, 43, .7)')
 draw_pies(svg_e1, [{r:1000, a:135, i:25, o:50}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}], 'rgb(201, 201, 201)')
-draw_pies(svg_e1, [{r:1000, a:135, i:50, o:75}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}], 'rgba(22, 160, 133, .7)')
+draw_pies(svg_e1, [{r:1000, a:135, i:50, o:78}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}], 'rgba(22, 160, 133, .7)')
 
-draw_pies(svg_e2, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:80}, {r:1000, a:135, i:0, o:0}],   'rgba(192, 57, 43, .7)')
-draw_pies(svg_e2, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:80, o:80}, {r:1000, a:135, i:0, o:0}],  'rgb(201, 201, 201)')
+draw_pies(svg_e2, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0 , o:80 }, {r:1000, a:135, i:0, o:0}],   'rgba(192, 57, 43, .7)')
+draw_pies(svg_e2, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:80, o:80 }, {r:1000, a:135, i:0, o:0}],  'rgb(201, 201, 201)')
 draw_pies(svg_e2, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:80, o:100}, {r:1000, a:135, i:0, o:0}], 'rgba(22, 160, 133, .7)')
 
-draw_pies(svg_e3, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:5}], 'rgba(192, 57, 43, .7)')
-draw_pies(svg_e3, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:5, o:20}], 'rgb(201, 201, 201)')
+draw_pies(svg_e3, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0 , o:5 }], 'rgba(192, 57, 43, .7)')
+draw_pies(svg_e3, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:5 , o:20}], 'rgb(201, 201, 201)')
 draw_pies(svg_e3, [{r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:0, o:0}, {r:1000, a:135, i:20, o:100}], 'rgba(22, 160, 133, .7)')
 
 draw_scales(svg_e1, get_radius_log, [10, 100, 1000, 10000])
@@ -149,7 +149,7 @@ draw_scales(svg_e3, get_radius_log, [10, 100, 1000, 10000])
 
 countsGroup = svg_e1.append('g').attr('transform', 'translate(' + (size/2) + ', ' + (size/2) + ')');
 countsGroup.selectAll('path')
-    .data(pie([{r:10000, a:135}, {r:10000, a:135}, {r:10000, a:135}]))
+    .data(pie([{r:1000, a:135}, {r:1000, a:135}, {r:1000, a:135}]))
     .enter()
     .append('path')
     .attr('d', arc_log)
