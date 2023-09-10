@@ -4,15 +4,35 @@ const to_num = (n) => {
     }
     return n
 }
-const get_table_html = (data_aggregated) => {
+const get_table_html = (data_aggregated, eng, index, is_pop) => {
+    
     const sum = data_aggregated.map(k => k.count).reduce((a, b) => a + b)
     const innerHTML = `
-        <div class="num-chart">
-        <div class="num-chart-row"><div></div><div>Posts</div> <div>Pos</div> <div>Neut</div> <div>Neg</div></div>
-        <div class="num-chart-row"><div>A</div><div>${to_num(data_aggregated[0].count)}</div><div>${to_num(data_aggregated[0].positive)}</div><div>${to_num(data_aggregated[0].neutral)}</div><div>${to_num(data_aggregated[0].negative)}</div></div>
-        <div class="num-chart-row"><div>N</div><div>${to_num(data_aggregated[1].count)}</div><div>${to_num(data_aggregated[1].positive)}</div><div>${to_num(data_aggregated[1].neutral)}</div><div>${to_num(data_aggregated[1].negative)}</div></div>
-        <div class="num-chart-row"><div>B</div><div>${to_num(data_aggregated[2].count)}</div><div>${to_num(data_aggregated[2].positive)}</div><div>${to_num(data_aggregated[2].neutral)}</div><div>${to_num(data_aggregated[2].negative)}</div></div>
-        <div class="num-chart-row"><div>Total:${sum} </div> </div>
+        <div class="num-chart ${is_pop ? 'num-chart-pop' : ''}">
+        <div class="num-chart-row"><div></div>
+        <div>Posts</div> 
+        <div  class="${ eng != 'positive' ?  'num-chart-col-inactive' : ''}">Pos</div> 
+        <div  class="${ eng != 'neutral' ?  'num-chart-col-inactive' : ''}">Neut</div> 
+        <div  class="${ eng != 'negative' ?  'num-chart-col-inactive' : ''}">Neg</div></div>
+        <div class="num-chart-row ${ index != 0 ?  'num-chart-row-inactive' : ''}">
+        <div>A</div>
+        <div>${to_num(data_aggregated[0].count)}</div>
+        <div class="${ eng != 'positive' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[0].positive)}</div>
+        <div class="${ eng != 'neutral' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[0].neutral)}</div>
+        <div class="${ eng != 'negative' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[0].negative)}</div></div>
+        <div class="num-chart-row ${ index != 1 ?  'num-chart-row-inactive' : ''}">
+        <div>N</div>
+        <div>${to_num(data_aggregated[1].count)}</div>
+        <div class="${ eng != 'positive' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[1].positive)}</div>
+        <div class="${ eng != 'neutral' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[1].neutral)}</div>
+        <div class="${ eng != 'negative' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[1].negative)}</div></div>
+        <div class="num-chart-row ${ index != 2 ?  'num-chart-row-inactive' : ''}">
+        <div>B</div>
+        <div>${to_num(data_aggregated[2].count)}</div>
+        <div class="${ eng != 'positive' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[2].positive)}</div>
+        <div class="${ eng != 'neutral' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[2].neutral)}</div>
+        <div class="${ eng != 'negative' ?  'num-chart-col-inactive' : ''}">${to_num(data_aggregated[2].negative)}</div></div>
+        <div class="num-chart-row"><div>Total posts:${sum} </div> </div>
         </div>`
     return innerHTML
 }
@@ -181,15 +201,21 @@ const colors_font = {
     negative: "rgba(192, 57, 43, 1)"
 }
 
-const mouseover = (e, d, eng, i, data_aggregated) => {
-    // console.log(e, d, pole, i)
+const mouseover = (e, d, eng, i, data_aggregated, party) => {
+    // console.log('d', d)
+    // console.log(data_aggregated)
+    // console.log('i', i)
     // pieTooltipDom.style("color", colors_font[eng]);
     // pieTooltipDom.style("background-color", colors_op[d.index]);
     pieTooltipDom.style("opacity", 1);
     pieTooltipDom.style("visibility", 'visible');
-    html = `Pole: <span style="color:${colors_[d.index]}">${poleName[d.index]}</span><br/>
-    Engagement: <span style="color:${colors_font[eng]}">${eng}</span><br/>
-    Engagement count: ${d.data[eng]}` + get_table_html(data_aggregated)
+    // party
+    // Party: ${party}<br/>
+    // Engagement count: ${d.data[eng]}` + get_table_html(data_aggregated, eng, d.index)
+    // html = `
+    // Pole: <span style="color:${colors_[d.index]}">${poleName[d.index]}</span><br/>
+    // Engagement: <span style="color:${colors_font[eng]}">${eng}</span><br/>` + 
+    html =get_table_html(data_aggregated, eng, d.index, true)
     pieTooltipDom.html(html)
             .style("left", (e.clientX + 10) + "px")
             .style("top", (e.clientY - 15) + "px");
@@ -277,7 +303,7 @@ const draw_eng_pie = (init_data, party, i) => {
         .attr('stroke', 'white')
         .on('mouseover', (e,d,i) => mouseover(e,d,'neutral',i, data_aggregated))
         .on('mouseout',  mouseout)
-
+    
     poleBGroup.selectAll('path')
         .data(pieData)
         .enter()
@@ -285,7 +311,7 @@ const draw_eng_pie = (init_data, party, i) => {
         .attr('d', arc2)
         .attr('fill', tone_colors.positive)
         .attr('stroke', 'white')
-        .on('mouseover', (e,d,i) => mouseover(e,d,'positive',i, data_aggregated))
+        .on('mouseover', (e,d,i) => mouseover(e,d,'positive',i, data_aggregated, party))
         .on('mouseout',  mouseout)
 
     countsGroup.selectAll('path')

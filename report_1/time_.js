@@ -3,6 +3,61 @@ const getNeutral = d => (d.viewCount*.2 + d.shareCount + d.commentCount)
 const getNegative = d => (d.hahaCount + d.angryCount + d.sadCount)
 const getEngCount = d => getNeutral(d) + getNeutral(d) + getNegative(d)
 
+const get_table_html_time = (week_data, dataArea, index, is_pop) => {
+    // const sum = data_aggregated.map(k => k.count).reduce((a, b) => a + b)
+    
+    // console.log(week_data, dataArea, index)
+    poleA = dataArea.find(d => d.week == week_data.week && d.pole == 'poleA').count
+    poleN = dataArea.find(d => d.week == week_data.week && d.pole == 'neutral').count
+    poleB = dataArea.find(d => d.week == week_data.week && d.pole == 'poleB').count
+    const innerHTML = `
+        <div class="num-chart ${is_pop ? 'num-chart-pop' : ''}">
+        <div class="num-chart-row"><div></div><div>Posts</div> <div>Pos</div> <div>Neut</div> <div>Neg</div></div>
+        <div class="num-chart-row ${index != 0 && index != 1 && index != 2 ? 'num-chart-row-inactive' : ''}">
+        <div>A</div>
+        <div>${poleA}</div>
+        <div class="${ index != 0 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.a_pos)}</div>
+        <div class="${ index != 1 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.a_neut)}</div>
+        <div class="${ index != 2 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.a_neg)}</div></div>
+        <div class="num-chart-row ${index != 3 && index != 4 && index != 5 ? 'num-chart-row-inactive' : ''}">
+        <div>N</div>
+        <div>${poleN}</div>
+        <div class="${ index != 3 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.n_pos)}</div>
+        <div class="${ index != 4 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.n_neut)}</div>
+        <div class="${ index != 5 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.n_neg)}</div></div>
+        <div class="num-chart-row ${index != 6 && index != 7 && index != 8 ? 'num-chart-row-inactive' : ''}">
+        <div>B</div>
+        <div>${poleB}</div>
+        <div class="${ index != 6 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.b_pos)}</div>
+        <div class="${ index != 7 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.b_neut)}</div>
+        <div class="${ index != 8 ?  'num-chart-col-inactive' : ''}" >${to_num(week_data.b_neg)}</div></div>
+        <div class="num-chart-row"><div>Total posts:${poleA + poleN + poleB} </div> </div>
+        </div>`
+        // <div class="num-chart-row"><div>Total:${sum} </div> </div>
+    return innerHTML
+}
+
+const mouseover_time = (e, d, dataArea, index) => {
+    // console.log(i)
+    // pieTooltipDom.style("color", colors_font[eng]);
+    // pieTooltipDom.style("background-color", colors_op[d.index]);
+    
+    pieTooltipDom.style("opacity", 1);
+    pieTooltipDom.style("visibility", 'visible');
+    // html = `Pole: <span style="color:${colors_[d.index]}">${poleName[d.index]}</span><br/>
+    // Engagement: <span style="color:${colors_font[eng]}">${eng}</span><br/>
+    // Engagement count: ${d.data[eng]}` + get_table_html_time(data_aggregated)
+    html = `Week: <span>${d.item.data.week}</span><br/>` + get_table_html_time(d.item.data, dataArea, index, true)
+    pieTooltipDom.html(html)
+            .style("left", (e.clientX + 10) + "px")
+            .style("top", (e.clientY - 15) + "px");
+}
+
+const mouseout_time = d => {
+    pieTooltipDom.style("opacity", 0);
+    pieTooltipDom.style("visibility", 'hidden');
+}
+
 const draw_time = (initial_data, selector, max_count, max_eng) => {
     // console.log(selector)
     const margin = { top: 25, right: 25, bottom: 50, left: 50 };
@@ -201,15 +256,23 @@ const draw_time = (initial_data, selector, max_count, max_eng) => {
         .attr('fill', d => color(d.key));
 
     groups.selectAll('rect')
-      .data(d => d)
-      .join('rect')
-        .attr('x', d => x(d.data.week))
-        .attr('y', d => y(d[1]))
-        // .attr('width', x.bandwidth())
-        .attr('width', 15)
-        .attr('height', d => y(d[0]) - y(d[1]))
+        .data(d => d.map((item, index) => ({ item, index })))
+        .join('rect')
+            .attr('x', d => x(d.item.data.week))
+            .attr('y', d => y(d.item[1]))
+            // .attr('width', x.bandwidth())
+            .attr('width', 15)
+            .attr('height', d => y(d.item[0]) - y(d.item[1]))
+            .on('mouseover', (e,d,i) => {
+                const nodes = e.target.parentNode.parentNode.childNodes;
+                const index = [...nodes].indexOf(e.target.parentNode);
+                mouseover_time(e,d,dataArea,index)
+            })
+            .on('mouseout',  mouseout_time)
         // .attr('stroke', 'rgba(255, 255, 255, .3)')
         // .attr('stroke-width', .3)
+        
+        
 
 
     let data_poles = data.map(d => ({

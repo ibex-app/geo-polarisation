@@ -58,6 +58,14 @@
                 factors contributing to polarization, we hope to provide valuable insights into Georgia's progress
                 toward meeting the EU's expectations and fostering a more inclusive and cooperative political landscape.
             </p>
+            <p>This research offers valuable insights into Georgia's political polarization, delving into discourses and
+                influential factors through social media-based analysis. By leveraging state-of-the-art language
+                models and machine learning methodologies, we were able to examine a comprehensive dataset spanning
+                multiple platforms and political parties. Our findings underscore the importance of continued efforts in
+                reducing political polarization in Georgia, aligned with the EU's recommendations, to facilitate the
+                country's integration process and promote a more inclusive political climate. This study provides a
+                solid foundation for future research on Georgia's political landscape and serves as a useful model for
+                analyzing polarization in other contexts.</p>
 
             <h3>Methodology and Data Collection</h3>
 
@@ -173,12 +181,40 @@
             </p>
 
             <h3>Classification Models</h3>
-
-            <p>For effective text and entity classification, we selected three pre-trained models: BERT-Multilingual,
-                XLM-RoBERTa, and Electra-Ka. These models were fine-tuned using a multi-class, multi-label architecture,
-                employing the collected dataset to optimize performance for our specific task. The table below outlines
-                the scores for the model training exercises, offering a thorough understanding of the process and its
-                outcomes.</p>
+            <p>We used several pre-trained models for our text and entity classification tasks, including BERT-Multilingual, XLM-RoBERTa, and Electra-Ka. We fine-tuned these models with our dataset to best suit our requirements. Additionally, we employed the foundational models of GPT3.5 and GPT4 in our final analysis, which provided superior accuracy. The F1 scores for each model are presented in the table below:</p>
+<table class="inline-table">
+    <tr>
+        <th>Model</th>
+        <th>F1 Score for original posts in Georgian</th>
+        <th>F1 Score for post translated in English</th>
+    </tr>
+    <tr>
+        <td>BERT-Multilingual</td>
+        <td>0.67</td>
+        <td>0.73</td>
+    </tr>
+    <tr>
+        <td>XLM-RoBERTa</td>
+        <td>0.68</td>
+        <td>0.71</td>
+    </tr>
+    <tr>
+        <td>Electra-Ka</td>
+        <td>0.70</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>GPT3.5</td>
+        <td>0.68</td>
+        <td>0.88</td>
+    </tr>
+    <tr>
+        <td>GPT4</td>
+        <td>0.71</td>
+        <td>0.91</td>
+    </tr>
+</table>
+<p>As the results indicate, GPT3.5 and GPT4 achieved superior performance in our analysis, guiding our final decision.</p>
 
             <h3>Discussion and Implications</h3>
 
@@ -187,22 +223,21 @@
                 examining the identified discourses and opposing narrative groups, we have illuminated areas where
                 cooperation and collaboration between political parties can be encouraged, as recommended by the EU.</p>
 
-            <p>Our analysis reveals that Georgia has made some strides in addressing political polarization, with
-                tangible progress evident in specific discourses. However, further efforts are needed to ensure robust
-                cooperation and mutual understanding across the political landscape. The country's ongoing commitment to
-                EU integration requires addressing the root causes of polarization, fostering a more inclusive political
-                environment, and strengthening democratic institutions.</p>
-
+            
+            
+                <h3>Limitations</h3>
+                
+                <p>
+                    While this study provides valuable insights into political polarization in Georgia through the lens of social media discourses, there are certain limitations to consider. Firstly, the data was sourced exclusively from official channels. These channels often exercise caution in their postings, potentially omitting the most polarized statements. As a result, our dataset might not capture the full spectrum of polarized sentiments prevalent in the broader social media landscape. Secondly, to gain a more comprehensive understanding of the situation, it would be beneficial to incorporate media monitoring. Such an approach would likely unearth additional nuances and insights that official channels might overlook or deliberately exclude. This broader perspective could offer a more holistic view of the political polarization in the region.
+                </p>
             <h3>Conclusion</h3>
 
-            <p>This research offers valuable insights into Georgia's political polarization, delving into discourses and
-                influential factors through social media-based analysis. By leveraging state-of-the-art language
-                models and machine learning methodologies, we were able to examine a comprehensive dataset spanning
-                multiple platforms and political parties. Our findings underscore the importance of continued efforts in
-                reducing political polarization in Georgia, aligned with the EU's recommendations, to facilitate the
-                country's integration process and promote a more inclusive political climate. This study provides a
-                solid foundation for future research on Georgia's political landscape and serves as a useful model for
-                analyzing polarization in other contexts.</p>
+            
+                <p>Our analysis reveals that Georgia has made some strides in addressing political polarization, with
+                    tangible progress evident in specific discourses. However, further efforts are needed to ensure robust
+                    cooperation and mutual understanding across the political landscape. The country's ongoing commitment to
+                    EU integration requires addressing the root causes of polarization, fostering a more inclusive political
+                    environment, and strengthening democratic institutions.</p>
             </div>
             <div class="pagebreak"> </div>
 
@@ -500,11 +535,11 @@
         <div class="pie-legent">
             
             <p>The data below represents the dynamics of polarisation discourses and corresponding engagements.<br /><br />
-                <span class="color-legent blue"></span> The blue area corresponds to the number of posts with pole A
+                <span class="color-legent blue color-legent-triangle"></span> The blue area corresponds to the number of posts with pole A
                 narrative<br />
-                <span class="color-legent gray"></span> The gray area corresponds to the number of posts with a neutral
+                <span class="color-legent gray color-legent-triangle"></span> The gray area corresponds to the number of posts with a neutral
                 narrative<br />
-                <span class="color-legent red"></span> The red area corresponds to the number of posts with pole B
+                <span class="color-legent red color-legent-triangle"></span> The red area corresponds to the number of posts with pole B
                 narrative<br />
                 <br />
                 The bars on the chart represent the engagement for the posts<br /><br />

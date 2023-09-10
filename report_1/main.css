@@ -221,6 +221,12 @@ path:hover, rect:hover {
     height: 150px;
     /* border: 1px solid red; */
 }
+.num-chart-pop .num-chart-row-inactive{
+    opacity: .4;
+}
+.num-chart-pop .num-chart-col-inactive{
+    opacity: .4;
+}
 .num-chart-row{
     width: 100%;
     font-size: 0;
@@ -247,7 +253,7 @@ path:hover, rect:hover {
 .num-chart > .num-chart-row:nth-child(3){
     border-left: 2px solid gray;
     color: rgba(158, 158, 158, 1);
-    background: rgba(158, 158, 158, 0.3);
+    background: rgba(158, 158, 158, 0.541);
 }
 .num-chart > .num-chart-row:nth-child(4){
     border-left: 2px solid rgba(192, 57, 43, 1);;
@@ -333,6 +339,26 @@ path:hover, rect:hover {
     width: 10px;
     height: 10px;
 }
+.color-legent-triangle{
+    width: 0; 
+    height: 0; 
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid;
+}
+.color-legent-triangle.color-legent.blue{
+    border-bottom-color: rgba(41, 128, 185, .7);
+    background-color: transparent
+}
+.color-legent-triangle.color-legent.gray{
+    border-bottom-color: rgba(127, 140, 141, 0.7);
+    background-color: transparent
+}
+.color-legent-triangle.color-legent.red{
+    border-bottom-color: rgba(192, 57, 43, .7);
+    background-color: transparent
+}
+
 .color-legent.blue{
     background-color: rgba(41, 128, 185, .7);
 }
@@ -443,3 +469,14 @@ div[data-disc] div[data-party]{
     height: 53px;
 }
 
+
+.inline-table, .inline-table th,.inline-table td{
+        border: 1px solid gray;
+        padding: 5px 16px;
+
+}
+
+.inline-table{
+    border-collapse: collapse;
+
+}
