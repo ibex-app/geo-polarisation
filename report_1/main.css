@@ -1,8 +1,8 @@
 @media (max-width:960px){
-*{
-    font-s0ze: 20px;
+p{
+        font-size: 1.1em;
 }
-    .right{
+   div.right{
     width: 80vw;
     min-width: 80vw;
         overflow: hidden;
