@@ -1,3 +1,14 @@
+@media (max-width:960px){
+*{
+    font-s0ze: 20px;
+}
+    .right{
+    width: 80vw;
+    min-width: 80vw;
+        overflow: hidden;
+}
+}
+
 p {
     font-size: 18px;
 }
