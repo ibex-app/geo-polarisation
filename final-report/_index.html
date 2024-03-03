@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v7.js"></script>
+    <script src="../geo-polarisation/report_1/t_s.js"></script>
+</head>
+
+<body>
+    <div id="v">
+        <svg width="960" height="500"></svg>
+    </div>
+
+    <script>
+var data = full_dataset.d
+// Parse the date / time
+var parseTime = d3.timeParse("%Y-%m");
+
+monthes = ['2020-01', '2020-02', '2020-03', '2020-04', '2020-05', '2020-06', '2020-07', '2020-08', '2020-09', '2020-10', '2020-11', '2020-12', '2021-01', '2021-02', '2021-03', '2021-04', '2021-05', '2021-06', '2021-07', '2021-08', '2021-09', '2021-10', '2021-11', '2021-12', '2022-01', '2022-02', '2022-03', '2022-04', '2022-05', '2022-06', '2022-07', '2022-08', '2022-09', '2022-10', '2022-11', '2022-12', '2023-01', '2023-02', '2023-03', '2023-04', '2023-05', '2023-06', '2023-07', '2023-08', '2023-09', '2023-10']
+
+parties = ['Georgian Dream', "People's Power", 'Citizens', 'United National Movement', 'European Georgia', 'Girchi', 'Lelo', 'Strategy Aghmashenebeli', 'For Georgia', 'For People', 'Girchi — More Freedom', 'Georgian Labour Party', 'Alliance of Patriots of Georgia', 'Droa', 'Eri', 'Conservative Party of Georgia']
+
+discourses = ['oligarchy', 'polarisation', 'august_war', 'west', 'russia', 'saakashvili', 'left_vs_right', 'economics', 'ukraine', 'media', 'geo_ukr']
+
+// Adjust your data to parse dates
+let dataParty = [];
+let dataDiscourse = [];
+let dataPoles = [];
+
+set_arr = (month_index, count) => {
+    let arr = new Array(monthes.length).fill(0);
+    arr[month_index] = count;
+    return arr;
+}
+
+data.forEach(function(d) {
+    d.count = d.PoleAPostsCount + d.NeutralPostsCount + d.PoleBPostsCount;
+    month_index = monthes.indexOf(d.month)
+
+    dataParty.find(d_ => d_.name === d.party) 
+        ? dataParty.find(d_ => d_.name === d.party).values[month_index] += d.count
+        : dataParty.push({name: d.party, values: set_arr(month_index, d.count)});
+
+    dataDiscourse.find(d_ => d_.name === d.discourse)
+        ? dataDiscourse.find(d_ => d_.name === d.discourse).values[month_index] += d.count
+        : dataDiscourse.push({name: d.discourse, values: set_arr(month_index, d.count)});
+});
+
+
+
+
+var svg = d3.select("#v svg"), // Ensure you're selecting the SVG element correctly
+    margin = {top: 20, right: 80, bottom: 30, left: 50},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+// Parse the date / time
+var parseTime = d3.timeParse("%Y-%m");
+
+// Set the ranges
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
+
+// Define a color scale
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+// Define the line
+var valueline = d3.line()
+    .x(function(d, i) { return x(parseTime(monthes[i])); })
+    .y(function(d) { return y(d); });
+
+// Scale the range of the data
+x.domain(d3.extent(monthes, function(d) { return parseTime(d); }));
+y.domain([
+    0, 
+    d3.max(dataParty, (party) => d3.max(party.values))
+]);
+
+// Add the X Axis
+g.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+
+// Add the Y Axis
+g.append("g")
+    .call(d3.axisLeft(y));
+
+// Draw lines for each party
+dataParty.forEach(function(party, index) {
+    g.append("path")
+      .data([party.values])
+      .attr("class", "line")
+      .attr("fill", "none")
+      .attr("d", valueline)
+      .attr("stroke", () => color(index)); // Use color scale for different parties
+
+    // Optional: Add labels or other distinguishing features per party here
+});
+    </script>
+
+</html>
+
+
+
+{"discourse": "a", "party": "P1", "month": "2020-01", "count": 4.0},
+{"discourse": "b", "party": "P1", "month": "2020-01", "count": 4.0}
+{"discourse": "c", "party": "P1", "month": "2020-01", "count": 4.0}
+{"discourse": "x", "party": "P2", "month": "2020-01", "count": 4.0}
+{"discourse": "a", "party": "P2", "month": "2020-01", "count": 4.0}

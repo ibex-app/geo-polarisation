@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="data.js"></script>
+    <script src="maps.js"></script>
+    <script src="load.js"></script>
+    <script src="plot.js"></script>
+    <script src="heat.js"></script>
+    <!-- include heat.css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <div id="header">
+        <div>
+
+            <a href="index.html">
+                Summary
+            </a>
+        </div>
+        <div>
+
+        
+        <a href="#">
+            Polarization discourses and poles
+        </a>
+                <ul>
+                <a href="discourse.html?d=The influence of oligarchs in political processes">The influence of oligarchs in political processes</a>
+                <a href="discourse.html?d=Blaming of political parties for political polarization">Blaming of political parties for political polarization</a>
+                <a href="discourse.html?d=The 2008 August war between Russia and Georgia">The 2008 August war between Russia and Georgia</a>
+                <a href="discourse.html?d=The conflict between Russia and Ukraine">The conflict between Russia and Ukraine</a>
+                <a href="discourse.html?d=Georgia's role in the conflict between Russia and Ukraine">Georgia's role in the conflict between Russia and Ukraine</a>
+                <a href="discourse.html?d=The custody and treatment of Mikheil Saakashvili">The custody and treatment of Mikheil Saakashvili</a>
+                <a href="discourse.html?d=The confrontation between liberal and conservative values">The confrontation between liberal and conservative values</a>
+                <a href="discourse.html?d=Pro-Western versus Anti-Western foreign policy">Pro-Western versus Anti-Western foreign policy</a>
+                <a href="discourse.html?d=Pro-Russian versus Anti-Russian foreign policy">Pro-Russian versus Anti-Russian foreign policy</a>
+                <a href="discourse.html?d=Economic optimism versus pessimism">Economic optimism versus pessimism</a>
+                <a href="discourse.html?d=Media independence and the role of media in political processes">Media independence and the role of media in political processes</a>
+            </ul>
+        
+    </div>
+    <div>
+
+    <a href="#">
+        Parties</a>
+        <ul>
+            <a href="party.html?party=Georgian Dream">Georgian Dream</a>
+            <a href="party.html?party=People's Power">People's Power</a>
+            <a href="party.html?party=Citizens">Citizens</a>
+            <a href="party.html?party=United National Movement">United National Movement</a>
+            <a href="party.html?party=European Georgia">European Georgia</a>
+            <a href="party.html?party=Girchi">Girchi</a>
+            <a href="party.html?party=Lelo">Lelo</a>
+            <a href="party.html?party=Strategy Aghmashenebeli">Strategy Aghmashenebeli</a>
+            <a href="party.html?party=For Georgia">For Georgia</a>
+            <a href="party.html?party=For People">For People</a>
+            <a href="party.html?party=Girchi — More Freedom">Girchi — More Freedom</a>
+            <a href="party.html?party=Georgian Labour Party">Georgian Labour Party</a>
+            <a href="party.html?party=Alliance of Patriots of Georgia">Alliance of Patriots of Georgia</a>
+            <a href="party.html?party=Droa">Droa</a>
+            <a href="party.html?party=Eri">Eri</a>
+            <a href="party.html?party=Conservative Party of Georgia">Conservative Party of Georgia</a>
+        </ul>
+    
+</div>
+    </div>
+    <div id="content">
+
+    </div>
+    <script>
+    discourses.forEach(d => {
+        data = getDataAggr([], [d])
+        // plot_line(data.aggregatedDataParty, 'party' + d);
+        // plot_bar(data.aggregatedDataEngage, 'eng' + d);
+    });
+        const urlParams = new URLSearchParams(window.location.search);
+        const disco = urlParams.get('d');
+
+        data = getDataAggr([], [disco])
+        title("Political parties mentioning: " + disco)
+        plot_line(data.aggregatedDataParty, 'o1');
+        title("Engagement for: " + disco)
+        plot_bar(data.aggregatedDataEngage, 'eng');
+        title("Political parties supporting: " + poles[disco][0])
+        plot_line(data.aggregatedPolesAParty, 'o12');
+        title("Engagement for: " + poles[disco][0])
+        plot_bar(data.aggregatedDataAEngage, 'e2');
+        title("Political parties supporting: " + poles[disco][1])
+        plot_line(data.aggregatedPolesBParty, 'o11');
+        title("Engagement for: " + poles[disco][1])
+        plot_bar(data.aggregatedDataBEngage, 'r3');
+        
+        
+        // aggregatedPoles
+    
+    
+    </script>
+</script>
+
+</html>
