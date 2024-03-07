@@ -1,0 +1,2751 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>Analysing Political Polarisation in Georgia through Social Media: Insights from Large Language Models (LLMs)</title>
+    <!-- descripotion -->
+    <meta content="This website provides an analysis of political polarisation in Georgia through social media using large language models (LLMs)." name="description">
+    <!-- keywords -->
+    <meta content="political polarisation, Georgia, social media, large language models, LLMs" name="keywords">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <style type="text/css">
+        @import url(https://themes.googleusercontent.com/fonts/css?kit=fpjTOVmNbO4Lz34iLyptLUXza5VhXqVC6o75Eld_V98);
+        .footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .img-bot img{
+            height: 5vw;
+        }
+
+        .img-bot:nth-child(2) img{
+            height: 6.5vw;
+        }
+        .img-bot:nth-child(3) img{
+            height: 5.5vw;
+        }
+        .img-bot:nth-child(4) img{
+            height: 3vw;
+        }
+        .img-bot:nth-child(5) img{
+            height: 3.5vw;
+        }
+        .img-bot:nth-child(6) img{
+            height: 3vw;
+        }
+        span.img-cont {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.5em;
+}
+*{
+    font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+span.img-cont img{
+    width: 70%;
+}
+
+        .lst-kix_nij80xgb60ki-2>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-2
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-0.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-0 0
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-5 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-4 {
+            list-style-type: none
+        }
+
+        .lst-kix_kwncee5idxjy-6>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-6
+        }
+
+        .lst-kix_qmpf2yoxuayk-4>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-4
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-7 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-8 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-1 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-1.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-1 0
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-0 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-2.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-2 0
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-3 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-2 {
+            list-style-type: none
+        }
+
+        .lst-kix_i4kwkv2f8thi-1>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-1
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-8 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-7 {
+            list-style-type: none
+        }
+
+        .lst-kix_cie7rtn5xo9p-3>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-3
+        }
+
+        .lst-kix_nta5vr96cl74-1>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-1
+        }
+
+        ol.lst-kix_nta5vr96cl74-1.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-1 0
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-6.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-6 0
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-0.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-0 0
+        }
+
+        .lst-kix_qmpf2yoxuayk-6>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-6
+        }
+
+        .lst-kix_cie7rtn5xo9p-1>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-1
+        }
+
+        .lst-kix_cie7rtn5xo9p-8>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-8, lower-roman) ". "
+        }
+
+        .lst-kix_cie7rtn5xo9p-7>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-7, lower-latin) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-0>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-0, decimal) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-2>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-2, lower-roman) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-3>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-3, decimal) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-7.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-7 0
+        }
+
+        .lst-kix_nta5vr96cl74-1>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-1, lower-latin) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-3>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-3, decimal) ". "
+        }
+
+        .lst-kix_cie7rtn5xo9p-0>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-0, decimal) ". "
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-4.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-4 0
+        }
+
+        .lst-kix_i4kwkv2f8thi-1>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-1, lower-latin) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-5>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-5, lower-roman) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-2>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-2, lower-roman) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-6>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-6, decimal) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-0.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-0 0
+        }
+
+        .lst-kix_nta5vr96cl74-0>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-0, decimal) ". "
+        }
+
+        .lst-kix_nij80xgb60ki-0>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-0
+        }
+
+        .lst-kix_i4kwkv2f8thi-4>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-4, lower-latin) ". "
+        }
+
+        .lst-kix_kwncee5idxjy-2>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-2
+        }
+
+        ol.lst-kix_kwncee5idxjy-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-2 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-5 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-1 {
+            list-style-type: none
+        }
+
+        .lst-kix_cie7rtn5xo9p-5>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-5
+        }
+
+        ol.lst-kix_kwncee5idxjy-4 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-0 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-3 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-2 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-1 {
+            list-style-type: none
+        }
+
+        .lst-kix_kwncee5idxjy-8>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-8
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-5 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-0 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-4 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-3 {
+            list-style-type: none
+        }
+
+        .lst-kix_nta5vr96cl74-6>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-6, decimal) ". "
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-5.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-5 0
+        }
+
+        .lst-kix_nij80xgb60ki-6>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-6
+        }
+
+        .lst-kix_nta5vr96cl74-5>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-5, lower-roman) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-3>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-3
+        }
+
+        .lst-kix_nta5vr96cl74-4>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-4, lower-latin) ". "
+        }
+
+        ol.lst-kix_kwncee5idxjy-8 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_kwncee5idxjy-7 {
+            list-style-type: none
+        }
+
+        .lst-kix_cie7rtn5xo9p-1>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-1, lower-latin) ". "
+        }
+
+        .lst-kix_cie7rtn5xo9p-2>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-2, lower-roman) ". "
+        }
+
+        .lst-kix_f45ryqxqb2q8-8>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-8
+        }
+
+        .lst-kix_cie7rtn5xo9p-3>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-3, decimal) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-6.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-6 0
+        }
+
+        .lst-kix_nta5vr96cl74-7>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-7, lower-latin) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-8>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-8
+        }
+
+        .lst-kix_cie7rtn5xo9p-4>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-4, lower-latin) ". "
+        }
+
+        .lst-kix_cie7rtn5xo9p-6>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-6, decimal) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-8>li:before {
+            content: "" counter(lst-ctn-kix_nta5vr96cl74-8, lower-roman) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-5>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-5
+        }
+
+        .lst-kix_cie7rtn5xo9p-5>li:before {
+            content: "" counter(lst-ctn-kix_cie7rtn5xo9p-5, lower-roman) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-3 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nta5vr96cl74-2 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nta5vr96cl74-5 {
+            list-style-type: none
+        }
+
+        .lst-kix_f45ryqxqb2q8-3>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-3
+        }
+
+        .lst-kix_nij80xgb60ki-8>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-8
+        }
+
+        .lst-kix_qmpf2yoxuayk-0>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-0, decimal) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-4 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-4.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-4 0
+        }
+
+        ol.lst-kix_nta5vr96cl74-1 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nta5vr96cl74-0 {
+            list-style-type: none
+        }
+
+        .lst-kix_kwncee5idxjy-1>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-1
+        }
+
+        .lst-kix_qmpf2yoxuayk-2>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-2, lower-roman) ". "
+        }
+
+        .lst-kix_qmpf2yoxuayk-4>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-4, lower-latin) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-7 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nta5vr96cl74-8.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-8 0
+        }
+
+        ol.lst-kix_nta5vr96cl74-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nta5vr96cl74-8 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-2 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-1 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-0 {
+            list-style-type: none
+        }
+
+        .lst-kix_kwncee5idxjy-0>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-0
+        }
+
+        .lst-kix_nij80xgb60ki-7>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-7
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-5.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-5 0
+        }
+
+        ol.lst-kix_kwncee5idxjy-6.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-6 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-1.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-1 0
+        }
+
+        ol.lst-kix_nij80xgb60ki-8 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-7 {
+            list-style-type: none
+        }
+
+        .lst-kix_nta5vr96cl74-4>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-4
+        }
+
+        ol.lst-kix_nij80xgb60ki-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-5 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-2.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-2 0
+        }
+
+        .lst-kix_i4kwkv2f8thi-8>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-8, lower-roman) ". "
+        }
+
+        ol.lst-kix_nij80xgb60ki-4 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-3 {
+            list-style-type: none
+        }
+
+        .lst-kix_qmpf2yoxuayk-0>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-0
+        }
+
+        .lst-kix_i4kwkv2f8thi-5>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-5
+        }
+
+        .lst-kix_qmpf2yoxuayk-6>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-6, decimal) ". "
+        }
+
+        .lst-kix_qmpf2yoxuayk-8>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-8, lower-roman) ". "
+        }
+
+        .lst-kix_f45ryqxqb2q8-4>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-4
+        }
+
+        ol.lst-kix_nij80xgb60ki-2.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-2 0
+        }
+
+        .lst-kix_nta5vr96cl74-3>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-3
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-2.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-2 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-1 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-0 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-3 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-2 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-5 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-3.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-3 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-4 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-7 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-3.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-3 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-8 {
+            list-style-type: none
+        }
+
+        .lst-kix_i4kwkv2f8thi-4>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-4
+        }
+
+        ol.lst-kix_kwncee5idxjy-7.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-7 0
+        }
+
+        .lst-kix_f45ryqxqb2q8-0>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-0, decimal) ". "
+        }
+
+        .lst-kix_f45ryqxqb2q8-2>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-2, lower-roman) ". "
+        }
+
+        .lst-kix_qmpf2yoxuayk-5>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-5
+        }
+
+        .lst-kix_nij80xgb60ki-1>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-1
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-8 {
+            list-style-type: none
+        }
+
+        .lst-kix_f45ryqxqb2q8-4>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-4, lower-latin) ". "
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-1.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-1 0
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-1 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_nij80xgb60ki-0.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-0 0
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-0 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-3 {
+            list-style-type: none
+        }
+
+        .lst-kix_f45ryqxqb2q8-8>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-8, lower-roman) ". "
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-2 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-5 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-4 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-7 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-6 {
+            list-style-type: none
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-2.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-2 0
+        }
+
+        ol.lst-kix_kwncee5idxjy-8.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-8 0
+        }
+
+        .lst-kix_f45ryqxqb2q8-6>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-6, decimal) ". "
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-4.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-4 0
+        }
+
+        .lst-kix_nij80xgb60ki-8>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-8, lower-roman) ". "
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-1.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-1 0
+        }
+
+        .lst-kix_nij80xgb60ki-6>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-6, decimal) ". "
+        }
+
+        .lst-kix_cie7rtn5xo9p-4>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-4
+        }
+
+        ol.lst-kix_kwncee5idxjy-5.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-5 0
+        }
+
+        .lst-kix_nij80xgb60ki-7>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-7, lower-latin) ". "
+        }
+
+        .lst-kix_nij80xgb60ki-2>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-2, lower-roman) ". "
+        }
+
+        .lst-kix_nij80xgb60ki-4>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-4, lower-latin) ". "
+        }
+
+        .lst-kix_nij80xgb60ki-3>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-3
+        }
+
+        .lst-kix_nij80xgb60ki-5>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-5, lower-roman) ". "
+        }
+
+        .lst-kix_nij80xgb60ki-1>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-1, lower-latin) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-0>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-0
+        }
+
+        .lst-kix_kwncee5idxjy-7>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-7
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-1.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-1 0
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-6.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-6 0
+        }
+
+        .lst-kix_nij80xgb60ki-3>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-3, decimal) ". "
+        }
+
+        ol.lst-kix_nta5vr96cl74-4.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-4 0
+        }
+
+        .lst-kix_f45ryqxqb2q8-7>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-7
+        }
+
+        .lst-kix_nij80xgb60ki-0>li:before {
+            content: "" counter(lst-ctn-kix_nij80xgb60ki-0, decimal) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-2>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-2
+        }
+
+        .lst-kix_qmpf2yoxuayk-3>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-3
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-3.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-3 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-8.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-8 0
+        }
+
+        .lst-kix_nij80xgb60ki-5>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-5
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-6.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-6 0
+        }
+
+        .lst-kix_kwncee5idxjy-7>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-7, lower-latin) ". "
+        }
+
+        .lst-kix_qmpf2yoxuayk-1>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-1
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-0.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-0 0
+        }
+
+        .lst-kix_kwncee5idxjy-6>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-6, decimal) ". "
+        }
+
+        ol.lst-kix_nij80xgb60ki-3.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-3 0
+        }
+
+        .lst-kix_qmpf2yoxuayk-7>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-7
+        }
+
+        .lst-kix_kwncee5idxjy-3>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-3, decimal) ". "
+        }
+
+        .lst-kix_kwncee5idxjy-5>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-5, lower-roman) ". "
+        }
+
+        .lst-kix_kwncee5idxjy-4>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-4, lower-latin) ". "
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-2.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-2 0
+        }
+
+        ol.lst-kix_kwncee5idxjy-4.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-4 0
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-0.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-0 0
+        }
+
+        .lst-kix_kwncee5idxjy-8>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-8, lower-roman) ". "
+        }
+
+        .lst-kix_kwncee5idxjy-5>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-5
+        }
+
+        .lst-kix_cie7rtn5xo9p-8>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-8
+        }
+
+        .lst-kix_i4kwkv2f8thi-6>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-6
+        }
+
+        .lst-kix_f45ryqxqb2q8-2>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-2
+        }
+
+        .lst-kix_f45ryqxqb2q8-5>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-5
+        }
+
+        .lst-kix_i4kwkv2f8thi-0>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-0
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-7.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-7 0
+        }
+
+        ol.lst-kix_nij80xgb60ki-4.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-4 0
+        }
+
+        .lst-kix_cie7rtn5xo9p-2>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-2
+        }
+
+        .lst-kix_kwncee5idxjy-1>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-1, lower-latin) ". "
+        }
+
+        .lst-kix_kwncee5idxjy-2>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-2, lower-roman) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-2>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-2
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-5.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-5 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-3.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-3 0
+        }
+
+        .lst-kix_kwncee5idxjy-0>li:before {
+            content: "" counter(lst-ctn-kix_kwncee5idxjy-0, decimal) ". "
+        }
+
+        .lst-kix_nta5vr96cl74-6>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-6
+        }
+
+        .lst-kix_i4kwkv2f8thi-7>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-7
+        }
+
+        .lst-kix_qmpf2yoxuayk-1>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-1, lower-latin) ". "
+        }
+
+        .lst-kix_qmpf2yoxuayk-3>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-3, decimal) ". "
+        }
+
+        ol.lst-kix_nij80xgb60ki-5.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-5 0
+        }
+
+        ol.lst-kix_nij80xgb60ki-8.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-8 0
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-7.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-7 0
+        }
+
+        ol.lst-kix_nta5vr96cl74-2.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-2 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-7.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-7 0
+        }
+
+        .lst-kix_nta5vr96cl74-7>li {
+            counter-increment: lst-ctn-kix_nta5vr96cl74-7
+        }
+
+        ol.lst-kix_i4kwkv2f8thi-8.start {
+            counter-reset: lst-ctn-kix_i4kwkv2f8thi-8 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-4.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-4 0
+        }
+
+        ol.lst-kix_nta5vr96cl74-5.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-5 0
+        }
+
+        .lst-kix_i4kwkv2f8thi-7>li:before {
+            content: "" counter(lst-ctn-kix_i4kwkv2f8thi-7, lower-latin) ". "
+        }
+
+        .lst-kix_i4kwkv2f8thi-8>li {
+            counter-increment: lst-ctn-kix_i4kwkv2f8thi-8
+        }
+
+        ol.lst-kix_kwncee5idxjy-3.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-3 0
+        }
+
+        .lst-kix_qmpf2yoxuayk-7>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-7, lower-latin) ". "
+        }
+
+        .lst-kix_f45ryqxqb2q8-1>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-1
+        }
+
+        .lst-kix_qmpf2yoxuayk-5>li:before {
+            content: "" counter(lst-ctn-kix_qmpf2yoxuayk-5, lower-roman) ". "
+        }
+
+        ol.lst-kix_kwncee5idxjy-0.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-0 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-5.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-5 0
+        }
+
+        .lst-kix_f45ryqxqb2q8-0>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-0
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-7.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-7 0
+        }
+
+        ol.lst-kix_nta5vr96cl74-3.start {
+            counter-reset: lst-ctn-kix_nta5vr96cl74-3 0
+        }
+
+        .lst-kix_kwncee5idxjy-3>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-3
+        }
+
+        .lst-kix_cie7rtn5xo9p-7>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-7
+        }
+
+        ol.lst-kix_nij80xgb60ki-6.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-6 0
+        }
+
+        .lst-kix_kwncee5idxjy-4>li {
+            counter-increment: lst-ctn-kix_kwncee5idxjy-4
+        }
+
+        .lst-kix_cie7rtn5xo9p-0>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-0
+        }
+
+        .lst-kix_cie7rtn5xo9p-6>li {
+            counter-increment: lst-ctn-kix_cie7rtn5xo9p-6
+        }
+
+        .lst-kix_qmpf2yoxuayk-8>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-8
+        }
+
+        .lst-kix_f45ryqxqb2q8-6>li {
+            counter-increment: lst-ctn-kix_f45ryqxqb2q8-6
+        }
+
+        .lst-kix_qmpf2yoxuayk-2>li {
+            counter-increment: lst-ctn-kix_qmpf2yoxuayk-2
+        }
+
+        .lst-kix_f45ryqxqb2q8-1>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-1, lower-latin) ". "
+        }
+
+        .lst-kix_f45ryqxqb2q8-5>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-5, lower-roman) ". "
+        }
+
+        ol.lst-kix_cie7rtn5xo9p-8.start {
+            counter-reset: lst-ctn-kix_cie7rtn5xo9p-8 0
+        }
+
+        ol.lst-kix_f45ryqxqb2q8-6.start {
+            counter-reset: lst-ctn-kix_f45ryqxqb2q8-6 0
+        }
+
+        ol.lst-kix_kwncee5idxjy-1.start {
+            counter-reset: lst-ctn-kix_kwncee5idxjy-1 0
+        }
+
+        .lst-kix_nij80xgb60ki-4>li {
+            counter-increment: lst-ctn-kix_nij80xgb60ki-4
+        }
+
+        li.li-bullet-0:before {
+            margin-left: -18pt;
+            white-space: nowrap;
+            display: inline-block;
+            min-width: 18pt
+        }
+
+        .lst-kix_f45ryqxqb2q8-3>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-3, decimal) ". "
+        }
+
+        ol.lst-kix_nij80xgb60ki-7.start {
+            counter-reset: lst-ctn-kix_nij80xgb60ki-7 0
+        }
+
+        ol.lst-kix_qmpf2yoxuayk-8.start {
+            counter-reset: lst-ctn-kix_qmpf2yoxuayk-8 0
+        }
+
+        .lst-kix_f45ryqxqb2q8-7>li:before {
+            content: "" counter(lst-ctn-kix_f45ryqxqb2q8-7, lower-latin) ". "
+        }
+
+        ol {
+            margin: 0;
+            padding: 0
+        }
+
+        table td,
+        table th {
+            padding: 0
+        }
+
+        .c41 {
+            padding-top: 0pt;
+            padding-bottom: 3pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+            height: 11pt
+        }
+
+        .c12 {
+            padding-top: 0pt;
+            padding-bottom: 3pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: center;
+            height: 11pt
+        }
+
+        .c25 {
+            padding-top: 0pt;
+            padding-bottom: 6pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+            height: 16pt
+        }
+
+        .c9 {
+            
+            font-weight: 400;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 1.5em;
+            
+            font-style: normal
+        }
+
+        .c6 {
+            color: #000000;
+            font-weight: 400;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 11pt;
+            font-family: "Calibri";
+            font-style: normal
+        }
+
+        .c16 {
+            padding-top: 14pt;
+            padding-bottom: 4pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        .c11 {
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 16pt;
+            
+            font-style: normal
+        }
+
+        .c14 {
+            padding-top: 16pt;
+            padding-bottom: 4pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        .c10 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            
+            orphans: 2;
+            widows: 2;
+            text-align: center;
+            height: 11pt
+        }
+
+        .c20 {
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 1.7em;
+            
+            font-style: normal
+        }
+
+        .c15 {
+            
+            font-weight: 700;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 1.5em;
+            
+            font-style: normal
+        }
+
+        .c3 {
+            color: #000000;
+            font-weight: 400;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 11pt;
+            
+            font-style: normal
+        }
+
+        .c0 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+            height: 11pt
+        }
+
+        .c2 {
+            
+            font-weight: 400;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 1.5em;
+            
+            font-style: italic
+        }
+
+        .c17 {
+            color: #000000;
+            font-weight: 400;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 1.5em;
+            
+            font-style: normal
+        }
+
+        .c32 {
+            padding-top: 12pt;
+            padding-bottom: 4pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        .c38 {
+            padding-top: 18pt;
+            padding-bottom: 6pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        .c47 {
+            padding-top: 0pt;
+            padding-bottom: 3pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        .c53 {
+            padding-top: 0pt;
+            padding-bottom: 3pt;
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: center
+        }
+
+        .c19 {
+            color: #000000;
+            font-weight: 400;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 18pt;
+            
+            font-style: normal
+        }
+
+        .c48 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+        
+            orphans: 2;
+            widows: 2;
+            text-align: center
+        }
+
+        .c1 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        .c33 {
+            
+            text-decoration: none;
+            vertical-align: baseline;
+            font-size: 1.7em;
+            
+            font-style: normal
+        }
+
+        .c21 {
+            
+            text-decoration: none;
+            vertical-align: baseline;
+            
+            font-style: normal
+        }
+
+        .c46 {
+            
+            text-decoration: none;
+            vertical-align: baseline;
+            
+            font-style: normal
+        }
+
+        .c39 {
+            
+            text-decoration: none;
+            vertical-align: baseline;
+            
+            font-style: normal
+        }
+
+        .c29 {
+            font-size: 1em;
+            text-decoration-skip-ink: none;
+            -webkit-text-decoration-skip: none;
+            color: #1155cc;
+            text-decoration: underline
+        }
+
+        .c35 {
+            color: #000000;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-style: normal
+        }
+
+        .c43 {
+            color: #000000;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-family: "Arial"
+        }
+
+        .c18 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.0;
+            text-align: left
+        }
+
+        .c28 {
+            font-size: 1.5em;
+            font-family: "Calibri";
+            font-weight: 400
+        }
+
+        .c22 {
+            font-size: 1.5em;
+            
+            font-weight: 700
+        }
+        
+        .c54 {
+            background-color: #ffffff;
+            /* padding: 72pt 72pt 72pt 72pt; */
+            min-height: 100%;
+            /* margin: 0; */
+            /* padding: 0; */
+            width: 80vw;
+            margin-left: 10vw;
+            font-family: "Arial", sans-serif;
+            overflow-x: hidden;
+        }
+
+        .c44 {
+            color: inherit;
+            text-decoration: inherit;
+            /* font-size: 1.5em; */
+        }
+
+        .c45 {
+            font-size: 9pt;
+            font-family: "Arial"
+        }
+
+        .c7 {
+            padding: 0;
+            margin: 0
+        }
+
+        .c4 {
+            margin-left: 36pt;
+            padding-left: 0pt
+        }
+
+        .c30 {
+            font-weight: 700;
+            font-size: 1.4em
+        }
+
+        .c8 {
+            font-size: 1.5em;
+            font-weight: 700
+        }
+
+        .c13 {
+            margin-left: 72pt;
+            padding-left: 0pt
+        }
+
+        .c26 {
+            font-weight: 400;
+            font-size: 11pt
+        }
+
+        .c52 {
+            height: 16pt
+        }
+
+        .c27 {
+            font-style: italic
+        }
+
+        .c5 {
+            text-indent: 36pt
+        }
+
+        .c42 {
+            height: 11pt
+        }
+
+        .c49 {
+            color: #0e101a
+        }
+
+        .c37 {
+            font-family: "Verdana"
+        }
+
+        .c31 {
+            font-weight: 700;
+            font-size: 1.5em
+        }
+
+        .c34 {
+            font-family: "Calibri"
+        }
+
+        .c51 {
+            font-family: "Arial"
+        }
+
+        .c40 {
+            height: 14pt
+        }
+
+        .c23 {
+            font-size: 1.5em;
+        }
+
+        .c50 {
+            font-size: 1.3em
+        }
+
+        .c36 {
+            font-weight: 400
+        }
+
+        .c24 {
+            margin-left: 36pt
+        }
+
+        .title {
+            padding-top: 0pt;
+            color: #000000;
+            font-size: 26pt;
+            padding-bottom: 3pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: center
+        }
+
+        .subtitle {
+            padding-top: 0pt;
+            
+            font-size: 15pt;
+            padding-bottom: 16pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        li {
+            color: #000000;
+            font-size: 11pt;
+            font-family: "Arial"
+        }
+
+        p {
+            margin: 0;
+            color: #000000;
+            font-size: 11pt;
+            font-family: "Arial"
+        }
+
+        h1 {
+            padding-top: 20pt;
+            color: #000000;
+            font-size: 20pt;
+            padding-bottom: 6pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        h2 {
+            padding-top: 18pt;
+            color: #000000;
+            font-size: 16pt;
+            padding-bottom: 6pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        h3 {
+            padding-top: 16pt;
+            
+            font-size: 1.7em;
+            padding-bottom: 4pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        h4 {
+            padding-top: 14pt;
+            
+            font-size: 1.5em;
+            padding-bottom: 4pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        h5 {
+            padding-top: 12pt;
+            
+            font-size: 11pt;
+            padding-bottom: 4pt;
+            
+            
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+
+        h6 {
+            padding-top: 12pt;
+            
+            font-size: 11pt;
+            padding-bottom: 4pt;
+            
+            
+            page-break-after: avoid;
+            font-style: italic;
+            orphans: 2;
+            widows: 2;
+            text-align: left
+        }
+        .c47.title{
+            display: flex;
+    justify-content: space-between;
+    align-items: center;
+        }
+        .img-head img{
+            height: 5vw;
+        }
+        .img-head:last-child img{
+            height: 8vw;
+        }
+    </style>
+</head>
+
+<body class="c54 doc-content">
+    <p class="c47 title" id="h.xy3lx0cw86zy">
+        <span
+            class="img-head"><img
+                alt="" src="images/image33.jpg"
+                
+                title=""></span><span
+            class="img-head"><img
+                alt="" src="images/image47.png"
+                
+                title=""></span>
+                
+            </p>
+    <p class="c41 title" id="h.689siquqknwf"><span class="c11"></span></p>
+    
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c53 title" id="h.9jsykttvfx76"><span class="c31 c50">Analysing Political Polarisation in Georgia through
+            Social Media: Insights from Large Language Models (LLMs)</span></p>
+    <p class="c12 title" id="h.5uioxl4as8i0"><span class="c11"></span></p>
+    <p class="c41 title" id="h.fu3ekcv81ces"><span class="c11"></span></p>
+
+    <p class="c10"><span class="c6"></span></p>
+    <p class="c48"><span class="c6">2024</span></p>
+    <p class="c0"><span class="c6"></span></p>
+
+    <p class="c0 c5"><span class="c6"></span></p>
+    <p class="c1 c5"><span class="c28">This publication has been produced with the assistance of the Center for
+            Strategic Research and Development of Georgia (CSRDG), within the framework of the European Union and
+            Konrad-Adenauer-Stiftung funded project &ldquo;</span><span class="c8 c34">Civil Society STAR
+            Initiative</span><span class="c28">: </span><span class="c28 c27">CSOs as Sustainable, Transparent,
+            Accountable and Resilient Development Actors in Georgia</span><span class="c35 c28">&rdquo;. Its contents
+            are the sole responsibility of publication authors &nbsp;and do not necessarily reflect the views of the
+            European Union and the Konrad-Adenauer-Stiftung.</span></p>
+    <p class="c0"><span class="c35 c28"></span></p>
+    <p class="c1 c5"><span class="c28 c35">The project is implemented by the Consortium led by the
+            Konrad-Adenauer-Stiftung (KAS) and composed of the following CSOs: Center for Strategic Research and
+            Development of Georgia (CSRDG), Civil Society Institute (CSI), Center for Training and Consultancy (CTC),
+            Education Development and Employment Center (EDEC), and Institute for European Politics (IEP).</span></p>
+    <p class="c0"><span class="c6"></span></p>
+    
+
+    <p class="c18 c42"><span class="c35 c37 c23 c36"></span></p>
+    <p class="c18 c42"><span class="c35 c37 c23 c36"></span></p>
+    <h2 class="c38 c5" id="h.e4y05jkyknye"><span class="c20">Executive Summary</span></h2>
+    <p class="c1 c5"><span class="c17">This report presents the findings from the final phase of our study on political
+            polarisation in Georgia, using social media as a lens. Building on the initial </span><span
+            class="c29 c23 c17"><a class="c44"
+                href="https://www.google.com/url?q=https://csogeorgia.org/storage/app/uploads/public/651/860/48c/65186048c358b026659685.pdf&amp;sa=D&amp;source=editors&amp;ust=1709824868927774&amp;usg=AOvVaw3zH-bIvazQn-246yS0XMG6">phase</a></span><span
+            class="c17">, which demonstrated the effectiveness of large language models in analysing social media posts
+            over three months in 2023, and four polarisation discourses, this final phase expanded the analysis to
+            include 150,000 posts from January 1, 2020, to October 30, 2023, and 11 discourses. These posts, collected
+            from 150 different political sources, including parties and individual politicians, offer insights into the
+            nature of political discourse over this period.</span></p>
+    <p class="c1 c5"><span class="c17">In this phase, advanced Large Language Models (LLMs) were employed for text
+            classification, improving our ability to categorise and understand polarisation discourses in Georgia. The
+            study focused on how different political groups engage with these discourses, aiming to provide a clearer
+            picture of the factors driving polarisation.</span></p>
+    <p class="c1 c5"><span class="c17">The results of this study shed light on the patterns and characteristics of
+            political polarisation in Georgia, revealing the specific narratives that have influenced political
+            discussions. This analysis aims to contribute to the understanding of political communication in Georgia,
+            especially in the context of the country&#39;s interactions with the European Union.</span></p>
+    <p class="c1 c5"><span class="c17">This report is intended to inform policymakers, social media analysts, and
+            researchers. It offers insights into the nature of political polarisation in Georgia, with the goal of
+            supporting efforts to address these dynamics.</span></p>
+    <p class="c1 c5"><span class="c17">This study highlights the practical applications of our findings, showing that
+            employing advanced Large Language Models (LLMs) for analysing political discourse can offer valuable
+            insights into polarisation. Our research indicates that this approach is not only viable but beneficial for
+            visualising and understanding the complexities of political polarisation. Such insights are crucial for
+            developing strategies aimed at mitigating these divides.</span></p>
+    <p class="c0 c5"><span class="c17"></span></p>
+    <p class="c1 c5"><span class="c20">Introduction</span></p>
+    <p class="c0"><span class="c6"></span></p>
+    <p class="c1 c5"><span class="c17">In recent years, the political landscape of Georgia has increasingly been
+            influenced by the dynamics of social media. This report details a study that delves into these dynamics,
+            specifically focusing on the aspect of political polarisation as reflected through social media channels.
+            The relevance of this study is underscored by Georgia&#39;s ongoing efforts to align with the European
+            Union&#39;s standards and practices, a key aspect of which involves understanding and addressing the factors
+            that contribute to political division.</span></p>
+    <p class="c1 c5"><span class="c17">The significance of social media in shaping public opinion and political
+            narratives in Georgia cannot be overstated. As such, this study aims to provide an analytical perspective on
+            the nature of political conversations and debates occurring on these digital platforms. By doing so, it
+            seeks to uncover the underlying patterns and trends that characterise political polarisation in the
+            country.</span></p>
+    <p class="c1 c5"><span class="c17">Key to this analysis is the exploration of the different narratives and
+            viewpoints that emerge from Georgia&#39;s political entities, including both parties and individual
+            politicians. The study is not limited to identifying these various discourses but also aims to trace their
+            development and influence over a specified period. Such an understanding is pivotal for stakeholders
+            involved in Georgian politics, offering insights that could inform strategies to foster a more unified
+            political environment conducive to the country&#39;s EU aspirations.</span></p>
+    <p class="c1 c5"><span class="c17">In this report, we outline the methods used in our analysis, present our key
+            findings, and discuss their implications. The objective is to contribute meaningfully to the discourse
+            surrounding political polarisation in Georgia, providing a resource for policymakers, academics, and others
+            interested in the intersection of politics, social media, and international relations.</span></p>
+    <h2 class="c5 c38" id="h.g1g8d7vojixt"><span class="c20">Political polarisation in Georgian and EU
+            Integration</span></h2>
+    <p class="c1 c5"><span class="c17">The context of political polarisation in Georgia is deeply intertwined with the
+            nation&#39;s aspirations for European Union integration. Since gaining independence, Georgia has embarked on
+            a transformative journey, to align its political, economic, and social structures with those of the European
+            Union. This path towards integration is not just a foreign policy objective but is also enshrined in the
+            Georgian Constitution, reflecting a commitment that spans the political spectrum.</span></p>
+    <p class="c1 c5"><span class="c17">However, the road to EU integration is multifaceted and challenging, with
+            political polarisation emerging as a significant obstacle. Political polarisation, defined by the increasing
+            ideological distance between political entities and the public, can hinder constructive dialogue, impede
+            consensus-building, and challenge democratic processes. In the context of Georgia&#39;s EU aspirations, such
+            polarisation can potentially affect the nation&#39;s ability to meet the EU&#39;s democratic standards and
+            criteria for membership.</span></p>
+    <p class="c1 c5"><span class="c17">The impact of political polarisation in Georgia extends beyond parliamentary
+            debates and political rallies; it is vividly manifested on social media platforms. These digital arenas have
+            become battlegrounds where political narratives and counter-narratives are continuously shaped and reshaped.
+            Social media&#39;s role in amplifying polarisation is particularly noteworthy given its widespread use in
+            Georgia for political discourse and public engagement.</span></p>
+    <p class="c1 c5"><span class="c17">The European Union&#39;s perspective on Georgia&#39;s political polarisation is
+            twofold. Firstly, it views reducing polarisation as essential for strengthening democratic institutions and
+            governance in Georgia, which are prerequisites for EU integration. Secondly, the EU considers the management
+            of political polarisation as critical for ensuring stability and harmony within its potential future member
+            states. Consequently, understanding the nuances of this polarisation becomes pivotal for both Georgia and
+            the EU.</span></p>
+    <h2 class="c38 c5" id="h.12oo4pyx5yxa"><span class="c20">Methodology</span></h2>
+    <p class="c1 c5"><span class="c9">The methodology for this study was structured to methodically capture and analyse
+            the nuances of political polarisation in Georgia through social media. The process was segmented into
+            several key stages:</span></p>
+    <ol class="c7 lst-kix_qmpf2yoxuayk-0 start" start="1">
+        <li class="c1 c4 li-bullet-0"><span class="c22">Identification of Social Media Channels</span><span class="c9">:
+                Initially, an extensive list of around 3,000 accounts related to Georgian political entities was
+                compiled. Through a meticulous selection process conducted by human experts, this list was narrowed down
+                to 150 valid accounts from platforms such as Facebook, YouTube, and Telegram. These accounts were
+                affiliated with various political parties and politicians.</span></li>
+    </ol>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c1 c5"><span class="c9">Political parties covered in the study:</span></p>
+    <ol class="c7 lst-kix_kwncee5idxjy-0 start" start="1">
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Georgian Dream</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;United National Movement</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;For Georgia</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Girchi</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Girchi More Freedom</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;For People</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Strategy Agmashenebeli</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;LELO</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;DROA</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;European Georgia</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Mokalakeebi</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Conservative Movement</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;People&#39;s Power</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Alliance of Patriots</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Labour Party</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;ERI</span></li>
+    </ol>
+    <p class="c0 c24"><span class="c9"></span></p>
+    <ol class="c7 lst-kix_qmpf2yoxuayk-0" start="2">
+        <li class="c1 c4 li-bullet-0"><span class="c22">Data Collection</span><span class="c9">: From the selected
+                accounts, a dataset of 150,000 posts was gathered. Along with these posts, engagement information for
+                each was collected to understand both positive and negative responses from social media followers and
+                viewers. This collection provided a useful base for analysing the range of political discourses over the
+                study period.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Identification of polarisation Discourses</span><span
+                class="c9">: To identify key discourses of polarisation, our team, which includes specialists with a
+                deep understanding of Georgian political dynamics, conducted a focused study. For this purpose, we
+                integrated the use of Large Language Models (LLMs) to assist in categorising and interpreting the
+                complex political narratives. These models provided valuable insights, enabling a more structured
+                analysis of the discourse patterns prevalent in the political landscape.</span></li>
+    </ol>
+    <p class="c1 c5"><span class="c9">The selected discourses include:</span></p>
+    <ol class="c7 lst-kix_i4kwkv2f8thi-0 start" start="1">
+        <li class="c1 c13 li-bullet-0"><span class="c9">The influence of oligarchs in political processes</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">Blaming of political parties for political polarisation</span>
+        </li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">The 2008 August war between Russia and Georgia</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">The conflict between Russia and Ukraine</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Georgia&#39;s role in the conflict between Russia and
+                Ukraine</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;The custody and treatment of Mikheil Saakashvili</span>
+        </li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;The confrontation between liberal and conservative
+                values</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Pro-Western versus Anti-Western foreign policy</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Pro-Russian versus Anti-Russian foreign policy</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;The role of NGOs in the country&#39;s political
+                processes</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Media independence and the role of media in political
+                processes</span></li>
+        <li class="c1 c13 li-bullet-0"><span class="c9">&nbsp;Georgia&#39;s role in the conflict between Russia and
+                Ukraine</span></li>
+    </ol>
+    <p class="c0 c24"><span class="c9"></span></p>
+    <ol class="c7 lst-kix_qmpf2yoxuayk-0" start="4">
+        <li class="c1 c4 li-bullet-0"><span class="c22">Data Annotation</span><span class="c9">: A group of 25
+                master&#39;s students specialising in social and political studies from Tbilisi State University and
+                Ilia State University were trained for the annotation process. These students manually annotated 5,000
+                posts, generating 25,000 unique annotation points. This exercise was crucial for ensuring the quality
+                and objectivity of the data used for model training and validation.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Model Fine-Tuning</span><span class="c9">: Recognizing the
+                limitations of foundational Large Language Models like GPT4 or Claude in understanding the specific
+                context of Georgian politics, we fine-tuned the open-source Large Language Model Mistral with our
+                annotated dataset. This customization was vital for improving model accuracy in identifying and
+                classifying relevant political narratives.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Classification and Information Extraction</span><span
+                class="c9">: The fine-tuned models were then employed to classify and extract information from the
+                entire dataset of posts. This stage involved measuring the accuracy of the models and constructing
+                visualisations for quantitative analysis.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Qualitative Analysis Using LLMs</span><span class="c9">: For a
+                deeper qualitative analysis, Large Language Models were used again to summarise narratives, providing
+                nuanced insights for each identified discourse and polarisation pole.</span></li>
+    </ol>
+    <p class="c0 c24"><span class="c9"></span></p>
+    <p class="c1 c5"><span class="c9">The methodology, combining human expertise with advanced computational tools,
+            allowed for a thorough examination of the political polarisation landscape in Georgia, offering both
+            quantitative and qualitative insights into the evolving nature of political discourses and
+            narratives.</span></p>
+    <h2 class="c38 c52" id="h.q9vvi669a861"><span class="c20"></span></h2>
+    <h2 class="c38 c5" id="h.vkj007uht64o"><span class="c20">Quantitative Analysis </span></h2>
+    <p class="c1 c5"><span class="c17">The first heatmap graph offers a visual representation of the distribution of
+            posts across different poles of polarisation discourse. In this graph, each block&#39;s colour intensity
+            correlates with the volume of posts: darker shades indicate a higher number of posts published by a party
+            within a specific polarisation pole. The total sum of posts classified under each pole is also provided.
+            This graphical representation facilitates a high-level overview of the areas where political parties are
+            most actively engaged, highlighting the intensity of their participation in various discourses.</span></p>
+    <p class="c0 c5"><span class="c17"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image53.png"
+                
+                title=""></span></p>
+    <h3 class="c14 c5" id="h.af1svy7angfc">Polarisation Discourses</span>
+    </h3>
+    <p class="c1 c5"><span class="c17">In the following section, three types of plots are provided for each polarisation
+            discourse:</span></p>
+    <ol class="c7 lst-kix_cie7rtn5xo9p-0 start" start="1">
+        <li class="c1 c4 li-bullet-0"><span class="c17">The first line chart displays the top five political parties
+                with the highest total number of posts for each discourse. This includes posts classified as Pole A,
+                Pole B, and Neutral.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c17">The second graph provides information about polarised posts
+                only, excluding neutral posts. It shows the activity over time for the top five political parties within
+                each polarisation pole.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c17">The third graph presents engagement information for the
+                discourse poles, illustrating the dynamics of positive and negative engagements over time for each
+                pole.</span></li>
+    </ol>
+    <p class="c0"><span class="c17"></span></p>
+    <p class="c1"><span class="c23">For more visualisations please visit interactive web application [ </span><span
+            class=" c29"><a class="c44"
+                href="https://www.google.com/url?q=https://ibex-app.github.io/geo-polarisation/final-report&amp;sa=D&amp;source=editors&amp;ust=1709824868937077&amp;usg=AOvVaw0W-pEvjjQ6fpE5sWpZJM04">link</a></span><span
+            class="c23">&nbsp;</span><span class="c23">].</span></p>
+    <h4 class="c16" id="h.3k0rba12lirq"><span class="c21 c8">The influence of oligarchs in political processes</span>
+    </h4>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1 c5"><span class="c9">The study of the role oligarchs play in Georgia&#39;s political scene, especially
+            the views towards Bidzina Ivanishvili between 2020 and 2023, shows a lot of action and involvement from the
+            main political parties. In the early years of 2020 and 2021, the Georgian Labour Party was at the forefront
+            of the opposition to Ivanishvili, engaging a lot of people with their posts. However, it&#39;s interesting
+            to see that the Georgian Dream party, even with fewer posts supporting Ivanishvili, managed to get a lot
+            more positive reactions, suggesting they might have a wider or more active group of supporters. Moving into
+            2022, the United National Movement took over the leading role in challenging Ivanishvili, both in the sheer
+            number of posts and the level of engagement they received, pointing to a change in the political dynamics
+            and where the main resistance was coming from.</span></p>
+    <p class="c1 c5"><span class="c9">What stands out from this analysis is the clear gap in positive responses between
+            the parties and their stance on Ivanishvili. For example, in 2021, Georgian Dream&#39;s fewer supportive
+            posts got more than 7.9 million positive reactions, overshadowing the opposition&#39;s numbers by a large
+            margin. This difference in responses sheds light on the intricate nature of Georgia&#39;s political
+            conversations, showing that the amount of posts doesn&#39;t always match up with how much or how strongly
+            people respond. This gives us a closer look into the political division caused by oligarchic influences in
+            Georgia, focusing on the depth and range of people&#39;s reactions rather than just how much they&#39;re
+            talking.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image45.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image13.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image38.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.knaqknv183"><span class="c21 c8">Blaming of political parties for political
+            polarisation</span></h4>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1 c5"><span class="c9">The study of how political narratives in Georgia assign blame for increasing
+            political division reveals two main viewpoints: those criticising the government and those criticising the
+            opposition. Throughout this period, the United National Movement (UNM) consistently pointed fingers at the
+            government, reaching a peak in 2022 with 728 posts that attracted a mix of positive and negative attention.
+            This ongoing criticism highlights the UNM&#39;s role as a key opponent of government policies, indicating
+            significant disagreements in the political conversation.</span></p>
+    <p class="c1 c5"><span class="c9">On the other side, the Georgian Dream and People&#39;s Power were the most vocal
+            in criticising the opposition, with the Georgian Dream leading this narrative for three consecutive years.
+            In 2021, their messages received over 7.9 million positive engagements, a number that stands out within this
+            debate, showing not just a high level of activity but also significant interaction, suggesting the
+            party&#39;s success in engaging or appealing to a wide audience. In 2023, People&#39;s Power took the lead
+            in opposing the opposition, with 785 posts, although these did not engage people as much as Georgian
+            Dream&#39;s efforts in previous years. This change points to evolving dynamics in Georgia&#39;s political
+            discussions, with different parties becoming more prominent in directing the conversation about political
+            divisions.</span></p>
+    <p class="c1 c5"><span class="c9">This examination sheds light on the specific roles and tactics of the leading
+            political parties in Georgia&#39;s politically divided environment, highlighting the fervour and involvement
+            in discussions about the responsibilities of government and opposition in deepening these divides.</span>
+    </p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image29.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image6.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image31.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.kcarceuyp4kl"><span class="c21 c8">The 2008 August war between Russia and Georgia</span></h4>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1 c5"><span class="c9">The conversation about the 2008 war between Russia and Georgia, especially in
+            terms of who was at fault, shows an active and changing pattern of engagement. Early on, the Georgian Dream
+            party was particularly vocal in blaming Russia, drawing significant attention and suggesting their viewpoint
+            had wide appeal. Interestingly, this party also presented views blaming Georgia, though less frequently,
+            showing a more complex or varied take on the war&#39;s events.</span></p>
+    <p class="c1 c5"><span class="c9">As time went on, the United National Movement became the main group discussing
+            Russia&#39;s faults, in line with their political views and the historical backdrop. On the other hand,
+            People&#39;s Power and the Conservative Party of Georgia stepped up as the main voices in 2023 and 2022,
+            respectively, pointing towards Georgian responsibility, but these perspectives didn&#39;t capture as much
+            engagement as those blaming Russia. This change might indicate shifts in political focus, strategies, or how
+            the public feels about the war&#39;s impact.</span></p>
+    <p class="c1 c5"><span class="c9">This analysis reveals a clear lean towards narratives that fault Russia, with a
+            smaller yet persistent conversation that suggests Georgian responsibility. These dynamics highlight how the
+            2008 war remains a key topic in Georgia, underlining the complexities of how history is seen and the
+            influence political parties have in driving and engaging with these discussions.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image52.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image32.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image50.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.32y6de9qainl"><span class="c21 c8">Attitude toward West</span></h4>
+    <p class="c1 c5"><span class="c9">The discussion about Georgia&#39;s foreign policy direction, choosing between
+            Pro-Western and Anti-Western stances, shows a clear divide and engagement across political lines. The
+            Georgian Dream party consistently pushed for closer ties with the West, with their efforts peaking in 2022
+            with 938 posts, highlighting their commitment to Western integration despite a slight dip in activity in
+            2023. This shows their deliberate effort to gather support for this path.</span></p>
+    <p class="c1 c5"><span class="c9">In contrast, the Conservative Party of Georgia took a leading role in opposing
+            Western alignment in the latter two years, with a noticeable jump in posts from 2023 to 538, signalling a
+            strong push against Western orientation. This rise in anti-Western sentiment may suggest a widening gap in
+            public and political opinion on Georgia&#39;s foreign policy choices. The level of engagement, especially
+            the support for Georgian Dream&#39;s pro-Western stance, points to the intense debate over Georgia&#39;s
+            place in global geopolitics and the influence of political parties in steering this conversation.</span></p>
+    <p class="c1 c5"><span class="c9">Through this lens, the analysis highlights a polarised view on foreign policy,
+            with significant discussions on whether to pursue closer relations with the West or oppose them. The sharp
+            difference in the number of posts between advocates for Western integration and those against it illustrates
+            the deepening fault lines and changing dynamics in how Georgia navigates its geopolitical ambitions and
+            challenges.</span></p>
+    <p class="c0 c5"><span class="c39 c26"></span></p>
+    <h5 class="c32" id="h.jpb0jfjikuno"><span class="c31">West advocacy</span></h5>
+    <p class="c1 c5"><span class="c9">The investigation into pro-West narratives within Georgian political discourse
+            uncovers a multifaceted picture of engagement, reflecting a diversity of views and the complexity of
+            Georgia&#39;s orientation towards Western alliances. The analysis reveals that pro-West posts, both those
+            receiving high positive and negative engagement, predominantly emanate from a limited range of political
+            parties. This suggests that support for Western integration is a polarising issue, closely tied to specific
+            political ideologies and agendas within the country.</span></p>
+    <p class="c1 c5"><span class="c9">Posts with high positive engagement tend to celebrate Western democratic values,
+            emphasising the benefits of integration with European and North American institutions for Georgia&#39;s
+            democracy, economy, and security. These narratives often highlight the importance of aligning with the West
+            as a strategic choice for ensuring Georgia&#39;s progress and stability, invoking themes of liberty, human
+            rights, and economic development. On the other hand, pro-West posts that attract high negative engagement
+            reveal a contentious debate within Georgian society. Critics within these discussions frequently question
+            the sincerity or effectiveness of Western support, the conditions attached to Western integration, or the
+            potential loss of national identity and autonomy. Yet, even within this critical engagement, the underlying
+            premise of a Westward orientation is not entirely dismissed but rather debated in terms of its terms and
+            implications.</span></p>
+    <p class="c1 c5"><span class="c9">Throughout the period analysed, the persistence and evolution of pro-West
+            narratives with significant engagement levels underscore the salience of Western integration in
+            Georgia&#39;s political and public discourse. While the support for Western ties is clear among certain
+            parties and segments of the population, the nuances within this support reflect a broader conversation about
+            what such an orientation means for Georgia&#39;s future. This dialogue is characterised by both optimism for
+            the potential benefits of closer ties with the West and caution about the challenges and compromises these
+            ties may entail.</span></p>
+    <p class="c0"><span class="c39 c26"></span></p>
+    <h5 class="c32" id="h.328sqvoe1l73"><span class="c21 c30">West opposition</span></h5>
+    <p class="c1 c5"><span class="c17">The analysis of anti-West narratives within the dataset reveals a complex
+            landscape of engagement across different political parties in Georgia, characterised by varied responses to
+            the discourse opposing Western integration. Notably, the most engaged anti-West posts, both positively and
+            negatively, often originate from a select few parties, suggesting a polarisation within the political
+            spectrum concerning Georgia&#39;s orientation towards Western alliances.</span></p>
+    <p class="c1"><span class="c17">In terms of content, posts with the highest negative engagement frequently criticise
+            Western policies or influence in Georgia, framing them as detrimental to the nation&#39;s sovereignty or
+            traditional values. These narratives may leverage geopolitical events, cultural debates, or economic
+            policies to argue against closer ties with Western entities. Conversely, the positively engaged posts within
+            the anti-West discourse tend to emphasise national autonomy, cultural preservation, and the importance of
+            balancing international relations with maintaining Georgia&#39;s unique identity and interests. While
+            critical of the West, these posts might also call for a nuanced approach to diplomacy, suggesting that
+            alignment with Western values or policies should not be pursued uncritically or at the expense of
+            Georgia&#39;s autonomy and welfare.</span></p>
+    <p class="c1 c5"><span class="c17">Across the years, the persistence of anti-West narratives with high engagement
+            levels highlights a significant segment of the Georgian population that is sceptical of closer ties with
+            Western institutions. This scepticism spans across multiple parties, though it is more pronounced within
+            certain factions, indicating a political strategy that capitalises on nationalistic sentiments and concerns
+            over sovereignty. The discourse&#39;s evolution or consistency over the years could reflect broader
+            geopolitical shifts, domestic policy debates, or changes in the public&#39;s perception of Western influence
+            in Georgia. &#8203;</span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image2.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image49.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image37.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.iny6dusjc98m"><span class="c21 c8">Attitude toward Russia</span></h4>
+    <p class="c1 c5"><span class="c9">The discussion on Georgia&#39;s foreign policy stance towards Russia showcases the
+            shifting political and ideological lines within the nation. The United National Movement (UNM) has been at
+            the forefront of criticising Russian influence, with their efforts intensifying over the years&mdash;jumping
+            from 206 posts in 2021 to 659 in 2023. This increase underlines the UNM&#39;s focus on opposing Russian
+            influence, a stance that ties into their larger goal of reinforcing Georgian sovereignty and pursuing closer
+            ties with the West.</span></p>
+    <p class="c1 c5"><span class="c9">On the flip side, support for Russia within Georgia presents a diverse scenario.
+            Initially, the Alliance of Patriots of Georgia and Georgian Dream participated in pro-Russian narratives.
+            Later, People&#39;s Power and the Conservative Party of Georgia stood out for their Russian support in 2023
+            and 2022, though their presence was smaller compared to the anti-Russian messages. The volume of posts
+            criticising Russian influence, particularly from the UNM, and the mixed reactions these received, highlight
+            the intense debate over Georgia&#39;s foreign policy. This debate separates those pushing for stronger
+            connections with the West from those seen as leaning towards Russian interests.</span></p>
+    <p class="c1 c5"><span class="c9">This analysis points to a deeply divided and increasingly vocal debate over
+            Georgia&#39;s direction in foreign policy, underlining significant divides in political and public opinion
+            about the country&#39;s strategic path. The growing focus on anti-Russian sentiments, mainly driven by the
+            UNM, indicates a strong movement against Russian influence, mirroring larger geopolitical tensions and the
+            lasting effect of past conflicts on Georgia&#39;s current political and foreign policy discourse.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <h5 class="c32" id="h.5fxmgmp0shib"><span class="c21 c30">Critique towards Russia</span></h5>
+    <p class="c1 c5"><span class="c17">The analysis of anti-Russia narratives within Georgian political discourse
+            underscores a critical aspect of the nation&#39;s geopolitical stance and public sentiment, reflecting
+            deep-seated concerns and opposition towards Russian influence and policies. The engagement patterns with
+            these narratives, both positive and negative, reveal a wide consensus among several political parties,
+            indicating a broad-based scepticism and resistance against Russia&#39;s regional ambitions and its impact on
+            Georgia&#39;s sovereignty and territorial integrity.</span></p>
+    <p class="c1 c5"><span class="c17">Posts with the highest positive engagement in the anti-Russia category often
+            articulate concerns about Russian geopolitical manoeuvres, historical grievances, and the ongoing conflicts
+            in regions recognized internationally as part of Georgia but currently under Russian control or influence.
+            These narratives emphasise the importance of national security, the integrity of Georgian territory, and the
+            need for international support to counter Russian aggression. They resonate with calls for solidarity, the
+            protection of human rights, and the reinforcement of Georgian national identity against perceived external
+            threats.</span></p>
+    <p class="c1 c5"><span class="c17">Conversely, posts that attract high negative engagement within the anti-Russia
+            discourse tend to focus on the complexities of Georgian-Russian relations, including economic dependencies,
+            the nuanced realities of conflict zones, and the challenges of diplomatic engagement with Russia. While
+            these posts share a critical stance towards Russia, the debate often centres on the best strategies for
+            addressing these challenges, balancing national security concerns with the realities of economic and social
+            ties between the two countries.</span></p>
+    <p class="c1 c5"><span class="c17">Throughout the analysis period, the enduring focus on anti-Russia narratives with
+            significant engagement levels highlights the centrality of Russian relations in Georgia&#39;s political and
+            public discourse. The nuanced differences in engagement suggest a society grappling with its complex
+            relationship with Russia, united in its opposition to Russian policies perceived as aggressive or
+            imperialistic, yet divided on the best path forward for Georgia&#39;s future security, prosperity, and
+            territorial integrity.</span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <h5 class="c32" id="h.wkwo6rxtasnn"><span class="c21 c30">Supporting deeper ties with Russia</span></h5>
+    <p class="c1 c5"><span class="c17">The exploration of pro-Russia narratives within Georgian political discourse
+            highlights a nuanced and often contentious aspect of Georgia&#39;s geopolitical dialogue. This analysis
+            reveals that while the support for Russia and its policies may be less vocal or mainstream compared to
+            pro-Western sentiments, it nonetheless occupies a significant niche within certain political parties and
+            segments of Georgian society. The engagement patterns for these narratives, both positive and negative,
+            provide insight into the complexity of Georgian attitudes towards Russia.</span></p>
+    <p class="c1 c5"><span class="c17">Pro-Russia posts with the highest positive engagement often articulate a vision
+            of Georgia-Russia relations that emphasises historical ties, cultural connections, and potential economic
+            benefits. These narratives sometimes critique the West&#39;s influence in Georgia, proposing that closer
+            relations with Russia could offer alternative pathways to security and prosperity. They appeal to a sense of
+            regional pragmatism, suggesting that cooperation with Russia is not only historically grounded but also
+            geopolitically astute given Georgia&#39;s location and economic realities.</span></p>
+    <p class="c1 c5"><span class="c17">Conversely, the narratives that attract high negative engagement within the
+            pro-Russia discourse often provoke debate about the implications of such a stance for Georgia&#39;s
+            sovereignty and territorial integrity. These discussions reflect the deep divisions within Georgian society
+            regarding the best approach to dealing with Russia, especially in light of ongoing conflicts and territorial
+            disputes. The negative engagement likely stems from a broader societal resistance to any perceived
+            concessions to Russian influence, reflecting ongoing tensions and unresolved issues stemming from past
+            conflicts.</span></p>
+    <p class="c1"><span class="c17">Throughout the period analysed, the presence and engagement with pro-Russia
+            narratives underscore a complex landscape of opinion within Georgia, where historical affiliations, economic
+            considerations, and geopolitical strategies converge. While a majority of the political discourse may lean
+            towards pro-Western and anti-Russian sentiments, the existence and engagement levels of pro-Russia posts
+            highlight a counter-narrative that advocates for a reconsideration of Georgia&#39;s relationship with its
+            larger neighbour. This dialogue suggests an ongoing debate about Georgia&#39;s national identity, security
+            concerns, and geopolitical orientation, reflecting the broader challenges faced by the country at the
+            crossroads of Europe and Asia.</span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c17"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image11.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image14.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image55.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.3amuuqfkd6c6"><span class="c21 c8">The custody and treatment of Mikheil Saakashvili</span>
+    </h4>
+    <p class="c1 c5"><span class="c9">The conversation about Mikheil Saakashvili&#39;s custody and treatment,
+            highlighting support (Saakashvili Defense) versus opposition (Saakashvili Criticism), showcases a deeply
+            divided and active political scene in Georgia from 2020 to 2023. The United National Movement (UNM),
+            Saakashvili&#39;s party, has been the most steadfast in defending him, with their efforts growing from 128
+            posts in 2020 to 650 by 2023. This growth in activity clearly shows the party&#39;s dedication to supporting
+            Saakashvili, indicating both a political strategy and an effort to rally support for his cause.</span></p>
+    <p class="c1 c5"><span class="c9">Criticism has seen varied leadership, with Georgian Dream stepping up in 2021 and
+            People&#39;s Power leading in 2023, the latter posting 376 criticisms in that year. These changes, along
+            with the level of interaction these criticisms received, suggest a lively and evolving debate over
+            Saakashvili&#39;s impact and current predicament. The engagement levels, particularly for narratives
+            defending Saakashvili, spearheaded by the UNM, emphasise Saakashvili&#39;s continued relevance in Georgian
+            political discussions, acting as a catalyst for wider debates on justice, potential political targeting, and
+            governance principles. The persistent and increasing support for Saakashvili, contrasted with the changing
+            critics, reflects the ongoing split and lasting importance of Saakashvili&#39;s story in the context of
+            Georgia&#39;s current political landscape.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image16.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image57.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image5.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.iqv5zdcp80ho"><span class="c8 c21">The confrontation between liberal and conservative
+            values</span></h4>
+    <p class="c1 c5"><span class="c9">The debate between liberal and conservative values in Georgia, viewed through
+            Liberal versus Conservative Advocacy, shows a dynamic and evolving dialogue within the political sphere.
+            Early on, in 2020, the discussions appeared evenly matched, with Lelo and Georgian Dream representing the
+            liberal and conservative sides, respectively. This period marked the beginning of an engaging conversation
+            on these ideological differences. Moving into 2021, the landscape began to change significantly.</span></p>
+    <p class="c1 c5"><span class="c9">The United National Movement (UNM) took a leading role in championing liberal
+            values in 2021 and 2023, drawing considerable attention and support. This shift highlights the UNM&#39;s
+            commitment to liberal ideologies and its efforts to gather backing for these views. Meanwhile, on the
+            conservative side, the Conservative Party of Georgia saw a notable uptick in its activities in 2022 and
+            2023, delivering a large number of messages in support of conservative principles, surpassing the volume of
+            liberal messaging. This increase underscores the Conservative Party of Georgia&#39;s focus on conservative
+            values and indicates a deepening divide and the importance of value-driven politics in Georgia.</span></p>
+    <p class="c1 c5"><span class="c9">This overview underlines the lively and divided nature of ideological debates in
+            Georgia, particularly with the recent surge in support for conservative values. The difference in engagement
+            and the volume of conservative advocacy by the Conservative Party of Georgia highlights a vigorous and
+            potentially divisive ideological environment, which is shaping public conversations and may influence wider
+            societal and political discussions.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <h5 class="c32" id="h.oe8zajrlqs9x"><span class="c21 c30">&nbsp;Liberal Advocacy </span></h5>
+    <p class="c1 c5"><span class="c17">The discourse surrounding liberal values in Georgia, highlights a vibrant debate
+            on the topic, marked by significant engagement from various segments of society. Posts championing liberal
+            values&mdash;ranging from human rights, and gender equality, to freedom of expression&mdash;garnered
+            substantial engagement, indicating a robust public interest in liberal ideologies. This interest was not
+            confined to a single party or year but was a recurrent theme across multiple political entities and
+            throughout the period studied. The positive engagement with these posts often came from younger
+            demographics, urban populations, and those with a pro-European orientation, who view liberal values as
+            integral to Georgia&#39;s democratic development and its aspirations towards European
+            integration.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    <p class="c1 c5"><span class="c23">However, the negative engagement these posts received unveils a contrasting
+            perspective prevalent among more conservative factions within Georgian society, who may view rapid liberal
+            reforms as a threat to traditional values or national identity. This divergence in public opinion is
+            reflective of the broader cultural and political discourse in Georgia, where the tension between progressive
+            ideals and traditional norms continues to shape the political landscape. Despite the contentious nature of
+            these discussions, the engagement levels underscore a healthy democratic process, with social media serving
+            as a vital platform for dialogue and debate. The analysis further reveals that while no single party
+            monopolises the discourse on liberal values, certain parties are more actively engaged in promoting these
+            ideals, suggesting a correlation between party ideology and advocacy for liberal reforms</span></p>
+    <h5 class="c32" id="h.u0v2xtg6h321"><span class="c31">Conservative Advocacy</span></h5>
+    <p class="c1 c5"><span class="c17">The narrative around conservative values in Georgian political and social
+            discourse, as evidenced by social media engagement, reflects a society grappling with its cultural identity
+            amidst modern global influences. Posts that articulated conservative positions&mdash;emphasising traditional
+            family values, national identity, and scepticism towards rapid liberal reforms&mdash;resonated significantly
+            with a portion of the Georgian populace. This resonance was marked by high levels of engagement, indicating
+            a deep-seated concern for preserving cultural heritage and cautiousness towards the adoption of foreign
+            values perceived as incompatible with Georgian traditions.</span></p>
+    <p class="c1 c5"><span class="c17">The analysis shows that these conservative narratives found a broad audience
+            across various political parties, suggesting that conservative values are not the exclusive domain of any
+            single political entity but are rather widespread across the political spectrum. Positive engagement with
+            these narratives often came from individuals and groups advocating for a return to or preservation of
+            traditional norms and values, viewing them as fundamental to the nation&#39;s identity and social cohesion.
+            On the other hand, the negative engagement highlights a polarised society where progressive and conservative
+            views clash over the direction in which Georgia should head, particularly on social issues. This tension
+            mirrors wider global debates about nationalism, globalisation, and cultural preservation, indicating that
+            Georgia&#39;s discourse on conservative values is both a reflection of internal dynamics and broader global
+            trends. Despite these divisions, the engagement levels underscore an active participation in the democratic
+            process, where social media serves as a crucial arena for the exchange of divergent views.</span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image4.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image18.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image56.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.xlxnv96milmr"><span class="c21 c8">Economics</span></h4>
+    <p class="c1 c5"><span class="c9">The discussion on economic outlooks in Georgia presents a varied picture of
+            expectations, highlighting how political factions differ in their views on the country&#39;s economic
+            future. Throughout this period, the Georgian Dream stood out for its optimistic stance, frequently sharing
+            content that painted Georgia&#39;s economic situation in a positive light. The attention and interaction
+            these posts received indicate they struck a chord with many, likely mirroring the party&#39;s attempt to
+            promote its economic policies and achievements.</span></p>
+    <p class="c1 c5"><span class="c9">Conversely, Strategy Aghmashenebeli took the lead in expressing economic concerns
+            in 2020 and 2021, followed by the United National Movement (UNM) in 2023, and Girchi making its mark in
+            2022. The engagement with Strategy Aghmashenebeli&#39;s posts early on suggests a sizable audience was
+            receptive to their more critical view of Georgia&#39;s economic direction, focusing on potential issues or
+            policy failures. The later prominence of UNM and Girchi in these discussions points to an ongoing evolution
+            in who is most vocal in critiquing the economy, reflecting shifting political landscapes and the importance
+            of economic issues in public debate.</span></p>
+    <p class="c1 c5"><span class="c9">This overview paints a picture of a deeply divided economic narrative within
+            Georgian politics, with Georgian Dream&#39;s consistent optimism met with varying sources of scepticism over
+            the years. The interaction with these differing viewpoints underscores the significance of economic topics
+            in the political arena and illustrates how parties leverage these discussions to rally support, challenge
+            the status quo, or influence how Georgia&#39;s economic future is perceived.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c0"><span class="c39 c26"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image46.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image7.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image24.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.a4xagucffg81"><span class="c21 c8">The conflict between Russia and Ukraine</span></h4>
+    <p class="c1 c5"><span class="c9">The discussion on the Russia-Ukraine conflict in Georgia, framed through
+            expressions of support for Ukraine and sympathy towards Russia, offers insight into the engagement of
+            Georgian political parties on this issue. The United National Movement (UNM) has been notably vocal in its
+            support for Ukraine, especially in 2020 and 2021, with a significant increase in activity in 2022, totalling
+            400 posts. This pattern of advocacy underscores the UNM&#39;s consistent position on the conflict, echoing
+            wider global backing for Ukraine.</span></p>
+    <p class="c1 c5"><span class="c9">By 2023, Strategy Aghmashenebeli stepped up as the leading voice for Ukraine with
+            205 posts, marking a heightened focus on the conflict. This uptick in activity could signify growing
+            concerns or a deliberate shift in how Georgian political narratives engage with the situation. On the other
+            hand, expressions of sympathy towards Russia saw People&#39;s Power and the Conservative Party of Georgia as
+            principal contributors in 2023 and 2022, though their contributions were less frequent compared to those
+            supporting Ukraine. The interaction with pro-Ukraine narratives indicates strong public and political
+            interest in the conflict, highlighting its significance in Georgian political dialogue and the divisive
+            effect of international disputes on national politics.</span></p>
+    <p class="c1 c5"><span class="c9">This review highlights the shifting and active involvement of Georgian political
+            parties in the discourse on the Russia-Ukraine conflict, mirroring wider international stances and domestic
+            political considerations.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <h5 class="c32" id="h.fal1mxkq93"><span class="c21 c30">Ukraine Support</span></h5>
+    <p class="c1 c5"><span class="c17">The analysis of pro-Ukraine posts in Georgian political discourse, focusing on
+            those with the highest levels of engagement, illuminates a significant portion of Georgian society&#39;s
+            stance towards Ukraine, especially in the context of its conflict with Russia. The engagement patterns
+            suggest a strong sense of solidarity with Ukraine across multiple political parties, although the intensity
+            and nature of this support varied. Notably, posts demonstrating a firm stance in support of Ukraine&#39;s
+            sovereignty and its European aspirations garnered substantial positive engagement, reflecting a widespread
+            pro-European sentiment among Georgians and a clear opposition to Russian aggression.</span></p>
+    <p class="c1 c5"><span class="c23">Throughout the period, it was observed that positive engagement primarily came
+            from individuals and groups advocating for Georgia&#39;s alignment with European and Euro-Atlantic
+            structures, viewing Ukraine&#39;s struggle as parallel to their aspirations for independence and territorial
+            integrity. Conversely, the negative engagement with Pro-Ukraine posts, though less prevalent, pointed to
+            existing segments within Georgian society that either harbour scepticism towards the West or prefer a more
+            cautious approach to Georgia&#39;s foreign policy, especially concerning Russia. This dichotomy in
+            engagement reflects the broader debates within Georgia regarding its foreign policy orientation and the
+            balancing act between its historical ties to Russia and its aspirations towards the West. The analysis
+            underscores the role of social media as a battleground for these competing narratives, with political
+            parties leveraging these platforms to align with or challenge the prevailing sentiment towards Ukraine and,
+            by extension, Georgia&#39;s geopolitical orientation. </span></p>
+    <h5 class="c32" id="h.ctau47s37605"><span class="c21 c30">Russia Sympathy</span></h5>
+    <p class="c1 c5"><span class="c17">The analysis of Pro-Russia posts across different political parties in Georgia,
+            with a focus on those eliciting the highest positive and negative engagement, reveals nuanced public and
+            political reactions. Throughout the period, a pattern emerged where certain parties consistently produced
+            content that resonated with pro-Russian sentiments, drawing both significant support and opposition. The
+            data indicates that these narratives did not exclusively belong to any single party but were rather
+            distributed among several, suggesting a complex landscape of opinions on Russia within Georgian political
+            discourse.</span></p>
+    <p class="c1 c5"><span class="c17">In years where geopolitical tensions were heightened, posts that supported
+            Russia&#39;s stance, particularly regarding Ukraine, tended to receive a notable amount of engagement,
+            indicating a polarised public opinion. Positive engagement often comes from segments of the population that
+            either hold cultural or historical affinities with Russia or are influenced by the geopolitical narratives
+            that favour Russian partnership over Western integration. Conversely, the negative engagement highlighted a
+            substantial part of Georgian society firmly opposed to Russia&#39;s actions in Ukraine and sceptical of any
+            pro-Russian stance, emphasising the importance of Georgia&#39;s Euro-Atlantic integration. The distribution
+            of engagement across parties underscores a fragmented political spectrum where pro-Russian narratives are
+            both a point of mobilisation and contention. This polarisation is reflective of the broader geopolitical
+            dilemmas facing Georgia, caught between its historical ties to Russia and its aspirations for closer
+            relations with the West. &#8203;</span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0 c5"><span class="c17"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image44.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image48.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image42.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.lmjv4ygdq8v0"><span class="c21 c8">Media independence and the role of media in political
+            processes</span></h4>
+    <p class="c1 c5"><span class="c9">The conversation about media independence and its influence on political processes
+            in Georgia, which contrasts views promoting Media Freedom against those favouring Media Censure, reveals a
+            complex field of political activity spanning from 2020 to 2023. Lelo made an early mark as a proponent of
+            media freedom in 2020, contrasting with the positions of the Georgian Dream and the Conservative Party of
+            Georgia, which later emerged more closely aligned with views that seemed to endorse media censure. Georgian
+            Dream&#39;s involvement is particularly noticeable in 2021 and 2022, marking a period of sustained focus on
+            media issues from a stance that has faced criticism for leaning towards restricting media freedoms.</span>
+    </p>
+    <p class="c1 c5"><span class="c9">Throughout 2021 and 2023, the United National Movement (UNM) displayed strong
+            support for media freedom through numerous posts and significant interaction, emphasising the party&#39;s
+            commitment to safeguarding media independence as a fundamental element of a democratic society. The
+            prominent shift in 2023, with the Conservative Party of Georgia taking the forefront of the narrative
+            against media freedom, highlights a growing division regarding the media&#39;s place in Georgia, mirroring
+            wider anxieties about press freedom, governmental media interference, and the stakes for democratic
+            processes.</span></p>
+    <p class="c1 c5"><span class="c9">This overview points to a battleground over media freedom in Georgia, with the UNM
+            championing the cause against a backdrop of broader debates on the subject. The level of engagement with
+            these discussions underlines the importance and contentious nature of media independence issues, signifying
+            that debates over media freedom continue to be a vital, yet polarising, aspect of Georgia&#39;s political
+            dialogue.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c39 c26"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image40.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image23.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image10.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.7iu07oauc3o0"><span class="c21 c8">Georgia&#39;s role in the conflict between Russia and
+            Ukraine</span></h4>
+    <p class="c1 c5"><span class="c9">The discussion on how Georgia should navigate its position regarding the
+            Russia-Ukraine conflict, framed through the debate on whether to offer more or less support to Ukraine, has
+            vividly outlined political divisions from 2020 to 2023. The United National Movement (UNM) has been at the
+            forefront of advocating for more support for Ukraine, ramping up its efforts in 2022 with 176 posts and
+            continuing with a significant presence in 2023 through 65 posts. This continuous push aligns with the
+            UNM&#39;s broader international stance, showcasing a commitment to standing with Ukraine during these
+            challenging times.</span></p>
+    <p class="c1 c5"><span class="c9">Conversely, the conversation around offering less support to Ukraine or showcasing
+            anti-Ukraine sentiments has seen different parties take the lead at various times. The Georgian Dream was
+            more noticeable in this aspect in the earlier years, though with fewer posts, while People&#39;s Power
+            emerged strongly in 2023 with 86 posts. This change, notably People&#39;s Power&#39;s rise in activity,
+            suggests shifting viewpoints within Georgia about how it should engage with the ongoing conflict.</span></p>
+    <p class="c1 c5"><span class="c9">This exploration reveals the lively and polarised nature of discussions on
+            Georgia&#39;s foreign policy direction, especially about Ukraine. The marked increase in UNM&#39;s efforts
+            to bolster support for Ukraine, paired with People&#39;s Power presenting an opposing viewpoint, mirrors the
+            larger geopolitical strains and their impact on the political dialogue within Georgia.</span></p>
+    <p class="c0 c5"><span class="c9"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image19.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image3.png"
+                
+                title=""></span></p>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image8.png"
+                
+                title=""></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <h3 class="c14 c5" id="h.40ywdov5av8e"><span class="c31 c33">Parties</span></h3>
+    <p class="c1 c5"><span class="c23">In this section, the plots for each political party are provided. Each diagram
+            displays the top five discourses mentioned by each party.</span></p>
+    <h4 class="c16" id="h.w6hw2ar8jjl"><span class="c21 c8">Georgian Dream</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image26.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.lyfgglb82i28"><span class="c21 c8">People&rsquo;s Power</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image25.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.yirowvj5klc1"><span class="c21 c8">Citizens</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image34.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.9fnoa7uzbdc"><span class="c21 c8">United National Movement</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image54.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.dc2qi73d46k"><span class="c21 c8">European Georgia</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image1.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.2ck9ehgdbsz6"><span class="c21 c8">Girchi</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image22.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.44ddw1zcqjgk"><span class="c21 c8">Lelo</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image30.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.1wz9jbgkx0ce"><span class="c21 c8">Strategy Aghmashenebeli</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image59.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.3iv0khqgix4t"><span class="c21 c8">For Georgia</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image41.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.foozsv4ojz89"><span class="c21 c8">For People</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image35.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.fpwrm02v69uo"><span class="c21 c8">Girchi More Freedom</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image17.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.nfzi1wbf4zde"><span class="c21 c8">Georgian Labour Party</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image39.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.wy5xqfvpsf3w"><span class="c21 c8">Alliance of Patriots of Georgia</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image43.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.rhuggl79e1ur"><span class="c21 c8">Droa</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image15.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.viv5rsq3ebic"><span class="c21 c8">ERI</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image21.png"
+                
+                title=""></span></p>
+    <h4 class="c16" id="h.d9ix9lpj3mm2"><span class="c21 c8">Conservative Party of Georgia</span></h4>
+    <p class="c1"><span
+            class="img-cont"><img
+                alt="" src="images/image36.png"
+                
+                title=""></span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <h3 class="c14 c40" id="h.5acd5ebk8pxu"><span class="c46 c8"></span></h3>
+    <h3 class="c5 c14" id="h.1yrsrs5ymzpz"><span class="c8">Qualitative Analysis</span></h3>
+    <p class="c0 c5"><span class="c3"></span></p>
+    <p class="c1 c5"><span class="c23">In this section, showcase findings from our analysis, achieved through a
+            strategic combination of fine-tuned and foundational Large Language Models (LLMs). This approach enabled us
+            to distil complex narratives and discourses from a vast corpus of social media data, reflecting the
+            intricacies of political polarisation in Georgia. By first classifying texts from various political entities
+            based on polarisation discourse and then applying information extraction techniques, we leveraged the
+            LLMs&#39; capabilities to uncover detailed narratives. This methodology allowed for an in-depth examination
+            of how different political parties engage with and contribute to polarisation, providing insight into the
+            evolution of political narratives within the specified timeframe. Through this process, we offer a nuanced
+            view of the qualitative dynamics at play, illustrating the power of combining advanced computational tools
+            for a comprehensive analysis of political discourse.</span></p>
+    <p class="c0 c5"><span class="c3"></span></p>
+    <p class="c1"><span class="c23">For more questions please visit the LLM application [ </span><span class="c29"><a class="c44"
+                href="https://www.google.com/url?q=https://chat.openai.com/g/g-kb75tQOIX-exploring-political-polarization-in-georgia&amp;sa=D&amp;source=editors&amp;ust=1709824868963813&amp;usg=AOvVaw0c5K7_VdeLy3-WucoI-TAM">link</a></span><span>&nbsp;].</span>
+    </p>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span class="c43 c27 c23 c36">Please summarise pro-Russian narratives by party People&#39;s Power from
+            this year.</span></p>
+    <p class="c0"><span class="c43 c27 c23 c36"></span></p>
+    <ol class="c7 lst-kix_nta5vr96cl74-0 start" start="1">
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Criticism of Western Attitude Towards Russian-Related
+                Laws:</span><span class="c2">&nbsp;The party criticises the Western response to Georgian laws,
+                particularly those perceived as being Russian-influenced. They highlight the opposition&#39;s quickness
+                to label laws as Russian without substantial evidence.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Allegation of Western Interference and Discrediting
+                Georgia:</span><span class="c2">&nbsp;People&#39;s Power accuses Western forces, including international
+                actors and diplomats, of attempting to discredit the Georgian government and society. They suggest that
+                this is a strategy to deny Georgia candidate status in the European Union.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Narrative of Resilience Against Foreign
+                Pressure:</span><span class="c2">&nbsp;The party emphasises the strength and unity of Georgian society
+                in the face of external pressure, drawing historical parallels with past confrontations, particularly
+                with Russia.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Critique of Western Policies Strengthening
+                Russia:</span><span class="c2">&nbsp;There&#39;s a narrative that Western policies, instead of punishing
+                Russia, have inadvertently strengthened it. They mention the economic benefits Russia has gained from
+                the West, including during the conflict in Ukraine.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Scepticism Towards Western Intentions and
+                Policies:</span><span class="c2">&nbsp;People&#39;s Power expressed scepticism about Western intentions,
+                urging people to look towards the West when accusing someone of being pro-Russian. They imply that
+                Western policies have been more beneficial to Russia than punitive.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Cultural and Ideological Critique:</span><span
+                class="c2">&nbsp;The party also delves into cultural critiques, emphasising traditional values and
+                criticising Western cultural influences. They express a preference for Russian products over Western
+                ones, symbolising a deeper cultural alignment.</span></li>
+    </ol>
+    <p class="c0"><span class="c43 c27 c23 c36"></span></p>
+    <p class="c0"><span class="c43 c27 c23 c36"></span></p>
+    <p class="c1"><span class="c27 c23">Please select the anti-West narratives propagated by the Georgian Dream in 2023.
+            Select the top 25% of posts with the highest total engagement and sort them by the percentage of
+        </span><span class="c27 c23 c31">negative</span><span class="c43 c27 c23 c36">&nbsp;reactions afterwards. Then,
+            provide a detailed analysis of the top 10 posts, focusing on the specific criticisms made against the West
+            in each post.</span></p>
+    <p class="c0"><span class="c17"></span></p>
+    <ol class="c7 lst-kix_f45ryqxqb2q8-0 start" start="1">
+        <li class="c1 c4 li-bullet-0"><span class="c22">Criticism of Foreign Influence Legislation:</span><span
+                class="c9">&nbsp;This post discusses the Georgian Parliament&#39;s support for a law on the transparency
+                of foreign influence, criticising opposition and media for spreading lies about the law. It emphasises
+                the importance of transparency in activities funded from abroad, suggesting that opposition to this
+                transparency indicates something to hide.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Allegations of Misinformation and Opposition
+                Tactics:</span><span class="c9">&nbsp;The narrative criticises misinformation spread by the opposition
+                and media regarding the foreign influence transparency law, accusing them of stigmatising and lying
+                about the law&#39;s intent and content.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Defence of Sovereignty and National Interests:</span><span
+                class="c9">&nbsp;This post defends Georgian sovereignty and national interests, critiquing external
+                pressures and influences that it perceives as attempting to undermine the country&#39;s
+                independence.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Rejection of Western Criticism and Emphasis on National
+                Pride:</span><span class="c9">&nbsp;The narrative rejects Western criticism, emphasising Georgia&#39;s
+                right to protect its national pride and identity, and criticises the West for not acknowledging
+                Georgia&#39;s progress and aspirations.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Critique of Western Policies and Double Standards:</span><span
+                class="c9">&nbsp;This post criticises Western policies and what it perceives as double standards,
+                particularly in relation to Georgia&#39;s aspirations to join European structures.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Discussion on Political Narratives and National
+                Dignity:</span><span class="c9">&nbsp;The narrative discusses the political narratives around
+                Georgia&#39;s relationship with the West, emphasising the importance of maintaining national dignity in
+                the face of external criticism and pressures.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Allegations of External Influence in Domestic
+                Politics:</span><span class="c9">&nbsp;The post alleges that external influences are meddling in
+                Georgian domestic politics, particularly criticising the opposition&#39;s alignment with these
+                influences.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Criticism of Western Response to Georgian Policies:</span><span
+                class="c9">&nbsp;This narrative criticises the Western response to Georgian policies and decisions,
+                suggesting that the West is not giving fair consideration to Georgia&#39;s context and
+                circumstances.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Advocacy for National Interests in Face of External
+                Pressure:</span><span class="c9">&nbsp;The post advocates for Georgian national interests and criticises
+                external pressure that it perceives as undermining Georgia&#39;s sovereignty.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22">Defence of Georgia&#39;s European Integration Path:</span><span
+                class="c9">&nbsp;This narrative defends Georgia&#39;s path towards European integration, critiquing the
+                West for not fully recognizing Georgia&#39;s efforts and progress.</span></li>
+    </ol>
+    <p class="c0 c24"><span class="c15"></span></p>
+    <p class="c0 c24"><span class="c15"></span></p>
+    <p class="c1"><span class="c27 c23 c36 c43">Please summarise narratives against media organisations by the
+            conservative movement from the first half of the current year.</span></p>
+    <p class="c0"><span class="c43 c27 c23 c36"></span></p>
+    <ol class="c7 lst-kix_nij80xgb60ki-0 start" start="1">
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Critique of Liberal Media:</span><span class="c2">&nbsp;The
+                party criticises the liberal Georgian media, implying that they are disturbed by the rise of
+                conservative viewpoints and the success of conservative movements like Alt-info.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Advocacy for Conservative Laws:</span><span
+                class="c2">&nbsp;The narratives express satisfaction with the planned adoption of laws that align with
+                conservative values, such as prohibiting LGBT propaganda. They see this as a victory for conservative
+                ideology and a reversal of what was once dismissed as hateful rhetoric.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Emphasis on Changing Times and Ideological
+                Shift:</span><span class="c2">&nbsp;The party highlights a rapid shift in the political and ideological
+                landscape, asserting that conservatives are gaining influence and will soon be setting the agenda in the
+                country, in contrast to liberals.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Perception of Persecution and Vindication:</span><span
+                class="c2">&nbsp;They perceive past criticisms of their views as persecution and now see their
+                once-marginalised positions being turned into law, viewing this as vindication of their long-standing
+                fight for conservative values.</span></li>
+        <li class="c1 c4 li-bullet-0"><span class="c22 c27">Projection of Future Conservative Dominance:</span><span
+                class="c27 c23 c49">&nbsp;The Conservative Party of Georgia projects confidence that conservative
+                ideologies will soon dominate the political landscape, forcing the political elite to align with their
+                agenda and values.</span></li>
+    </ol>
+    <h3 class="c14 c5" id="h.2ii1p3gkpadz"><span class="c8 c46">Limitations</span></h3>
+    <p class="c1 c5"><span class="c23">While this study provides valuable insights into political polarisation in
+            Georgia through the lens of social media discourses, there are certain limitations to consider. The data was
+            sourced exclusively from official channels. These channels often exercise caution in their postings,
+            potentially omitting the most polarised statements. As a result, our dataset might not capture the full
+            spectrum of polarised sentiments prevalent in the broader social media landscape. To gain a more
+            comprehensive understanding of the situation, it would be beneficial to incorporate media monitoring. Such
+            an approach would likely unearth additional nuances and insights that official channels might overlook or
+            deliberately exclude. This broader perspective could offer a more holistic view of the political
+            polarisation in the region.</span></p>
+    <p class="c0"><span class="c3"></span></p>
+    <h3 class="c14 c5" id="h.gq2izlt3ehmn"><span class="c8">Authors</span></h3>
+    <p class="c0"><span class="c3"></span></p>
+    <p class="c1"><span class="c49 c23">Davit Janezashvili - Data Scientist and Founder at Mettamine </span><span
+            class="c2">djanezashvili[a]gmail.com</span></p>
+    <p class="c1"><span class="c9">Emillie V. de Keulenaar - PhD at RUG and Research Consultant at UN Innovation
+            Network. Digital Democracies GroupUniversity of Amsterdam. Nederland.</span></p>
+    <p class="c1"><span class="c9">Lia Chkhetiani - MA Candidate in Political Science at CEU, Vienna, Austria</span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c0"><span class="c2"></span></p>
+    <p class="c1"><span class="c2">Disclaimer: A language model was employed for the wording of this report.</span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c0"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c10"><span class="c9"></span></p>
+    <p class="c1 footer"><span
+            class="img-bot"><img
+                alt="" src="images/image9.png"
+                
+                title=""></span>
+                <span
+            class="img-bot"><img
+                alt="" src="images/image28.png"
+                
+                title=""></span>
+                <span
+            class="img-bot"><img
+                alt="" src="images/image27.png"
+                
+                title=""></span>
+                <span
+            class="img-bot"><img
+                alt="" src="images/image12.png"
+                
+                title=""></span>
+                <span
+            class="img-bot"><img
+                alt="" src="images/image20.png"
+                
+                title=""></span>
+                <span
+            class="img-bot"><img
+                alt="" src="images/image58.png"
+                
+                title=""></span>
+                
+            </p>
+    <div>
+        <h2 class="c25" id="h.5xudl6sq8b5l"><span class="c35 c36 c45"></span></h2>
+    </div>
+</body>
+
+</html>
